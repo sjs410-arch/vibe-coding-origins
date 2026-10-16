@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoGAR</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#fff;--bg2:#f5f4f0;--bg3:#eceae3;
+--text:#1a1a1a;--text2:#555;--text3:#999;
+--b:rgba(0,0,0,.12);--b2:rgba(0,0,0,.22);
+--p0:#EEEDFE;--p1:#CECBF6;--p2:#534AB7;--p3:#26215C;
+--t0:#E1F5EE;--t1:#9FE1CB;--t2:#0F6E56;--t3:#04342C;
+--c0:#FAECE7;--c1:#F5C4B3;--c2:#993C1D;
+--a0:#FAEEDA;--a1:#FAC775;--a2:#633806;
+--r:8px;--rl:12px
+}
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#1e1e1e;--bg2:#2a2a2a;--bg3:#333;
+--text:#f0f0f0;--text2:#aaa;--text3:#666;
+--b:rgba(255,255,255,.1);--b2:rgba(255,255,255,.22);
+--p0:#26215C;--p1:#3C3489;--p2:#AFA9EC;--p3:#EEEDFE;
+--t0:#04342C;--t1:#085041;--t2:#5DCAA5;--t3:#E1F5EE;
+--c0:#4A1B0C;--c1:#712B13;--c2:#F0997B;
+--a0:#412402;--a1:#633806;--a2:#FAC775
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;padding:1.5rem 1rem}
+.wrap{max-width:720px;margin:0 auto}
+.hdr{text-align:center;margin-bottom:1.5rem}
+.hdr h1{font-size:20px;font-weight:500}
+.hdr p{font-size:13px;color:var(--text2);margin-top:5px;line-height:1.6}
+.info{background:var(--p0);border:.5px solid var(--p1);border-radius:var(--r);padding:10px 14px;margin-bottom:1.25rem;font-size:13px;color:var(--p3);line-height:1.65}
+.fbox{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:9px 14px;margin-bottom:1.25rem;text-align:center;font-size:15px;font-family:monospace;color:var(--text)}
+.snav{display:flex;gap:0;margin-bottom:1.25rem;justify-content:center;align-items:center}
+.sdot{width:28px;height:28px;border-radius:50%;border:.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text3);background:var(--bg2);flex-shrink:0;transition:all .2s}
+.sdot.cur{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.sdot.done{background:#0F6E56;color:#E1F5EE;border-color:#0F6E56}
+.sline{width:18px;height:.5px;background:var(--b2)}
+.card{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.25rem;margin-bottom:1rem}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;margin-bottom:10px;font-weight:500}
+.up{background:var(--p1);color:var(--p3)}
+.dn{background:var(--t1);color:var(--t3)}
+.ic{background:var(--c1);color:var(--c2)}
+.en{background:var(--a1);color:var(--a2)}
+.brow{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.brow.r{flex-direction:row-reverse}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0}
+.av.t{background:var(--p1);color:var(--p3)}
+.av.s{background:var(--t1);color:var(--t3)}
+.bb{max-width:86%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.65}
+.bb.t{background:var(--p0);color:var(--p3);border-bottom-left-radius:3px}
+.bb.s{background:var(--t0);color:var(--t3);border-bottom-right-radius:3px}
+.mth{font-family:monospace;background:rgba(83,74,183,.1);padding:1px 6px;border-radius:4px;font-size:13px}
+hr{border:none;border-top:.5px solid var(--b);margin:1rem 0}
+.ql{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.clog{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;min-height:10px}
+.cm{display:flex;gap:8px;align-items:flex-start}
+.cm.me{flex-direction:row-reverse}
+.cav{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.cav.ai{background:var(--p1);color:var(--p3)}
+.cav.me{background:var(--t1);color:var(--t3)}
+.cb{max-width:88%;padding:9px 13px;border-radius:11px;font-size:13px;line-height:1.65}
+.cb.ai{background:var(--p0);color:var(--p3);border-bottom-left-radius:3px}
+.cb.me{background:var(--t0);color:var(--t3);border-bottom-right-radius:3px}
+.cb.ok{background:var(--t0);color:var(--t2);border:.5px solid var(--t1)}
+.cb.partial{background:var(--a0);color:var(--a2);border:.5px solid var(--a1)}
+.cb.miss{background:var(--p0);color:var(--p2)}
+textarea{width:100%;min-height:78px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg2);border:.5px solid var(--b2);border-radius:var(--r);padding:10px 13px;resize:vertical;line-height:1.6}
+textarea:focus{outline:none;border-color:#7F77DD;box-shadow:0 0 0 2px rgba(83,74,183,.12)}
+.brow2{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btn{border:.5px solid var(--b2);border-radius:var(--r);padding:9px 16px;font-size:13px;font-family:inherit;cursor:pointer;transition:all .15s}
+.bp{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.bp:hover{background:#3C3489}
+.bs{background:var(--bg);color:var(--text)}
+.bs:hover{background:var(--bg2)}
+.nrow{margin-top:1rem;display:none;gap:8px}
+.nrow.show{display:flex}
+.sum{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.5rem}
+.sum h2{font-size:17px;font-weight:500;margin-bottom:1rem}
+.ff{text-align:center;margin:1rem 0;padding:12px;background:var(--p0);border-radius:var(--r);font-size:17px;font-weight:500;font-family:monospace;color:var(--p3);border:.5px solid var(--p1)}
+.si{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.st{font-size:13px;line-height:1.6}
+.note{margin-top:1rem;padding:12px 14px;background:var(--bg2);border-radius:var(--r);border:.5px solid var(--b);font-size:13px;color:var(--text2);line-height:1.65}
+.sbadge{font-size:12px;color:var(--text3);text-align:center;margin-bottom:.5rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hdr"><h1 id="title"></h1><p id="subtitle"></p></div>
+<div class="info" id="info"></div>
+<div class="fbox" id="fdisp"></div>
+<div class="snav" id="snav"></div>
+<div id="main"></div>
+</div>
+<script>
+var T={
+title:"\uADFC\uC758 \uACF5\uC2DD GoGAR \uC218\uC5C5",
+subtitle:"\uC774\uCC28\uBC29\uC815\uC2DD ax\u00B2 + bx + c = 0\uC758 \uADFC\uC758 \uACF5\uC2DD\uC744 \uC9C1\uC811 \uC720\uB3C4\uD558\uBA70 \uC99D\uBA85\uD569\uB2C8\uB2E4",
+info:"\uC218\uC5C5 \uBC29\uC2DD: \uAC01 \uB2E8\uACC4\uC5D0\uC11C \uB2F5\uBCC0\uC744 \uC4F0\uACE0 \"\uC81C\uCD9C\"\uC744 \uB204\uB974\uBA74 GoGAR \uC120\uC0DD\uB2D8\uC774 \uD53C\uB4DC\uBC31\uC744 \uB4DC\uB9BD\uB2C8\uB2E4. \"\uC774 \uB2E8\uACC4 \uC644\uC131!\"\uC744 \uBC1B\uC73C\uBA74 \uB2E4\uC74C\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694.",
+steps:[
+{tag:"up",tagTxt:"\uC0C1\uB958 \uCD94\uB860 \u2014 \uC99D\uBA85\uC758 \uCD9C\uBC1C\uC810",
+formula:"ax\u00B2 + bx + c = 0  (a \u2260 0)",
+bubbles:[{r:"t",txt:"\uC624\uB298\uC740 \uADFC\uC758 \uACF5\uC2DD\uC744 \uC9C1\uC811 \uC720\uB3C4\uD574\uBCFC \uAC70\uC608\uC694. \uCCAB \uBC88\uC9F8 \uC9C8\uBB38\uC785\uB2C8\uB2E4. \uC65C \uC591\uBCC0\uC744 <span class='mth'>a</span>\uB85C \uB098\uB204\uB294 \uAC78\uB85C \uC2DC\uC791\uD560\uAE4C\uC694? \uADF8\uB0E5 \uBC14\uB85C \uD480\uBA74 \uC548 \uB418\uB098\uC694?"}],
+q:"\uC591\uBCC0\uC744 a\uB85C \uB098\uB204\uB294 \uC774\uC720\uB97C \uC790\uC2E0\uC758 \uB9D0\uB85C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{kw:["\uC644\uC804\uC81C\uACF1","\uACC4\uC218","1","x\u00B2"],
+ok:"\uC815\uD655\uD574\uC694! x\u00B2\uC758 \uACC4\uC218\uB97C 1\uB85C \uB9CC\uB4E4\uC5B4\uC57C \uC644\uC804\uC81C\uACF1\uC2DD (x+\u25A1)\u00B2 \uD615\uD0DC\uB97C \uB9CC\uB4E4 \uC218 \uC788\uC5B4\uC694. \uADF8\uB7EC\uBA74 \uC65C \uC644\uC804\uC81C\uACF1\uC2DD\uC774 \uD544\uC694\uD55C \uAC74\uAC00\uC694?",
+done:"\uC774 \uB2E8\uACC4 \uC644\uC131! x\u00B2 \uACC4\uC218\uB97C 1\uB85C \uB9CC\uB4DC\uB294 \uC774\uC720\uC640 \uC644\uC804\uC81C\uACF1\uC2DD\uC758 \uC5F0\uACB0\uC744 \uC644\uBC15\uD558\uAC8C \uC124\uBA85\uD588\uC5B4\uC694. \uB2E4\uC74C \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC00\uC138\uC694."},
+partial:{kw:["\uB098\uB204","\uC815\uB9AC","\uAC04\uB2E8","\uACC4\uC218","a"],
+msg:"\uBC29\uD5A5\uC740 \uB9DE\uC544\uC694! \uC591\uBCC0\uC744 a\uB85C \uB098\uB204\uBA74 x\u00B2\uC758 \uACC4\uC218\uAC00 \uC5B4\uB5BB\uAC8C \uBCC0\uD558\uB098\uC694? \uADF8 \uBCC0\uD654\uAC00 \uB2E4\uC74C \uB2E8\uACC4\uC5D0\uC11C \uC5B4\uB5A4 \uB3C4\uAD6C\uB97C \uC4F8 \uC218 \uC788\uAC8C \uD574\uC8FC\uB294\uC9C0 \uC0DD\uAC01\uD574\uBCF4\uC138\uC694."},
+miss:"(x+p)\u00B2=x\u00B2+2px+p\u00B2 \uC774 \uACF5\uC2DD\uC744 \uB5A0\uC62C\uB824\uBCF4\uC138\uC694. \uC774 \uACF5\uC2DD\uC744 \uC4F0\uB824\uBA74 x\u00B2\uC758 \uACC4\uC218\uAC00 \uC5B4\uB5A4 \uAC12\uC774\uC5B4\uC57C \uD560\uAE4C\uC694?"},
+{tag:"dn",tagTxt:"\uD558\uB958 \uCD94\uB860 \u2014 \uC644\uC804\uC81C\uACF1\uC2DD",
+formula:"x\u00B2 + (b/a)x = -c/a",
+bubbles:[
+{r:"t",txt:"\uC591\uBCC0\uC744 a\uB85C \uB098\uB204\uACE0 \uC0C1\uC218\uD56D\uC744 \uC774\uD56D\uD558\uBA74 <span class='mth'>x\u00B2 + (b/a)x = -c/a</span>\uAC00 \uB429\uB2C8\uB2E4."},
+{r:"s",txt:"\uC67C\uCABD\uC5D0 \uBB38\uAC00\uB97C \uB354\uD558\uBA74 \uC644\uC804\uC81C\uACF1\uC2DD\uC774 \uB420 \uAC83 \uAC19\uC740\uB370..."},
+{r:"t",txt:"\uB9DE\uC544\uC694! <span class='mth'>x\u00B2 + (b/a)x</span>\uC5D0 \uC5B4\uB5A4 \uC218\uB97C \uB354\uD558\uBA74 \uC644\uC804\uC81C\uACF1\uC2DD\uC774 \uB420\uAE4C\uC694? \uC65C \uADF8 \uC218\uC778\uC9C0\uB3C4 \uC124\uBA85\uD574\uBCF4\uC138\uC694."}],
+q:"\uC644\uC804\uC81C\uACF1\uC2DD\uC744 \uB9CC\uB4E4\uAE30 \uC704\uD574 \uB354\uD574\uC57C \uD560 \uC218\uC640 \uC774\uC720\uB97C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{kw:["b/2a","2p","\uC808\uBC18","b\u00B2/4a\u00B2"],
+ok:"\uC798 \uD588\uC5B4\uC694! (b/2a)\u00B2\uC744 \uB354\uD558\uB294 \uC774\uC720\uAC00 \uBA85\uD655\uD574\uC694. \uADF8\uB7F0\uB370 \uC591\uBCC0\uC5D0 \uAC19\uC740 \uC218\uB97C \uB354\uD560 \uC218 \uC788\uB294 \uC774\uC720\uB294 \uBB34\uC5C7\uC778\uAC00\uC694?",
+done:"\uC774 \uB2E8\uACC4 \uC644\uC131! (b/2a)\u00B2\uC744 \uB354\uD558\uB294 \uC774\uC720\uC640 \uB4F1\uC2DD \uC720\uC9C0\uC758 \uC6D0\uB9AC\uAE4C\uC9C0 \uC644\uBC15\uD558\uAC8C \uC124\uBA85\uD588\uC5B4\uC694. \uB2E4\uC74C\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694."},
+partial:{kw:["\uB354\uD558","\uC644\uC804\uC81C\uACF1","p\u00B2","\uC81C\uACF1"],
+msg:"(x+p)\u00B2=x\u00B2+2px+p\u00B2\uC5D0\uC11C x\uC758 \uACC4\uC218\uB294 2p\uC608\uC694. \uC6B0\uB9AC \uC2DD\uC758 x \uACC4\uC218\uB294 b/a\uC774\uB2C8\uAE4C 2p=b/a\uC774\uBA74 p\uB294 \uC5BC\uB9C8\uC778\uAC00\uC694?"},
+miss:"(x+3)\u00B2=x\u00B2+6x+9\uCC98\uB7FC x\uACC4\uC218\uC758 \uC808\uBC18\uC744 p\uB85C \uB193\uC544\uC694. \uC6B0\uB9AC \uC2DD\uC5D0\uC11C x\uACC4\uC218\uB294 b/a\uC774\uB2C8\uAE4C p = b/a \u00F7 2 = \uC5BC\uB9C8\uC77C\uAE4C\uC694?"},
+{tag:"dn",tagTxt:"\uD558\uB958 \uCD94\uB860 \u2014 \uD1B5\uBD84",
+formula:"(x + b/2a)\u00B2 = (b\u00B2-4ac) / 4a\u00B2",
+bubbles:[
+{r:"t",txt:"\uC591\uBCC0\uC5D0 <span class='mth'>(b/2a)\u00B2</span>\uC744 \uB354\uD558\uBA74 \uC67C\uCABD\uC740 <span class='mth'>(x+b/2a)\u00B2</span>\uC774 \uB429\uB2C8\uB2E4."},
+{r:"s",txt:"\uC624\uB978\uCABD\uC740 -c/a + b\u00B2/4a\u00B2\uC778\uB370..."},
+{r:"t",txt:"\uC798 \uD558\uACE0 \uC788\uC5B4\uC694! \uC624\uB978\uCABD <span class='mth'>-c/a + (b/2a)\u00B2</span>\uB97C \uD1B5\uBD84\uD558\uBA74 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694?"}],
+q:"-c/a + (b/2a)\u00B2\uB97C \uD1B5\uBD84\uD558\uB294 \uACFC\uC815\uC744 \uC368\uBCF4\uC138\uC694.",
+good:{kw:["4ac","b\u00B2-4ac","4a\u00B2","-4ac"],
+ok:"\uB9DE\uC544\uC694! (b\u00B2-4ac)/4a\u00B2\uC774 \uB098\uC654\uAD70\uC694. \uC774 \uBD84\uC790 b\u00B2-4ac\uAC00 \uB098\uC911\uC5D0 '\uD310\uBCC4\uC2DD D'\uAC00 \uB429\uB2C8\uB2E4. \uC65C \uC774 \uAC12\uC774 \uC911\uC694\uD55C\uC9C0 \uC9D0\uC791\uC774 \uB418\uB098\uC694?",
+done:"\uC774 \uB2E8\uACC4 \uC644\uC131! \uD1B5\uBD84 \uACFC\uC815\uC744 \uC815\uD655\uD788 \uC124\uBA85\uD588\uACE0 \uD310\uBCC4\uC2DD\uC758 \uC758\uBBF8\uAE4C\uC9C0 \uC5F0\uACB0\uD588\uC5B4\uC694. \uB2E4\uC74C\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694."},
+partial:{kw:["\uBD84\uBAA8","b\u00B2","\uD1B5\uBD84","4a"],
+msg:"-c/a\uB97C \uBD84\uBAA8 4a\u00B2\uC73C\uB85C \uB9CC\uB4E4\uB824\uBA74 \uBD84\uC790\uC640 \uBD84\uBAA8\uC5D0 \uBB34\uC5C7\uC744 \uACF1\uD574\uC57C \uD560\uAE4C\uC694? -c/a \u00D7 (?/?) = ?/4a\u00B2"},
+miss:"1/2+1/4\uB97C \uD1B5\uBD84\uD558\uBA74 2/4+1/4=3/4\uC774\uC8E0? \uB9C8\uCC2C\uAC00\uC9C0\uB85C -c/a\uC758 \uBD84\uBAA8\uB97C 4a\u00B2\uC73C\uB85C \uB9CC\uB4E4\uB824\uBA74 \uBD84\uC790\uC640 \uBD84\uBAA8\uC5D0 4a\uB97C \uACF1\uD574\uBCF4\uC138\uC694."},
+{tag:"ic",tagTxt:"\uC591\uB9BD \uBD88\uAC00\uB2A5 \u2014 \uD310\uBCC4\uC2DD",
+formula:"x + b/2a = \u00B1\u221A(b\u00B2-4ac) / 2a",
+bubbles:[
+{r:"t",txt:"<span class='mth'>(x+b/2a)\u00B2=(b\u00B2-4ac)/4a\u00B2</span>\uC5D0\uC11C \uC591\uBCC0\uC5D0 \uC81C\uACF1\uADFC\uC744 \uCDE8\uD569\uB2C8\uB2E4."},
+{r:"s",txt:"\u00B1 \uBD80\uD638\uAC00 \uC65C \uBD99\uB098\uC694?"},
+{r:"t",txt:"\uD575\uC2EC\uC744 \uC9DA\uC558\uC5B4\uC694! \uC65C \u00B1\uAC00 \uBD99\uB294\uC9C0, \uADF8\uB9AC\uACE0 <span class='mth'>b\u00B2-4ac</span>\uAC00 \uC74C\uC218\uC774\uBA74 \uC5B4\uB5A4 \uBAA8\uC21C\uC774 \uC0DD\uAE30\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694."}],
+q:"\u00B1 \uBD80\uD638\uAC00 \uD544\uC694\uD55C \uC774\uC720\uC640, b\u00B2-4ac < 0\uC77C \uB54C \uC0DD\uAE30\uB294 \uBB38\uC81C\uB97C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{kw:["\uB450","\uC591\uC218","\uC74C\uC218","\u00B1","\uC2E4\uC218","\uC5C6","\uD310\uBCC4"],
+ok:"\uC798 \uC124\uBA85\uD588\uC5B4\uC694! \uADF8\uB7EC\uBA74 b\u00B2-4ac=0\uC774\uBA74 \uD574\uAC00 \uBA87 \uAC1C\uC778\uAC00\uC694? \uC774\uAC83\uB3C4 \uC124\uBA85\uD574\uC904 \uC218 \uC788\uB098\uC694?",
+done:"\uC774 \uB2E8\uACC4 \uC644\uC131! \u00B1 \uBD80\uD638\uC758 \uC774\uC720\uC640 \uD310\uBCC4\uC2DD\uC5D0 \uB530\uB978 \uD574\uC758 \uAC1C\uC218\uB97C \uC644\uBC15\uD558\uAC8C \uC124\uBA85\uD588\uC5B4\uC694. \uB2E4\uC74C\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694."},
+partial:{kw:["\uC81C\uACF1\uADFC","\uBD80\uD638","\uC74C","\uBD88\uAC00","\uBAA8\uC21C"],
+msg:"x\u00B2=9\uC774\uBA74 x\uB294 \uC5BC\uB9C8\uC778\uAC00\uC694? 3\uBFD0\uC778\uAC00\uC694, \uC544\uB2C8\uBA74 \uB2E4\uB978 \uAC12\uB3C4 \uC788\uB098\uC694? \uC774\uAC83\uC774 \u00B1\uC640 \uC5B4\uB5BB\uAC8C \uC5F0\uACB0\uB418\uB294\uC9C0 \uC0DD\uAC01\uD574\uBCF4\uC138\uC694."},
+miss:"x\u00B2=4\uC758 \uD574\uB294 \uBA87 \uAC1C\uC778\uAC00\uC694? (-2)\u00B2=4\uB3C4 \uC131\uB9BD\uD558\uC8E0? \uC774\uCC98\uB7FC \uC81C\uACF1\uD574\uC11C \uAC19\uC740 \uAC12\uC774 \uB098\uC624\uB294 \uC218\uAC00 \uB450 \uAC00\uC9C0\uC774\uAE30 \uB54C\uBB38\uC5D0 \u00B1\uAC00 \uBD99\uC5B4\uC694."},
+{tag:"en",tagTxt:"\uC790\uACA9 \uBD80\uC5EC \u2014 \uC99D\uBA85 \uC644\uC131",
+formula:"x = (-b \u00B1 \u221A(b\u00B2-4ac)) / 2a",
+bubbles:[
+{r:"t",txt:"<span class='mth'>x+b/2a=\u00B1\u221A(b\u00B2-4ac)/2a</span>\uC5D0\uC11C x\uB97C \uC774\uD56D\uD558\uBA74 \uADFC\uC758 \uACF5\uC2DD\uC774 \uC644\uC131\uB429\uB2C8\uB2E4!"},
+{r:"s",txt:"x = (-b \u00B1 \u221A(b\u00B2-4ac)) / 2a !"},
+{r:"t",txt:"\uC644\uBC15\uD574\uC694! \uC624\uB298 \uC99D\uBA85 \uC804\uCCB4\uB97C \uB3CC\uC544\uBCF4\uBA70, \uAC00\uC7A5 \uD575\uC2EC\uC801\uC778 \uC544\uC774\uB514\uC5B4\uB294 \uBB34\uC5C7\uC774\uC5C8\uB098\uC694? \uACF5\uC2DD\uC744 \uC678\uC6B0\uB294 \uAC83\uACFC \uC9C1\uC811 \uC720\uB3C4\uD558\uB294 \uAC83\uC758 \uCC28\uC774\uB97C \uB9D0\uD574\uBCF4\uC138\uC694."}],
+q:"\uC774 \uC99D\uBA85\uC758 \uD575\uC2EC \uC544\uC774\uB514\uC5B4\uC640, \uC9C1\uC811 \uC720\uB3C4\uD558\uB294 \uAC83\uC758 \uC758\uBBF8\uB97C \uC790\uC720\uB86D\uAC8C \uC368\uBCF4\uC138\uC694.",
+good:{kw:["\uC644\uC804\uC81C\uACF1","\uC774\uD574","\uC65C","\uC774\uC720","\uD310\uBCC4","\uD544\uC694","\uB290"],
+ok:"\uC88B\uC740 \uC131\uCC30\uC774\uC5B4\uC694! \uADF8\uB807\uB2E4\uBA74 \uC774 \uC99D\uBA85 \uC911 \uAC00\uC7A5 \uCC3D\uC758\uC801\uC778 \uB2E8\uACC4\uB294 \uC5B4\uB514\uB77C\uACE0 \uC0DD\uAC01\uD558\uB098\uC694?",
+done:"\uC774 \uB2E8\uACC4 \uC644\uC131! \uC99D\uBA85\uC758 \uD575\uC2EC\uC744 \uAE4A\uC774 \uC774\uD574\uD558\uACE0 \uC790\uC2E0\uC758 \uC5B8\uC5B4\uB85C \uD45C\uD604\uD588\uC5B4\uC694. GoGAR \uC218\uC5C5\uC744 \uC644\uC131\uD588\uC2B5\uB2C8\uB2E4!"},
+partial:{kw:["\uACF5\uC2DD","\uC99D\uBA85","\uC678\uC6B0","\uC54C"],
+msg:"\uAD6C\uCCB4\uC801\uC73C\uB85C \uC774 \uC99D\uBA85\uC5D0\uC11C \uC5B4\uB5A4 \uD55C \uAC00\uC9C0 \uC544\uC774\uB514\uC5B4\uAC00 \uC5C6\uC5C8\uB2E4\uBA74 \uC99D\uBA85 \uC790\uCCB4\uAC00 \uBD88\uAC00\uB2A5\uD588\uC744\uAE4C\uC694?"},
+miss:"\uC644\uC804\uC81C\uACF1\uC2DD \uBCC0\uD615\uC774 \uC5C6\uC5C8\uB2E4\uBA74 \uC774 \uC99D\uBA85\uC774 \uAC00\uB2A5\uD588\uC744\uAE4C\uC694? \uC644\uC804\uC81C\uACF1\uC2DD\uC774 \uC99D\uBA85\uC5D0\uC11C \uC5B4\uB5A4 \uC5ED\uD560\uC744 \uD588\uB294\uC9C0 \uB9D0\uD574\uBCF4\uC138\uC694."}
+]
+};
+
+var cur=0,done=[],logs=T.steps.map(function(){return[];}),hintCnt=T.steps.map(function(){return 0;});
+
+document.getElementById("title").textContent=T.title;
+document.getElementById("subtitle").textContent=T.subtitle;
+document.getElementById("info").textContent=T.info;
+
+function score(ans,s){
+var a=ans.toLowerCase();
+if(s.good.kw.filter(function(k){return a.indexOf(k)>=0;}).length>=1)return"good";
+if((s.partial.kw||[]).filter(function(k){return a.indexOf(k)>=0;}).length>=1)return"partial";
+return"miss";
+}
+
+function renderNav(){
+document.getElementById("snav").innerHTML=T.steps.map(function(s,i){
+var cl=done.indexOf(i)>=0?"done":i===cur?"cur":"";
+return'<div class="sdot '+cl+'">'+(i+1)+'</div>'+(i<T.steps.length-1?'<div class="sline"></div>':'');
+}).join("");
+}
+
+function renderStep(){
+var s=T.steps[cur];
+document.getElementById("fdisp").textContent=s.formula;
+var h='<div class="sbadge">'+(cur+1)+' / '+T.steps.length+' \uB2E8\uACC4</div><div class="card"><span class="tag '+s.tag+'">'+s.tagTxt+'</span>';
+s.bubbles.forEach(function(b){
+h+='<div class="brow '+(b.r==="s"?"r":"")+'"><div class="av '+b.r+'">'+(b.r==="t"?"T":"S")+'</div><div class="bb '+b.r+'">'+b.txt+'</div></div>';
+});
+h+='<hr><div class="ql">'+s.q+'</div><div class="clog" id="clog"></div><textarea id="ans" placeholder="\uC5EC\uAE30\uC5D0 \uC790\uC2E0\uC758 \uC0DD\uAC01\uC744 \uC790\uC720\uB86D\uAC8C \uC368\uBCF4\uC138\uC694..."></textarea><div class="brow2"><button class="btn bp" onclick="submit()">\uC81C\uCD9C</button><button class="btn bs" onclick="hint()">\uD78C\uD2B8 \uC694\uCCAD</button></div></div><div class="nrow" id="nrow"><button class="btn bp" onclick="nextStep()">'+(cur<T.steps.length-1?"\uB2E4\uC74C \uB2E8\uACC4\uB85C \u2192":"\uC99D\uBA85 \uC644\uC131 \u2014 \uC694\uC57D \uBCF4\uAE30 \u2192")+'</button></div>';
+document.getElementById("main").innerHTML=h;
+renderLog();
+}
+
+function renderLog(){
+var el=document.getElementById("clog");
+if(!el)return;
+el.innerHTML=logs[cur].map(function(m){
+return'<div class="cm '+(m.role==="me"?"me":"")+'"><div class="cav '+(m.role==="me"?"me":"ai")+'">'+(m.role==="me"?"\uB098":"T")+'</div><div class="cb '+(m.cls||m.role)+'">'+m.text+'</div></div>';
+}).join("");
+el.scrollTop=el.scrollHeight;
+}
+
+function addMsg(role,text,cls){
+logs[cur].push({role:role,text:text,cls:cls||role});
+renderLog();
+}
+
+function showNext(){
+if(done.indexOf(cur)<0)done.push(cur);
+renderNav();
+var n=document.getElementById("nrow");
+if(n)n.className="nrow show";
+}
+
+function submit(){
+var ans=document.getElementById("ans").value.trim();
+if(!ans){alert("\uB2F5\uBCC0\uC744 \uBA3C\uC800 \uC785\uB825\uD574\uC8FC\uC138\uC694!");return;}
+document.getElementById("ans").value="";
+addMsg("me",ans);
+var s=T.steps[cur];
+var lv=score(ans,s);
+setTimeout(function(){
+if(lv==="good"){
+var alreadyDone=done.indexOf(cur)>=0;
+if(alreadyDone||hintCnt[cur]>=1){addMsg("ai",s.good.done,"ok");showNext();}
+else{addMsg("ai",s.good.ok,"ai");hintCnt[cur]++;}
+}else if(lv==="partial"){addMsg("ai",s.partial.msg,"partial");}
+else{addMsg("ai",s.miss,"miss");}
+},400);
+}
+
+function hint(){
+var s=T.steps[cur];
+var hints=["\uD78C\uD2B8 1: "+s.miss,"\uD78C\uD2B8 2: \uD551\uC2EC \uD82C\uC6CC\uB4DC \u2014 "+s.good.kw.slice(0,3).join(", ")];
+var idx=hintCnt[cur]%hints.length;
+addMsg("ai",hints[idx],"partial");
+hintCnt[cur]++;
+}
+
+function nextStep(){
+cur++;
+if(cur>=T.steps.length){showSum();return;}
+renderNav();renderStep();
+}
+
+function showSum(){
+document.getElementById("fdisp").textContent="x = (-b \u00B1 \u221A(b\u00B2-4ac)) / 2a";
+document.getElementById("snav").innerHTML="";
+var rows=[
+{tag:"up",l:"\uC0C1\uB958 \uCD94\uB860",t:"a\uB85C \uB098\uB204\uB294 \uC774\uC720 \u2192 x\u00B2 \uACC4\uC218\uB97C 1\uB85C \uB9CC\uB4E4\uC5B4 \uC644\uC804\uC81C\uACF1\uC2DD \uC900\uBE44"},
+{tag:"dn",l:"\uD558\uB958 \uCD94\uB860",t:"(b/2a)\u00B2 \uCD94\uAC00 \u2192 (x+b/2a)\u00B2 = (b\u00B2-4ac)/4a\u00B2 \uC644\uC131"},
+{tag:"dn",l:"\uD558\uB958 \uCD94\uB860",t:"\uD1B5\uBD84 \u2192 (b\u00B2-4ac)/4a\u00B2, \uC81C\uACF1\uADFC \u2192 \u00B1\u221A(b\u00B2-4ac)/2a"},
+{tag:"ic",l:"\uC591\uB9BD \uBD88\uAC00\uB2A5",t:"b\u00B2-4ac < 0\uC774\uBA74 \uC2E4\uC218 \uD574 \uC874\uC7AC\uC640 \uB3D9\uC2DC\uC5D0 \uCC38\uC77C \uC218 \uC5C6\uC74C \u2192 \uD310\uBCC4\uC2DD D"},
+{tag:"en",l:"\uC790\uACA9 \uBD80\uC5EC",t:"x = (-b\u00B1\u221A(b\u00B2-4ac))/2a \u2014 \uC218\uD559 \uACF5\uB3D9\uCCB4\uAC00 \uC2B9\uC778\uD55C \uACF5\uC2DD"}
+];
+document.getElementById("main").innerHTML='<div class="sum"><h2>GoGAR \uC99D\uBA85 \uC644\uC131</h2><div class="ff">x = (-b \u00B1 \u221A(b\u00B2-4ac)) / 2a</div>'+rows.map(function(r){return'<div class="si"><span class="tag '+r.tag+'" style="flex-shrink:0;margin-bottom:0">'+r.l+'</span><span class="st">'+r.t+'</span></div>';}).join("")+'<div class="note">\uC774 \uC218\uC5C5\uC5D0\uC11C \uB098\uB9F0 \uB300\uD654 \uC790\uCCB4\uAC00 GoGAR\uC600\uC2B5\uB2C8\uB2E4. \uC8FC\uC7A5\uD558\uACE0, \uC774\uC720\uB97C \uC8FC\uACE0 \uBB3B\uACE0(\uC0C1\uB958\u00B7\uD558\uB958), \uBAA8\uC21C\uC744 \uBC1C\uACAC\uD558\uACE0(\uC591\uB9BD\uBD88\uAC00\uB2A5), \uC120\uC0DD\uB2D8\uC758 \uC778\uC815\uC744 \uBC1B\uB294(\uC790\uACA9\uBD80\uC5EC) \uACFC\uC815 \uC804\uCCB4\uAC00 \uC218\uD559\uC801 mastery\uC758 \uC99D\uAC70\uC785\uB2C8\uB2E4.</div></div>';
+}
+
+renderNav();renderStep();
+</script>
+</body>
+</html>

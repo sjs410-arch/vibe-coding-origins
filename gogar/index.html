@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="근의 공식과 산술·기하평균 부등식을 GoGAR식 질문과 피드백으로 증명하는 발표용 홈페이지입니다.">
+  <title>GoGAR Proof Lab | 어려운 증명을 질문으로 바꾸다</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="GoGAR Proof Lab 홈">
+        <span class="brand-mark">G</span>
+        <span><strong>GoGAR</strong><small>PROOF LAB</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴</button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="#gogar">GoGAR란?</a>
+        <a href="#cases">두 증명 사례</a>
+        <a href="#vibe-coding">바이브코딩</a>
+        <a class="nav-cta" href="lesson.html">수업 열기 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-grid" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> MATH × CONVERSATION × CODE</p>
+          <h1 id="hero-title">어려운 증명을<br><em>질문으로 바꾸다</em></h1>
+          <p class="hero-lede">근의 공식과 산술·기하평균 부등식. 서로 다른 두 수학 주제를 같은 GoGAR식 접근으로 따라가며, 학생이 증명의 이유를 스스로 발견하도록 돕습니다.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#cases">두 사례 살펴보기 <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="lesson.html">GoGAR 수업 시작 <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta" aria-label="자료의 특징">
+            <span>고등학교 수학</span><span>두 가지 증명 사례</span><span>바이브코딩 발표자료</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay-1" aria-label="두 증명 사례 미리보기">
+          <div class="formula-card">
+            <div class="formula-card-top"><span class="mini-label">TWO CASES / ONE METHOD</span><span class="card-index">01 / 02</span></div>
+            <p class="formula-question">같은 질문의 흐름으로<br>서로 다른 증명을 만난다면?</p>
+            <div class="equation-stack case-equation-stack">
+              <div class="equation-line muted-equation">ax<sup>2</sup> + bx + c = 0</div>
+              <div class="equation-arrow" aria-hidden="true">↓</div>
+              <div class="equation-line main-equation">x = <span class="fraction"><span>−b ± √(b<sup>2</sup> − 4ac)</span><span>2a</span></span></div>
+              <div class="case-divider"><span>또 다른 질문</span></div>
+              <div class="equation-line amgm-equation"><span class="fraction"><span>a + b</span><span>2</span></span> ≥ √ab</div>
+            </div>
+            <div class="formula-note"><span class="note-dot"></span> 두 주제, 하나의 GoGAR</div>
+          </div>
+          <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="floating-sticker sticker-why">WHY?</div><div class="floating-sticker sticker-proof">PROOF × 2</div>
+        </div>
+      </section>
+
+      <section class="intro section-grid" id="cases" aria-labelledby="cases-title">
+        <div class="section-heading reveal">
+          <p class="section-kicker">TWO TOPICS / ONE SCAFFOLD</p>
+          <h2 id="cases-title">두 주제,<br><em>하나의 GoGAR</em></h2>
+        </div>
+        <div class="intro-copy reveal reveal-delay-1">
+          <p class="large-copy">증명은 정답을 보여주는 일이 아니라, <strong>왜 다음 줄로 갈 수 있는지</strong>를 설명하는 일입니다.</p>
+          <p>첫 번째 사례에서는 이차방정식에서 근의 공식을 만듭니다. 두 번째 사례에서는 산술·기하평균 부등식을 증명합니다. 주제는 달라도 질문 → 학생의 추론 → 피드백 → 다음 단계라는 GoGAR의 뼈대는 같습니다.</p>
+        </div>
+      </section>
+
+      <section class="route-cards content-width" aria-label="GoGAR식 증명 사례 두 가지">
+        <article class="route-card route-gogar reveal" id="quadratic-route">
+          <div class="route-card-head"><span class="route-number">01</span><span class="route-tag">EQUATION / FORMULA</span></div>
+          <h3>근의 공식 만들기</h3>
+          <p class="route-lede">완성된 공식을 외우기 전에, “x를 혼자 남기려면 지금 무엇을 해야 할까?”라는 질문으로 완전제곱을 따라갑니다.</p>
+          <div class="question-quote">“<span>왜</span> 양변을 a로 나누어야 할까요?”</div>
+          <div class="flow-line" aria-label="근의 공식 GoGAR 흐름"><span>질문</span><b>→</b><span>응답</span><b>→</b><span>힌트</span><b>→</b><span>공식</span></div>
+          <div class="route-result route-result-dark"><span>ARRIVE AT</span><strong>x = (−b ± √(b<sup>2</sup> − 4ac)) / 2a</strong></div>
+          <a class="text-link" href="lesson.html">근의 공식 수업 열기 <span>↗</span></a>
+        </article>
+
+        <article class="route-card route-textbook reveal reveal-delay-1" id="amgm-route">
+          <div class="route-card-head"><span class="route-number">02</span><span class="route-tag">INEQUALITY / AM-GM</span></div>
+          <h3>산술·기하평균 부등식</h3>
+          <p class="route-lede">“왜 제곱은 항상 0 이상일까?”에서 출발해, 두 평균의 크기 관계와 등호 조건까지 질문으로 발견합니다.</p>
+          <div class="question-quote light-quote">“무엇을 제곱하면 <span>항상 0 이상</span>일까요?”</div>
+          <div class="textbook-mini-steps" aria-label="산술·기하평균 GoGAR 다섯 단계"><span>목표</span><i>·</i><span>제곱</span><i>·</i><span>전개</span><i>·</i><span>정리</span><i>·</i><span>등호</span></div>
+          <div class="route-result"><span>ARRIVE AT</span><strong>(a + b) / 2 ≥ √ab</strong></div>
+          <a class="text-link" href="#amgm-case">산술·기하평균 사례 읽기 <span>↓</span></a>
+        </article>
+      </section>
+
+      <section class="gogar-explainer full-bleed" id="gogar" aria-labelledby="gogar-title">
+        <div class="content-width explainer-inner">
+          <div class="explainer-copy reveal">
+            <p class="section-kicker light-kicker">01 / WHAT IS GOGAR?</p>
+            <h2 id="gogar-title">질문이 먼저 오면,<br><em>증명이 보이기 시작합니다.</em></h2>
+            <p>이 발표에서 말하는 GoGAR식 접근법은 학생이 답을 한 번에 받는 대신, 질문에 답하며 추론의 사다리를 직접 올라가는 방식입니다. AI는 정답을 대신 증명하는 사람이 아니라, “왜?”를 다시 묻고 놓친 연결을 비추는 보조 교사 역할을 합니다.</p>
+          </div>
+          <div class="principle-grid reveal reveal-delay-1">
+            <article class="principle-card"><span class="principle-icon">?</span><h3>질문이 앞선다</h3><p>수식을 쓰기 전에 “이 단계의 목적은 무엇인가?”를 확인합니다.</p></article>
+            <article class="principle-card"><span class="principle-icon">✎</span><h3>문장이 증거가 된다</h3><p>학습자가 자신의 말로 설명해야 다음 단계로 넘어갈 수 있습니다.</p></article>
+            <article class="principle-card"><span class="principle-icon">↗</span><h3>피드백이 연결된다</h3><p>힌트와 교정은 끝이 아니라 다음 추론을 여는 발판이 됩니다.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section content-width" aria-labelledby="case-title">
+        <div class="case-heading reveal">
+          <p class="section-kicker">02 / TWO GOGAR CASES</p>
+          <h2 id="case-title">두 증명 모두<br><em>질문으로 따라가기</em></h2>
+          <p>아래 대화는 발표할 때 보여 줄 수 있는 축약본입니다. 각 카드에서 <strong>질문 → 학생의 추론 → 수식의 변화</strong>가 한 묶음으로 움직입니다.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-panel case-panel-quadratic reveal" id="quadratic-case">
+            <div class="case-panel-head"><span class="case-badge">CASE A</span><span class="case-panel-type">QUADRATIC FORMULA</span></div>
+            <h3>근의 공식 만들기</h3>
+            <p class="case-condition">출발: <strong>ax<sup>2</sup> + bx + c = 0</strong>, a ≠ 0</p>
+            <div class="dialogue-list">
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q1</span><b>GoGAR 질문</b></div><p class="dialogue-question">x<sup>2</sup>의 계수를 1로 만들려면 무엇을 할까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> a ≠ 0이므로 양변을 a로 나눌 수 있습니다. x를 다루기 쉬운 형태로 바꾸는 첫 단계입니다.</p><div class="dialogue-math">x<sup>2</sup> + <span class="fraction"><span>b</span><span>a</span></span>x + <span class="fraction"><span>c</span><span>a</span></span> = 0</div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q2</span><b>GoGAR 질문</b></div><p class="dialogue-question">x가 있는 식을 하나의 제곱으로 만들 수 있을까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> x의 계수 b/a의 절반을 제곱한 값을 양변에 더하면 완전제곱이 됩니다.</p><div class="dialogue-math">(x + <span class="fraction"><span>b</span><span>2a</span></span>)<sup>2</sup> = <span class="fraction"><span>b<sup>2</sup> − 4ac</span><span>4a<sup>2</sup></span></span></div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q3</span><b>GoGAR 질문</b></div><p class="dialogue-question">제곱 형태가 되었으니 x를 어떻게 꺼낼까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 양변의 제곱근을 취합니다. 제곱근에는 양의 경우와 음의 경우가 모두 있으므로 ±가 필요합니다.</p><div class="dialogue-math">x + <span class="fraction"><span>b</span><span>2a</span></span> = ± <span class="fraction"><span>√(b<sup>2</sup> − 4ac)</span><span>2a</span></span></div></div>
+              <div class="case-result"><span>GO GAR RESULT</span><strong>x = <span class="fraction"><span>−b ± √(b<sup>2</sup> − 4ac)</span><span>2a</span></span></strong></div>
+            </div>
+          </article>
+
+          <article class="case-panel case-panel-amgm reveal reveal-delay-1" id="amgm-case">
+            <div class="case-panel-head"><span class="case-badge">CASE B</span><span class="case-panel-type">ARITHMETIC–GEOMETRIC MEAN</span></div>
+            <h3>산술·기하평균 부등식</h3>
+            <p class="case-condition">목표: <strong>a, b ≥ 0</strong>일 때 <strong>(a + b) / 2 ≥ √ab</strong></p>
+            <div class="dialogue-list">
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q1</span><b>GoGAR 질문</b></div><p class="dialogue-question">우리가 비교하려는 두 값은 무엇인가요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 두 수의 합을 2로 나눈 산술평균과, 두 수의 곱의 제곱근인 기하평균입니다.</p><div class="dialogue-math"><span class="fraction"><span>a + b</span><span>2</span></span> ≥ √ab</div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q2</span><b>GoGAR 질문</b></div><p class="dialogue-question">항상 0 이상이라고 확실히 말할 수 있는 식은 무엇일까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 어떤 수를 제곱한 값은 항상 0 이상입니다. √a와 √b의 차이를 제곱해 봅니다.</p><div class="dialogue-math">(√a − √b)<sup>2</sup> ≥ 0</div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q3</span><b>GoGAR 질문</b></div><p class="dialogue-question">제곱을 전개하면 목표에 가까워지나요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 전개하면 a − 2√ab + b ≥ 0, 즉 a + b ≥ 2√ab가 됩니다.</p><div class="dialogue-math">a + b ≥ 2√ab</div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q4</span><b>GoGAR 질문</b></div><p class="dialogue-question">양변을 2로 나누면 어떤 결론인가요? 언제 같아질까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> (a+b)/2 ≥ √ab이고, (√a−√b)<sup>2</sup>=0인 a=b에서 등호가 성립합니다.</p><div class="dialogue-math">∴ <span class="fraction"><span>a + b</span><span>2</span></span> ≥ √ab, equality ⇔ a = b</div></div>
+              <div class="case-result"><span>GO GAR RESULT</span><strong><span class="fraction"><span>a + b</span><span>2</span></span> ≥ √ab</strong><small>등호 조건: a = b</small></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bridge-section full-bleed" aria-labelledby="bridge-title">
+        <div class="content-width bridge-inner">
+          <div class="bridge-heading reveal"><p class="section-kicker light-kicker">SAME METHOD / NEW TOPIC</p><h2 id="bridge-title">주제가 달라도<br><em>질문의 구조는 같습니다.</em></h2></div>
+          <div class="bridge-table-wrap reveal reveal-delay-1">
+            <table class="bridge-table">
+              <thead><tr><th></th><th>근의 공식</th><th>산술·기하평균</th></tr></thead>
+              <tbody>
+                <tr><th>출발 질문</th><td>“x를 혼자 남기려면?”</td><td>“무엇이 항상 0 이상인가?”</td></tr>
+                <tr><th>핵심 아이디어</th><td>완전제곱 만들기</td><td>제곱의 비음성</td></tr>
+                <tr><th>학생 행동</th><td>변형의 이유를 설명한다</td><td>전개와 등호 조건을 설명한다</td></tr>
+                <tr><th>GoGAR 피드백</th><td>다음 변형의 목적을 묻는다</td><td>목표와 연결되는 항을 찾게 한다</td></tr>
+                <tr><th>도착점</th><td colspan="2">공식을 외우는 대신, 증명의 흐름을 다시 설명할 수 있다</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="vibe-section content-width" id="vibe-coding" aria-labelledby="vibe-title">
+        <div class="vibe-heading reveal">
+          <p class="section-kicker">03 / VIBE CODING</p>
+          <h2 id="vibe-title">수학의 추론을<br><em>브라우저에서 실행하기</em></h2>
+          <p>이 홈페이지는 두 증명 사례의 질문 흐름을 발표자가 설명하고 학생이 직접 따라갈 수 있는 화면으로 바꾸는 바이브코딩의 사례입니다.</p>
+        </div>
+        <div class="vibe-timeline reveal reveal-delay-1">
+          <article class="timeline-item"><span class="timeline-number">01</span><div><h3>자연어로 목표 설정</h3><p>근의 공식과 산술·기하평균을 모두 GoGAR식 사례로 보여 달라고 요청합니다.</p></div></article>
+          <article class="timeline-item"><span class="timeline-number">02</span><div><h3>질문을 화면으로 설계</h3><p>각 단계의 질문, 학생의 추론, 수식의 변화를 카드와 대화 행으로 구성합니다.</p></div></article>
+          <article class="timeline-item"><span class="timeline-number">03</span><div><h3>HTML·CSS·JS로 구현</h3><p>발표용 홈페이지와 클릭해서 답하는 원본 수업 화면을 정적 웹페이지로 만듭니다.</p></div></article>
+          <article class="timeline-item"><span class="timeline-number">04</span><div><h3>실행하고 다시 다듬기</h3><p>브라우저에서 읽기 순서와 링크를 확인하며 학생이 막힐 지점을 다시 수정합니다.</p></div></article>
+        </div>
+        <div class="vibe-quote reveal"><span>“</span><p>바이브코딩은 코드를 대신 쓰는 기술만이 아니라, 수학적 질문과 판단 기준을 실행 가능한 학습 경험으로 바꾸는 과정입니다.</p><span>”</span></div>
+      </section>
+
+      <section class="demo-section full-bleed" aria-labelledby="demo-title">
+        <div class="content-width demo-inner reveal">
+          <div><p class="section-kicker light-kicker">TRY BOTH LESSONS</p><h2 id="demo-title">두 증명을<br><em>직접 질문해 보세요.</em></h2><p>근의 공식과 산술·기하평균 각각의 수업 화면에서 답을 제출하고, 힌트를 요청하고, 피드백을 받은 뒤 다음 단계로 이동할 수 있습니다.</p></div>
+          <div class="demo-action"><div class="lesson-steps" aria-label="GoGAR 수업 단계"><span class="active">01</span><i></i><span>02</span><i></i><span>03</span><i></i><span>04</span><i></i><span>05</span></div><div class="demo-buttons"><a class="button button-light" href="lesson.html">근의 공식 수업 <span aria-hidden="true">↗</span></a><a class="button button-outline-light" href="amgm-lesson.html">산술·기하평균 수업 <span aria-hidden="true">↗</span></a></div><small>두 화면 모두 같은 GoGAR식 흐름을 사용합니다.</small></div>
+        </div>
+      </section>
+
+      <section class="closing-section content-width" aria-labelledby="closing-title">
+        <p class="section-kicker">TAKEAWAY</p>
+        <h2 id="closing-title">증명은 어려운 답이 아니라,<br><em>다음 질문을 찾는 과정입니다.</em></h2>
+        <div class="takeaway-grid"><div><strong>01</strong><p>근의 공식도, 부등식도 질문을 잘게 나누면 따라갈 수 있다.</p></div><div><strong>02</strong><p>GoGAR는 학생이 계산의 이유를 자기 말로 확인하게 한다.</p></div><div><strong>03</strong><p>바이브코딩은 그 과정을 누구나 따라갈 화면으로 만든다.</p></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="content-width footer-inner"><div class="brand footer-brand"><span class="brand-mark">G</span><span><strong>GoGAR</strong><small>PROOF LAB</small></span></div><p>두 수학 증명 사례 × 대화형 추론 × 바이브코딩</p><a href="#top">맨 위로 ↑</a></div></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
