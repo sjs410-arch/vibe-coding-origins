@@ -6,7 +6,7 @@
   <meta name="description" content="근의 공식과 산술·기하평균 부등식을 GoGAR식 질문과 피드백으로 증명하는 발표용 홈페이지입니다.">
   <title>GoGAR Proof Lab | 어려운 증명을 질문으로 바꾸다</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=gogar-concept-20261019">
 </head>
 <body>
   <div class="site-shell">
@@ -64,7 +64,7 @@
         </div>
         <div class="intro-copy reveal reveal-delay-1">
           <p class="large-copy">증명은 정답을 보여주는 일이 아니라, <strong>왜 다음 줄로 갈 수 있는지</strong>를 설명하는 일입니다.</p>
-          <p>첫 번째 사례에서는 이차방정식에서 근의 공식을 만듭니다. 두 번째 사례에서는 산술·기하평균 부등식을 증명합니다. 주제는 달라도 질문 → 학생의 추론 → 피드백 → 다음 단계라는 GoGAR의 뼈대는 같습니다.</p>
+          <p>첫 번째 사례에서는 이차방정식에서 근의 공식을 만듭니다. 두 번째 사례에서는 산술·기하평균 부등식을 증명합니다. 두 주제 모두 자신의 주장을 밝히고, 근거를 대며, 따라오는 결과와 양립할 수 없는 주장을 점검합니다.</p>
         </div>
       </section>
 
@@ -94,15 +94,59 @@
         <div class="content-width explainer-inner">
           <div class="explainer-copy reveal">
             <p class="section-kicker light-kicker">01 / WHAT IS GOGAR?</p>
-            <h2 id="gogar-title">질문이 먼저 오면,<br><em>증명이 보이기 시작합니다.</em></h2>
-            <p>이 발표에서 말하는 GoGAR식 접근법은 학생이 답을 한 번에 받는 대신, 질문에 답하며 추론의 사다리를 직접 올라가는 방식입니다. AI는 정답을 대신 증명하는 사람이 아니라, “왜?”를 다시 묻고 놓친 연결을 비추는 보조 교사 역할을 합니다.</p>
+            <h2 id="gogar-title">GoGAR,<br><em>이유를 주고 묻는 게임</em></h2>
+            <p class="gogar-full-name" lang="en">Game of Giving and Asking for Reasons</p>
+            <p>GoGAR는 서로의 주장에 이유를 제시하고 요구하면서, 무엇을 정당하게 말할 수 있는지 점검하는 대화의 실천입니다. ‘게임’은 주장·질문·정당화에 규칙이 있다는 뜻입니다. 개념을 이해한다는 것은 그 말의 근거와 결과를 알고, 다른 주장과의 충돌도 알아차리는 일입니다. <a class="concept-cite" href="#gogar-source-2" aria-label="출처 2 보기">[2]</a></p>
           </div>
           <div class="principle-grid reveal reveal-delay-1">
-            <article class="principle-card"><span class="principle-icon">?</span><h3>질문이 앞선다</h3><p>수식을 쓰기 전에 “이 단계의 목적은 무엇인가?”를 확인합니다.</p></article>
-            <article class="principle-card"><span class="principle-icon">✎</span><h3>문장이 증거가 된다</h3><p>학습자가 자신의 말로 설명해야 다음 단계로 넘어갈 수 있습니다.</p></article>
-            <article class="principle-card"><span class="principle-icon">↗</span><h3>피드백이 연결된다</h3><p>힌트와 교정은 끝이 아니라 다음 추론을 여는 발판이 됩니다.</p></article>
+            <article class="principle-card"><span class="principle-icon">✎</span><h3>주장에 책임지기</h3><p class="principle-term" lang="en">COMMITMENT</p><p>내가 한 주장과 그 주장에서 따라오는 결과를 책임집니다.</p></article>
+            <article class="principle-card"><span class="principle-icon">?</span><h3>정당화 자격 갖추기</h3><p class="principle-term" lang="en">ENTITLEMENT</p><p>그 주장을 뒷받침하는 적절한 근거가 있는지 서로 확인합니다.</p></article>
+            <article class="principle-card"><span class="principle-icon">↗</span><h3>주장과 근거 추적하기</h3><p class="principle-term" lang="en">SCOREKEEPING</p><p>누가 무엇을 주장했고 무엇이 정당화됐는지 살피며, 충돌하면 수정합니다.</p></article>
           </div>
         </div>
+      </section>
+
+      <section class="concept-section content-width" aria-labelledby="concept-origin-title">
+        <div class="concept-origin reveal">
+          <div class="concept-heading">
+            <p class="section-kicker">ORIGIN / CONCEPT / MATHEMATICS</p>
+            <h2 id="concept-origin-title">누가 발전시킨<br><em>개념인가요?</em></h2>
+            <p>이 개념의 철학적 뿌리는 <strong>윌프리드 셀라스(Wilfrid Sellars)</strong>에게 있으며, <strong>로버트 브랜덤(Robert Brandom)</strong>이 언어와 추론에 관한 철학에서 체계적으로 발전시켰습니다. <a class="concept-cite" href="#gogar-source-1" aria-label="출처 1 보기">[1]</a><a class="concept-cite" href="#gogar-source-2" aria-label="출처 2 보기">[2]</a></p>
+          </div>
+          <div class="origin-notes">
+            <article><span>PHILOSOPHICAL ROOTS</span><h3>셀라스 → 브랜덤</h3><p>셀라스는 앎을 자신이 말한 것을 정당화할 수 있는 ‘이유의 공간’과 연결했습니다. 브랜덤은 <cite>Making It Explicit</cite>(1994)에서 주장에 대한 책임과 정당화 자격을 주고받는 구조를 상세히 전개했습니다.</p></article>
+            <article><span>INFERENTIALISM / 추론주의</span><h3>안다는 것은, 연결할 수 있다는 것</h3><p>개념의 의미를 그 개념이 다른 주장들과 맺는 추론 관계에서 이해합니다. 수학에서는 “어떤 조건에서 이 식을 쓸 수 있는가?”와 “이 식으로부터 무엇을 얻는가?”를 함께 설명하는 데 적용할 수 있습니다. <a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p></article>
+          </div>
+        </div>
+
+        <div class="math-example reveal" aria-labelledby="math-example-title">
+          <div class="example-intro">
+            <p class="section-kicker">A SMALL MATHEMATICAL EXAMPLE</p>
+            <h3 id="math-example-title">“6은 짝수다.”<br>이 한 문장을 이해한다면?</h3>
+            <p>아래는 개념을 설명하기 위해 구성한 수학 대화입니다. 주장의 근거와 결과를 잇고, 잘못된 근거가 나오면 함께 고칩니다.</p>
+            <div class="example-formula">6 = 2 × 3</div>
+            <p class="example-caption">짝수의 정의: 어떤 정수 k에 대해 2k로 나타낼 수 있는 정수</p>
+          </div>
+          <ol class="reason-dialogue">
+            <li><span>주장</span><p><strong>학생</strong> “6은 짝수입니다.”<small>이 주장을 하고, 필요한 경우 이유를 설명할 책임을 집니다.</small></p></li>
+            <li><span>근거 묻기</span><p><strong>교사·친구</strong> “왜 그렇게 말할 수 있나요?”<small>학생: “6 = 2 × 3이고, 3은 정수이기 때문입니다.”</small></p></li>
+            <li><span>결과 묻기</span><p><strong>교사·친구</strong> “그러면 2로 나누었을 때 나머지는?”<small>학생: “0입니다. 2로 나누어떨어집니다.”</small></p></li>
+            <li><span>근거 점검</span><p><strong>교사·친구</strong> “‘3의 배수라서 짝수’라고 해도 될까요?”<small>학생: “9는 3의 배수지만 홀수입니다. 그 이유만으로는 부족합니다.”</small></p></li>
+            <li><span>정당화</span><p><strong>함께 확인</strong> “6이 정수의 2배라는 점이 짝수라는 주장의 근거입니다.”<small>주장과 적절한 근거의 연결이 드러나면, 그 주장을 정당하게 할 자격이 뒷받침됩니다.</small></p></li>
+          </ol>
+        </div>
+
+        <div class="inference-heading reveal">
+          <p class="section-kicker">THREE DIRECTIONS OF REASONING</p>
+          <h3>증명에서 확인할 세 가지 질문</h3>
+          <p>수학교육 연구에서는 GoGAR를 분석할 때 근거·결과·양립 불가능성을 구분합니다. <a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p>
+        </div>
+        <div class="inference-grid reveal">
+          <article><span>UPSTREAM / 상류</span><h4>이 주장의 근거는?</h4><p>“6은 짝수”라는 주장은 <strong>6 = 2 × 3</strong>에서 정당화됩니다.</p></article>
+          <article><span>DOWNSTREAM / 하류</span><h4>무엇이 따라오는가?</h4><p>따라서 <strong>6을 2로 나눈 나머지는 0</strong>이라고 말할 수 있습니다.</p></article>
+          <article><span>INCOMPATIBILITY / 양립 불가능성</span><h4>무엇과 함께 성립할 수 없는가?</h4><p>같은 의미에서 <strong>“6은 홀수”</strong>라는 주장을 함께 정당화할 수 없습니다.</p></article>
+        </div>
+        <p class="concept-application reveal"><strong>이 홈페이지의 수업 설계</strong> 사람 사이의 이유 주고받기를 바탕으로, AI와 바이브코딩을 활용해 학생이 근거를 쓰고 질문을 따라갈 수 있는 화면으로 응용했습니다. 학생이 막힌 곳이 조건인지, 식의 변형인지, 결론인지 드러내는 것을 목표로 합니다.</p>
       </section>
 
       <section class="case-section content-width" aria-labelledby="case-title">
@@ -147,10 +191,10 @@
             <table class="bridge-table">
               <thead><tr><th></th><th>근의 공식</th><th>산술·기하평균</th></tr></thead>
               <tbody>
-                <tr><th>출발 질문</th><td>“x를 혼자 남기려면?”</td><td>“무엇이 항상 0 이상인가?”</td></tr>
-                <tr><th>핵심 아이디어</th><td>완전제곱 만들기</td><td>제곱의 비음성</td></tr>
-                <tr><th>학생 행동</th><td>변형의 이유를 설명한다</td><td>전개와 등호 조건을 설명한다</td></tr>
-                <tr><th>GoGAR 피드백</th><td>다음 변형의 목적을 묻는다</td><td>목표와 연결되는 항을 찾게 한다</td></tr>
+                <tr><th>근거 · 상류</th><td>“왜 a로 나눌 수 있나요?”<br>a ≠ 0이라는 조건 확인</td><td>“왜 이 제곱이 0 이상인가요?”<br>a, b ≥ 0과 실수의 제곱 확인</td></tr>
+                <tr><th>결과 · 하류</th><td>“완전제곱이 되면?”<br>제곱근을 취해 x를 고립</td><td>“전개하면 무엇이 나오나요?”<br>a + b ≥ 2√ab를 도출</td></tr>
+                <tr><th>양립 불가</th><td>“u² = 4이니 u = 2만 가능?”<br>u = −2도 가능하므로 ±가 필요</td><td>“a ≠ b인데 등호가 성립?”<br>(√a − √b)² > 0이므로 불가능</td></tr>
+                <tr><th>정당화 자격</th><td>각 변형의 조건과 ±의 이유를 설명</td><td>부등호 방향과 등호 조건을 설명</td></tr>
                 <tr><th>도착점</th><td colspan="2">공식을 외우는 대신, 증명의 흐름을 다시 설명할 수 있다</td></tr>
               </tbody>
             </table>
@@ -184,6 +228,17 @@
         <p class="section-kicker">TAKEAWAY</p>
         <h2 id="closing-title">증명은 어려운 답이 아니라,<br><em>다음 질문을 찾는 과정입니다.</em></h2>
         <div class="takeaway-grid"><div><strong>01</strong><p>근의 공식도, 부등식도 질문을 잘게 나누면 따라갈 수 있다.</p></div><div><strong>02</strong><p>GoGAR는 학생이 계산의 이유를 자기 말로 확인하게 한다.</p></div><div><strong>03</strong><p>바이브코딩은 그 과정을 누구나 따라갈 화면으로 만든다.</p></div></div>
+      </section>
+
+      <section class="concept-sources content-width" id="gogar-sources" aria-labelledby="gogar-sources-title">
+        <p class="section-kicker">SOURCES / FURTHER READING</p>
+        <h2 id="gogar-sources-title">개념의 출처와 더 읽을 자료</h2>
+        <ol>
+          <li id="gogar-source-1"><a href="https://sites.pitt.edu/~rbrandom/Courses/2023%20Sellars/Sellars%20texts/FEE.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom, <cite>From Empiricism to Expressivism</cite> — 셀라스 철학을 해설한 저자 공개본 ↗</a><p>셀라스의 ‘이유의 공간’과 이유를 주고 묻는 실천의 관계. 특히 인쇄면 103쪽.</p></li>
+          <li id="gogar-source-2"><a href="https://sites.pitt.edu/~rbrandom/Texts/Conceptual_Content_and_Discursive_Practi.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom, <cite>Conceptual Content and Discursive Practice</cite> — 저자 공개 원고 ↗</a><p><cite>Making It Explicit</cite>(1994)의 구상과 주장에 대한 책임, 정당화 자격, 규범적 기록. 원고 9–14쪽.</p></li>
+          <li id="gogar-source-3"><a href="https://doi.org/10.1007/s10649-024-10377-7" target="_blank" rel="noopener noreferrer">James Drimalla (2025), <cite>Inferences, mastery, and objectivity: examining student understanding of mathematical concepts with inferentialism</cite> ↗</a><p><cite>Educational Studies in Mathematics</cite>, 119, 393–410. GoGAR와 상류·하류·양립 불가능한 추론의 수학교육적 해설.</p></li>
+        </ol>
+        <p class="source-note">‘6은 짝수’ 대화와 두 증명의 질문 구성은 위 철학·수학교육 개념을 설명하기 위해 이 발표에서 구성한 교육용 예시입니다.</p>
       </section>
     </main>
 

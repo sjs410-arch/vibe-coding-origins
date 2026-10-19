@@ -128,6 +128,60 @@ h1 em, h2 em { color: var(--violet); font-family: var(--serif); font-style: ital
 .principle-card h3 { margin-bottom: 9px; font-size: 16px; }
 .principle-card p { margin: 0; color: #c1bdd2; font-size: 12px; line-height: 1.65; word-break: keep-all; }
 
+/* GoGAR: provenance, a mathematical example, and the three inferential directions. */
+section[id], li[id] { scroll-margin-top: 30px; }
+.explainer-copy > .gogar-full-name { margin: 0 0 19px; color: #f5b58c; font-family: var(--mono); font-size: 12px; line-height: 1.6; letter-spacing: .025em; }
+.principle-card > .principle-term { margin: 0 0 12px; color: #f5b58c; font-family: var(--mono); font-size: 9px; letter-spacing: .06em; }
+.principle-grid { align-self: center; }
+.concept-cite { color: var(--violet); font-family: var(--mono); font-size: .8em; font-weight: 700; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+.gogar-explainer .concept-cite { color: #f5b58c; }
+.concept-section { padding-top: 100px; padding-bottom: 100px; border-bottom: 1px solid var(--line); }
+.concept-origin { display: grid; grid-template-columns: .9fr 1.1fr; gap: 75px; align-items: start; }
+.concept-heading h2 { margin: 0 0 25px; font-size: clamp(38px, 4.6vw, 58px); font-weight: 600; }
+.concept-heading > p:last-child { margin: 0; color: var(--ink-soft); font-size: 15px; word-break: keep-all; }
+.concept-heading strong { color: var(--ink); font-weight: 700; }
+.origin-notes { border-top: 2px solid var(--violet); }
+.origin-notes article { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.origin-notes article > span { color: var(--orange); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .06em; }
+.origin-notes h3 { margin: 12px 0 10px; font-size: 22px; letter-spacing: -.04em; }
+.origin-notes p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.8; word-break: keep-all; }
+.math-example { display: grid; grid-template-columns: .7fr 1.3fr; gap: 45px; margin-top: 80px; padding: 37px; border: 1px solid var(--line); background: var(--white); box-shadow: 9px 9px 0 var(--violet-soft); }
+.example-intro h3 { margin: 0 0 22px; font-size: clamp(25px, 2.5vw, 33px); line-height: 1.35; letter-spacing: -.05em; }
+.example-intro > p:not(.section-kicker) { color: var(--ink-soft); font-size: 14px; line-height: 1.8; word-break: keep-all; }
+.example-formula { margin: 35px 0 13px; color: var(--teal); font-family: var(--serif); font-size: 45px; line-height: 1.2; }
+.example-intro > .example-caption { padding-top: 13px; border-top: 1px solid var(--line); font-size: 12px; }
+.reason-dialogue { margin: 0; padding: 0; list-style: none; }
+.reason-dialogue li { display: grid; grid-template-columns: 74px 1fr; gap: 18px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.reason-dialogue li:first-child { padding-top: 0; }
+.reason-dialogue li:last-child { border-bottom: 0; padding-bottom: 0; }
+.reason-dialogue li > span { align-self: start; padding: 4px 6px; color: var(--violet); background: #eeeafa; font-family: var(--mono); font-size: 10px; font-weight: 700; text-align: center; }
+.reason-dialogue li:nth-child(4) > span { color: #9d4c21; background: #fff0e4; }
+.reason-dialogue li:last-child > span { color: var(--teal); background: #eaf6ef; }
+.reason-dialogue p { margin: 0; font-size: 15px; line-height: 1.6; word-break: keep-all; }
+.reason-dialogue p > strong { display: block; margin-bottom: 3px; color: var(--ink-soft); font-size: 10px; font-weight: 700; }
+.reason-dialogue small { display: block; margin-top: 7px; color: var(--ink-soft); font-size: 12px; line-height: 1.7; }
+.inference-heading { margin-top: 85px; }
+.inference-heading h3 { margin: 0 0 12px; font-size: 30px; letter-spacing: -.045em; }
+.inference-heading > p:last-child { margin-bottom: 27px; color: var(--ink-soft); font-size: 14px; }
+.inference-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 27px; }
+.inference-grid article { padding-top: 23px; border-top: 2px solid var(--violet); }
+.inference-grid article:nth-child(2) { border-color: var(--teal); }
+.inference-grid article:nth-child(3) { border-color: var(--orange); }
+.inference-grid article > span { color: var(--ink-soft); font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .04em; }
+.inference-grid h4 { margin: 13px 0 12px; font-size: 19px; letter-spacing: -.04em; }
+.inference-grid p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.8; word-break: keep-all; }
+.inference-grid strong { color: var(--ink); }
+.concept-application { margin: 45px 0 0; padding: 23px 26px; color: var(--ink-soft); background: var(--paper-deep); font-size: 14px; line-height: 1.8; word-break: keep-all; }
+.concept-application strong { display: block; margin-bottom: 5px; color: var(--violet); }
+.concept-sources { padding-top: 50px; padding-bottom: 70px; border-top: 1px solid var(--line); }
+.concept-sources h2 { margin-bottom: 28px; font-size: 28px; letter-spacing: -.04em; line-height: 1.3; }
+.concept-sources ol { margin: 0; padding-left: 24px; }
+.concept-sources li { padding: 0 0 15px 7px; color: var(--violet); font-family: var(--mono); font-size: 12px; }
+.concept-sources li a { color: var(--violet); font-family: var(--sans); font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.concept-sources li p { margin: 5px 0 0; color: var(--ink-soft); font-family: var(--sans); font-size: 12px; line-height: 1.8; }
+.concept-sources cite, .origin-notes cite { font-style: italic; }
+.concept-sources .source-note { margin: 15px 0 0; color: var(--ink-soft); font-size: 12px; }
+
 .case-section { padding-top: 118px; padding-bottom: 125px; }
 .case-heading { display: grid; grid-template-columns: .9fr 1.1fr; column-gap: 70px; align-items: end; margin-bottom: 54px; }
 .case-heading .section-kicker { grid-column: 1 / -1; }
@@ -238,6 +292,8 @@ h1 em, h2 em { color: var(--violet); font-family: var(--serif); font-style: ital
   .hero { padding-top: 75px; }
   .hero-visual { min-height: 420px; }
   .explainer-inner, .bridge-inner, .demo-inner { grid-template-columns: 1fr; gap: 48px; }
+  .concept-origin { grid-template-columns: 1fr; gap: 35px; }
+  .math-example { grid-template-columns: 1fr; gap: 30px; }
   .case-heading { grid-template-columns: 1fr; gap: 22px; }
   .case-heading .section-kicker, .case-heading h2, .case-heading > p:last-child { grid-column: 1; }
   .case-heading > p:last-child { margin: 0; }
@@ -276,6 +332,14 @@ h1 em, h2 em { color: var(--violet); font-family: var(--serif); font-style: ital
   .principle-grid { grid-template-columns: 1fr; }
   .principle-card { min-height: auto; }
   .principle-icon { margin-bottom: 22px; }
+  .concept-section { padding-top: 70px; padding-bottom: 70px; }
+  .math-example { margin-top: 50px; padding: 23px; }
+  .reason-dialogue li { grid-template-columns: 1fr; gap: 10px; }
+  .reason-dialogue li > span { justify-self: start; padding: 4px 9px; }
+  .inference-heading { margin-top: 60px; }
+  .inference-grid { grid-template-columns: 1fr; gap: 30px; }
+  .concept-application { padding: 20px; }
+  .concept-sources { padding-bottom: 50px; }
   .case-panel { padding: 25px; }
   .case-panel-head { align-items: flex-start; flex-direction: column; margin-bottom: 31px; }
   .case-panel-type { text-align: left; }
