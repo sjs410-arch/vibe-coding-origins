@@ -6,7 +6,7 @@
   <meta name="description" content="근의 공식, 무한등비급수, 미적분학의 기본정리를 GoGAR식 질문과 피드백으로 탐구하는 발표용 홈페이지입니다.">
   <title>GoGAR Proof Lab | 어려운 증명을 질문으로 바꾸다</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=gogar-three-cases-20261019">
+  <link rel="stylesheet" href="styles.css?v=gogar-theory-20261019-r3">
 </head>
 <body>
   <div class="site-shell">
@@ -124,42 +124,48 @@
           <div class="concept-heading">
             <p class="section-kicker">ORIGIN / CONCEPT / MATHEMATICS</p>
             <h2 id="concept-origin-title">누가 발전시킨<br><em>개념인가요?</em></h2>
-            <p>이 개념의 철학적 뿌리는 <strong>윌프리드 셀라스(Wilfrid Sellars)</strong>에게 있으며, <strong>로버트 브랜덤(Robert Brandom)</strong>이 언어와 추론에 관한 철학에서 체계적으로 발전시켰습니다. <a class="concept-cite" href="#gogar-source-1" aria-label="출처 1 보기">[1]</a><a class="concept-cite" href="#gogar-source-2" aria-label="출처 2 보기">[2]</a></p>
+            <p>GoGAR를 이해하려면 <strong>앎에 관한 철학적 토대</strong>, <strong>의미에 관한 이론</strong>, <strong>수학교육에서의 활용</strong>을 구분해 보는 것이 좋습니다. 서로 연결되지만 같은 주장은 아닙니다.</p>
+            <ol class="origin-route" aria-label="GoGAR의 사상적 전개"><li>셀라스 <small>앎 · 이유의 공간</small></li><li>브랜덤 <small>의미 · 추론주의</small></li><li>수학교육 연구 <small>GoGAR의 교육적 활용</small></li></ol>
+            <p class="origin-caption">철학적 토대 → 이론의 체계화 → 교육적 활용</p>
           </div>
           <div class="origin-notes">
-            <article><span>PHILOSOPHICAL ROOTS</span><h3>셀라스 → 브랜덤</h3><p>셀라스는 앎을 자신이 말한 것을 정당화할 수 있는 ‘이유의 공간’과 연결했습니다. 브랜덤은 <cite>Making It Explicit</cite>(1994)에서 주장에 대한 책임과 정당화 자격을 주고받는 구조를 상세히 전개했습니다.</p></article>
-            <article><span>INFERENTIALISM / 추론주의</span><h3>안다는 것은, 연결할 수 있다는 것</h3><p>개념의 의미를 그 개념이 다른 주장들과 맺는 추론 관계에서 이해합니다. 수학에서는 “어떤 조건에서 이 식을 쓸 수 있는가?”와 “이 식으로부터 무엇을 얻는가?”를 함께 설명하는 데 적용할 수 있습니다. <a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p></article>
+            <article><span>01 / SELLARS · KNOWING</span><h3>셀라스: 앎과 ‘이유의 공간’</h3><p>윌프리드 셀라스(Wilfrid Sellars)는 <cite>Empiricism and the Philosophy of Mind</cite>(1956)에서 앎을 이유로 정당화할 수 있는 규범적 지위와 연결합니다. 무엇을 안다고 평가하는 일은 단순한 반응을 기록하는 것이 아니라, 그것을 근거를 묻고 제시하는 ‘이유의 공간’에 놓는 일입니다. <a class="concept-cite" href="#gogar-source-1" aria-label="출처 1 보기">[1]</a></p></article>
+            <article><span>02 / BRANDOM · MEANING</span><h3>브랜덤: 의미를 추론 관계로 설명하기</h3><p>로버트 브랜덤(Robert Brandom)은 이 전통을 이어 <cite>Making It Explicit</cite>(1994) 등에서 추론주의를 체계화합니다. 여기서 초점은 <strong>개념의 의미</strong>입니다. 어떤 주장을 뒷받침하는 이유, 그 주장으로부터 따라오는 결과, 함께 받아들일 수 없는 주장들이 그 내용의 이해를 이룹니다. ‘이유를 주고 묻는 게임’은 이러한 언어 실천을 설명합니다. <a class="concept-cite" href="#gogar-source-2" aria-label="출처 2 보기">[2]</a></p></article>
+            <article><span>03 / MATHEMATICS EDUCATION · GoGAR</span><h3>수학교육 연구: 개념 이해를 살피는 관점</h3><p>Arthur Bakker와 Jan Derry(2011), Ruben Noorloos·Samuel D. Taylor·Bakker·Derry(2017) 등은 추론주의를 수학·통계 학습 연구에 적용했습니다. 이 연구 흐름에서는 <strong>GoGAR</strong>라는 약칭을 사용하며 학생이 주장을 정당화하고 서로의 이유를 점검하는 활동을 분석합니다. GoGAR는 특정 AI 앱의 이름이나 고정된 증명 알고리즘이 아닙니다. <a class="concept-cite" href="#gogar-source-5" aria-label="출처 5 보기">[5]</a><a class="concept-cite" href="#gogar-source-6" aria-label="출처 6 보기">[6]</a><a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p></article>
           </div>
         </div>
 
-        <div class="math-example reveal" aria-labelledby="math-example-title">
+        <p class="attribution-note reveal"><strong>이름과 표현의 출처</strong> ‘이유의 공간’은 셀라스의 개념이며, ‘이유를 주고 묻는 게임’은 브랜덤이 체계적으로 전개한 언어 실천의 모형입니다. 다만 브랜덤 자신도 이 말을 ‘셀라스의 표현’으로 소개하므로, 브랜덤의 최초 조어라고 단정하지 않습니다. <a class="concept-cite" href="#gogar-source-7" aria-label="출처 7 보기">[7]</a> 이 홈페이지의 이전 소개 문구인 <strong>‘안다는 것은, 연결할 수 있다는 것’은 설명용 슬로건이지 두 철학자의 직접 인용이 아닙니다.</strong></p>
+
+        <div class="inference-heading reveal" id="inference-directions">
+          <p class="section-kicker">TWO DIRECTIONS / GROUNDS &amp; CONSEQUENCES</p>
+          <h3>상류·하류 추론은 무엇인가요?</h3>
+          <p>하나의 주장을 가운데 놓고 생각하면 쉽습니다. <strong>상류는 그 주장으로 들어오는 근거</strong>, <strong>하류는 그 주장으로부터 나가는 결과</strong>를 묻는 방향입니다. 강물의 흐름에 빗댄 말이지, 수학 내용의 난도나 학습 순서를 뜻하지 않습니다.</p>
+        </div>
+        <div class="reason-flow reveal" aria-label="상류의 근거와 조건에서 중심 주장을 거쳐 하류의 결과와 책임으로"><span><small>UPSTREAM / 상류</small>근거 · 조건</span><b aria-hidden="true">→</b><span class="flow-claim"><small>FOCAL CLAIM</small>지금 살피는 주장</span><b aria-hidden="true">→</b><span><small>DOWNSTREAM / 하류</small>결과 · 책임</span></div>
+        <div class="direction-grid reveal">
+          <article><span>UPSTREAM / 상류 추론</span><h4>무엇을 근거로<br>이 주장을 할 자격이 생기는가?</h4><p>전제와 정의, 증명의 근거, 공식을 사용해도 되는 조건을 확인합니다. 수학에서는 <strong>“왜 성립하나요?” “이 조건은 왜 필요한가요?”</strong>라고 묻습니다.</p><p class="direction-term">적용의 조건<br><small>circumstances of application</small></p></article>
+          <article><span>DOWNSTREAM / 하류 추론</span><h4>이 주장을 받아들이면<br>무엇을 더 책임져야 하는가?</h4><p>그 주장으로부터 따라오는 결론과 가능해지는 다음 단계를 확인합니다. <strong>“그렇다면 무엇을 더 말할 수 있나요?”</strong>라고 묻고 그 결과도 함께 받아들일 책임을 집니다.</p><p class="direction-term">적용의 결과<br><small>consequences of application</small></p></article>
+        </div>
+        <div class="theory-foundation reveal"><p><strong>이론적 근거: 더밋 → 브랜덤</strong> 마이클 더밋(Michael Dummett)이 구분한 ‘적용의 조건’과 ‘적용의 결과’를 브랜덤은 개념의 추론적 내용을 설명하는 데 받아들였습니다. 브랜덤은 실제로 상류·하류라는 표현을 사용하며, <strong>개념을 이해하려면 두 측면을 함께 파악해야 한다</strong>고 설명합니다. 이 앱은 그 관점을 수학적 질문 설계에 활용합니다. <a class="concept-cite" href="#gogar-source-4" aria-label="출처 4 보기">[4]</a></p><p>공식으로 답만 구하면서 성립 근거를 설명하지 못하거나, 증명만 알고 그로부터 무엇을 얻는지 설명하지 못한다면 추론 관계의 한쪽을 놓칩니다. 다만 상류·하류는 <strong>어떤 주장을 기준으로 삼는지에 따라</strong> 달라집니다. 전제에서 결론을 얻는 계산은 전제의 하류이면서, 그 결론을 정당화하는 상류이기도 합니다.</p></div>
+
+        <div class="math-example reveal" id="series-reason-example" aria-labelledby="math-example-title">
           <div class="example-intro">
-            <p class="section-kicker">A SMALL MATHEMATICAL EXAMPLE</p>
-            <h3 id="math-example-title">“6은 짝수다.”<br>이 한 문장을 이해한다면?</h3>
-            <p>아래는 개념을 설명하기 위해 구성한 수학 대화입니다. 주장의 근거와 결과를 잇고, 잘못된 근거가 나오면 함께 고칩니다.</p>
-            <div class="example-formula">6 = 2 × 3</div>
-            <p class="example-caption">짝수의 정의: 어떤 정수 k에 대해 2k로 나타낼 수 있는 정수</p>
+            <p class="section-kicker">ONE FORMULA / TWO DIRECTIONS</p>
+            <h3 id="math-example-title">같은 공식,<br>두 방향으로 이해하기</h3>
+            <p>이번에는 <strong>무한등비급수의 합 공식</strong>을 중심 주장으로 놓습니다. 공식을 외우는 것에서 멈추지 않고, 그 앞의 근거와 뒤의 결과를 함께 설명합니다.</p>
+            <div class="example-formula">S = <span class="fraction"><span>a</span><span>1 − r</span></span></div>
+            <p class="example-caption">실수 a, r에 대해 |r| &lt; 1에서 성립합니다. 아래 수렴·발산 비교에서는 a ≠ 0을 가정합니다.</p>
           </div>
           <ol class="reason-dialogue">
-            <li><span>주장</span><p><strong>학생</strong> “6은 짝수입니다.”<small>이 주장을 하고, 필요한 경우 이유를 설명할 책임을 집니다.</small></p></li>
-            <li><span>근거 묻기</span><p><strong>교사·친구</strong> “왜 그렇게 말할 수 있나요?”<small>학생: “6 = 2 × 3이고, 3은 정수이기 때문입니다.”</small></p></li>
-            <li><span>결과 묻기</span><p><strong>교사·친구</strong> “그러면 2로 나누었을 때 나머지는?”<small>학생: “0입니다. 2로 나누어떨어집니다.”</small></p></li>
-            <li><span>근거 점검</span><p><strong>교사·친구</strong> “‘3의 배수라서 짝수’라고 해도 될까요?”<small>학생: “9는 3의 배수지만 홀수입니다. 그 이유만으로는 부족합니다.”</small></p></li>
-            <li><span>정당화</span><p><strong>함께 확인</strong> “6이 정수의 2배라는 점이 짝수라는 주장의 근거입니다.”<small>주장과 적절한 근거의 연결이 드러나면, 그 주장을 정당하게 할 자격이 뒷받침됩니다.</small></p></li>
+            <li><span>상류 ①</span><p><strong>합의 의미와 증명의 근거</strong> 무한합은 부분합의 극한으로 정의합니다.<small>S<sub>n</sub> = a + ar + ⋯ + ar<sup>n−1</sup>이고, r ≠ 1이면 S<sub>n</sub> = a(1 − r<sup>n</sup>)/(1 − r)입니다. 이 유한합의 식이 출발 근거입니다.</small></p></li>
+            <li><span>상류 ②</span><p><strong>공식을 쓸 자격을 주는 조건</strong> |r| &lt; 1이면 r<sup>n</sup> → 0입니다.<small>따라서 S = lim<sub>n→∞</sub> S<sub>n</sub> = a/(1 − r). 조건은 외워 붙이는 꼬리표가 아니라, 극한을 정당화하는 이유입니다.</small></p></li>
+            <li><span>하류 ①</span><p><strong>받아들여야 하는 결과</strong> 0.999⋯ = 1을 설명할 수 있습니다.<small>a = 0.9, r = 0.1이므로 0.9 + 0.09 + ⋯ = 0.9/(1 − 0.1) = 1입니다. 여기서 소수도 유한 소수들의 극한으로 해석합니다.</small></p></li>
+            <li><span>하류 ②</span><p><strong>가능해지는 다음 단계</strong> 순환소수를 분수로 바꿀 수 있습니다.<small>0.333⋯ = 0.3 + 0.03 + ⋯ = 0.3/(1 − 0.1) = 1/3. 계산 결과와 함께, 수렴 조건을 만족하는지 확인할 책임도 유지합니다.</small></p></li>
           </ol>
         </div>
-
-        <div class="inference-heading reveal">
-          <p class="section-kicker">THREE DIRECTIONS OF REASONING</p>
-          <h3>증명에서 확인할 세 가지 질문</h3>
-          <p>수학교육 연구에서는 GoGAR를 분석할 때 근거·결과·양립 불가능성을 구분합니다. <a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p>
-        </div>
-        <div class="inference-grid reveal">
-          <article><span>UPSTREAM / 상류</span><h4>이 주장의 근거는?</h4><p>“6은 짝수”라는 주장은 <strong>6 = 2 × 3</strong>에서 정당화됩니다.</p></article>
-          <article><span>DOWNSTREAM / 하류</span><h4>무엇이 따라오는가?</h4><p>따라서 <strong>6을 2로 나눈 나머지는 0</strong>이라고 말할 수 있습니다.</p></article>
-          <article><span>INCOMPATIBILITY / 양립 불가능성</span><h4>무엇과 함께 성립할 수 없는가?</h4><p>같은 의미에서 <strong>“6은 홀수”</strong>라는 주장을 함께 정당화할 수 없습니다.</p></article>
-        </div>
-        <p class="concept-application reveal"><strong>이 홈페이지의 수업 설계</strong> 사람 사이의 이유 주고받기를 바탕으로, AI와 바이브코딩을 활용해 학생이 근거를 쓰고 질문을 따라갈 수 있는 화면으로 응용했습니다. 학생이 막힌 곳이 조건인지, 식의 변형인지, 결론인지 드러내는 것을 목표로 합니다.</p>
+        <aside class="boundary-note reveal" aria-labelledby="boundary-title"><span>INCOMPATIBILITY / 양립 불가능성 점검</span><h3 id="boundary-title">함께 받아들일 수 없는 주장도 확인합니다.</h3><p>양립 불가능성이란 <strong>같은 조건과 의미 아래에서 함께 정당화할 수 없는 주장들의 관계</strong>입니다. 예를 들어 a ≠ 0, |r| ≥ 1인 등비급수는 보통의 의미에서 유한한 합을 갖지 않으므로, 1 + 2 + 4 + ⋯의 합이 −1이라는 주장과 양립하지 않습니다. 이 예의 부분합은 오히려 끝없이 커집니다. <a class="concept-cite" href="#gogar-source-3" aria-label="출처 3 보기">[3]</a></p><p><strong>조건과 결과를 혼동하지 않기:</strong> |r| &lt; 1은 기본적으로 상류의 적용 조건입니다. 이를 벗어난 급수에 공식을 쓰지 않아야 한다는 것은 그 조건을 받아들인 데 따르는 책임입니다. a = 0이면 모든 항이 0이므로 공비와 관계없이 합은 0이라는 예외도 구분합니다.</p></aside>
+        <p class="concept-application reveal"><strong>이 홈페이지의 수업 설계 — 이론을 학습 화면으로</strong> 사람 사이의 이유 주고받기를 바탕으로, 바이브코딩으로 준비된 질문·입력·피드백·힌트를 구현했습니다. 학생이 막힌 곳이 근거인지, 조건인지, 결과인지 드러내고 교사·친구와 다시 설명할 수 있도록 돕는 것이 목표입니다. 현재 체험 앱은 미리 작성한 질문과 키워드 기반 피드백으로 동작하며, AI가 실시간으로 증명의 타당성을 판정하는 도구는 아닙니다. 이 설계의 학습 효과가 입증되었다고 주장하지는 않습니다.</p>
       </section>
 
       <section class="case-section content-width" aria-labelledby="case-title">
@@ -219,10 +225,10 @@
           <div class="bridge-heading reveal"><p class="section-kicker light-kicker">SAME METHOD / NEW TOPIC</p><h2 id="bridge-title">주제가 달라도<br><em>질문의 구조는 같습니다.</em></h2></div>
           <div class="bridge-table-wrap reveal reveal-delay-1">
             <table class="bridge-table">
-              <thead><tr><th scope="col">추론의 방향</th><th scope="col">근의 공식</th><th scope="col">무한등비급수</th><th scope="col">미적분학의 기본정리</th></tr></thead>
+              <thead><tr><th scope="col">추론 방향 · 점검</th><th scope="col">근의 공식</th><th scope="col">무한등비급수</th><th scope="col">미적분학의 기본정리</th></tr></thead>
               <tbody>
-                <tr><th scope="row">근거 · 상류</th><td>“왜 a로 나눌 수 있나요?”<br>a ≠ 0이라는 조건 확인</td><td>“무한합은 어떻게 정의하나요?”<br>부분합의 극한으로 정의</td><td>“F(x)는 무엇을 뜻하나요?”<br>변하는 위끝까지의 누적량</td></tr>
-                <tr><th scope="row">결과 · 하류</th><td>“완전제곱이 되면?”<br>제곱근을 취해 x를 고립</td><td>“부분합에 극한을 취하면?”<br>|r| &lt; 1에서 a/(1 − r) 도출</td><td>“작은 구간의 평균값은?”<br>연속성을 이용해 F′(x) = f(x) 도출</td></tr>
+                <tr><th scope="row">근거 · 상류</th><td>“왜 근의 공식이 성립하나요?”<br>a ≠ 0과 완전제곱 변형으로 정당화</td><td>“왜 합 공식을 쓸 수 있나요?”<br>부분합의 극한, 유한합의 식, |r| &lt; 1 확인</td><td>“왜 F′(x) = f(x)인가요?”<br>누적량의 차분몫과 f의 연속성으로 정당화</td></tr>
+                <tr><th scope="row">결과 · 하류</th><td>“공식에서 무엇을 얻나요?”<br>x² − 3x + 2 = 0의 해 1, 2를 계산</td><td>“공식으로 무엇을 설명하나요?”<br>0.999⋯ = 1, 순환소수의 분수 표현</td><td>“정리를 받아들이면?”<br>G′ = f일 때 정적분을 G(b) − G(a)로 계산</td></tr>
                 <tr><th scope="row">양립 불가</th><td>“u² = 4이니 u = 2만 가능?”<br>u = −2도 가능하므로 ±가 필요</td><td>“1 + 2 + 4 + ⋯ = −1?”<br>발산하는 합을 수로 가정한 오류</td><td>“∫<sub>1</sub><sup>x</sup> t² dt의 미분은 x² − 1?”<br>상수의 미분은 0이므로 결과는 x²</td></tr>
                 <tr><th scope="row">정당화 자격</th><td>각 변형의 조건과 ±의 이유를 설명</td><td>공식을 쓰기 전에 수렴 조건을 확인</td><td>연속성과 두 원시함수의 상수 차이를 설명</td></tr>
                 <tr><th scope="row">도착점</th><td colspan="3">공식을 외우는 대신, 왜 성립하며 언제 사용할 수 있는지 설명할 수 있다</td></tr>
@@ -272,8 +278,12 @@
           <li id="gogar-source-1"><a href="https://sites.pitt.edu/~rbrandom/Courses/2023%20Sellars/Sellars%20texts/FEE.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom, <cite>From Empiricism to Expressivism</cite> — 셀라스 철학을 해설한 저자 공개본 ↗</a><p>셀라스의 ‘이유의 공간’과 이유를 주고 묻는 실천의 관계. 특히 인쇄면 103쪽.</p></li>
           <li id="gogar-source-2"><a href="https://sites.pitt.edu/~rbrandom/Texts/Conceptual_Content_and_Discursive_Practi.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom, <cite>Conceptual Content and Discursive Practice</cite> — 저자 공개 원고 ↗</a><p><cite>Making It Explicit</cite>(1994)의 구상과 주장에 대한 책임, 정당화 자격, 규범적 기록. 원고 9–14쪽.</p></li>
           <li id="gogar-source-3"><a href="https://doi.org/10.1007/s10649-024-10377-7" target="_blank" rel="noopener noreferrer">James Drimalla (2025), <cite>Inferences, mastery, and objectivity: examining student understanding of mathematical concepts with inferentialism</cite> ↗</a><p><cite>Educational Studies in Mathematics</cite>, 119, 393–410. GoGAR와 상류·하류·양립 불가능한 추론의 수학교육적 해설.</p></li>
+          <li id="gogar-source-4"><a href="https://sites.pitt.edu/~rbrandom/Texts/How_Analytic_Philosophy_Has_Failed_Cogni.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom, <cite>How Analytic Philosophy Has Failed Cognitive Science</cite> — 저자 공개 원고 ↗</a><p>원고 9쪽과 각주 5. 더밋의 적용의 조건·결과를 설명하면서 상류·하류를 명시합니다. 더밋의 <cite>Frege: Philosophy of Language</cite>를 계승한 논의입니다.</p></li>
+          <li id="gogar-source-5"><a href="https://doi.org/10.1007/s13394-017-0189-3" target="_blank" rel="noopener noreferrer">Noorloos, Taylor, Bakker &amp; Derry (2017), <cite>Inferentialism as an alternative to socioconstructivism in mathematics education</cite> ↗</a><p><cite>Mathematics Education Research Journal</cite>, 29, 437–453. 추론주의의 의미론·규범적 실천을 수학교육 연구에 적용하는 이론적 설명.</p></li>
+          <li id="gogar-source-6"><a href="https://doi.org/10.1080/10986065.2011.538293" target="_blank" rel="noopener noreferrer">Bakker &amp; Derry (2011), <cite>Lessons from Inferentialism for Statistics Education</cite> ↗</a><p><cite>Mathematical Thinking and Learning</cite>, 13(1–2), 5–26. 추론주의에서 통계교육을 위한 시사점을 도출한 연구.</p></li>
+          <li id="gogar-source-7"><a href="https://sites.pitt.edu/~rbrandom/Courses/2022%20Phil%20of%20Language/Reasons%20texts/Brandom_-_Articulating_Reasons.pdf" target="_blank" rel="noopener noreferrer">Robert Brandom (2000), <cite>Articulating Reasons: An Introduction to Inferentialism</cite> — 저자 수업 공개본 ↗</a><p>인쇄면 189쪽. ‘이유를 주고 묻는 게임’을 셀라스의 표현으로 소개하는 대목이 있어, 이 홈페이지는 브랜덤의 최초 조어라고 단정하지 않습니다.</p></li>
         </ol>
-        <p class="source-note">‘6은 짝수’ 대화와 세 증명의 요약은 위 철학·수학교육 개념을 설명하기 위한 교육용 예시입니다. 체험 수업은 제공된 근의 공식·무한등비급수·미적분 기본정리 자료를 연결했습니다.</p>
+        <p class="source-note">무한등비급수의 상류·하류 예시와 세 증명의 요약은 위 철학·수학교육 개념을 설명하기 위한 교육적 재구성입니다. 원문 직접 인용이 아닙니다. 체험 수업은 제공된 근의 공식·무한등비급수·미적분 기본정리 자료를 연결했습니다.</p>
       </section>
     </main>
 
