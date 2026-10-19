@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&#xBBF8;&#xC801;&#xBD84; &#xAE30;&#xBCF8;&#xC815;&#xB9AC; GoGAR</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#fff;--bg2:#f5f4f0;--bg3:#eceae3;
+--text:#1a1a1a;--text2:#555;--text3:#999;
+--b:rgba(0,0,0,.12);--b2:rgba(0,0,0,.22);
+--p0:#EEEDFE;--p1:#CECBF6;--p2:#534AB7;--p3:#26215C;
+--t0:#E1F5EE;--t1:#9FE1CB;--t2:#0F6E56;--t3:#04342C;
+--c0:#FAECE7;--c1:#F5C4B3;--c2:#993C1D;
+--a0:#FAEEDA;--a1:#FAC775;--a2:#633806;
+--r:8px;--rl:12px
+}
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#1e1e1e;--bg2:#2a2a2a;--bg3:#333;
+--text:#f0f0f0;--text2:#aaa;--text3:#666;
+--b:rgba(255,255,255,.1);--b2:rgba(255,255,255,.22);
+--p0:#26215C;--p1:#3C3489;--p2:#AFA9EC;--p3:#EEEDFE;
+--t0:#04342C;--t1:#085041;--t2:#5DCAA5;--t3:#E1F5EE;
+--c0:#4A1B0C;--c1:#712B13;--c2:#F0997B;
+--a0:#412402;--a1:#633806;--a2:#FAC775
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;padding:1.5rem 1rem}
+.wrap{max-width:720px;margin:0 auto}
+.site-links{display:flex;flex-wrap:wrap;gap:8px 15px;padding:0 0 16px;margin-bottom:22px;border-bottom:1px solid var(--b);font-size:12px}
+.site-links a{color:var(--p2);text-decoration:none;font-weight:600}
+.site-links a:hover{text-decoration:underline}
+.lesson-context{margin-bottom:18px;padding:11px 14px;border-left:3px solid var(--t2);background:var(--bg);color:var(--text2);font-size:12px;line-height:1.7}
+.lesson-context small{display:block;margin-top:5px;color:var(--text2)}
+.hdr{text-align:center;margin-bottom:1.5rem}
+.hdr h1{font-size:20px;font-weight:600}
+.hdr p{font-size:13px;color:var(--text2);margin-top:5px;line-height:1.6}
+.info{background:var(--p0);border:.5px solid var(--p1);border-radius:var(--r);padding:10px 14px;margin-bottom:1.25rem;font-size:13px;color:var(--p3);line-height:1.65}
+.fbox{background:var(--bg);border:.5px solid var(--b);border-radius:var(--r);padding:11px 14px;margin-bottom:1.25rem;text-align:center;font-size:16px;font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;color:var(--text)}
+.snav{display:flex;margin-bottom:1.25rem;justify-content:center;align-items:center}
+.sdot{width:30px;height:30px;border-radius:50%;border:.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text3);background:var(--bg2);flex-shrink:0;transition:all .2s}
+.sdot.cur{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.sdot.done{background:#0F6E56;color:#E1F5EE;border-color:#0F6E56;cursor:pointer}
+.sline{width:22px;height:1px;background:var(--b2)}
+.sbadge{font-size:12px;color:var(--text3);text-align:center;margin-bottom:.5rem}
+.card{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.25rem;margin-bottom:1rem}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;margin-bottom:12px;font-weight:600}
+.up{background:var(--p1);color:var(--p3)}
+.dn{background:var(--t1);color:var(--t3)}
+.ic{background:var(--c1);color:var(--c2)}
+.en{background:var(--a1);color:var(--a2)}
+.brow{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.brow.r{flex-direction:row-reverse}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.av.t{background:var(--p1);color:var(--p3)}
+.av.s{background:var(--t1);color:var(--t3)}
+.bb{max-width:86%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.7}
+.bb.t{background:var(--p0);color:var(--p3);border-top-left-radius:3px}
+.bb.s{background:var(--t0);color:var(--t3);border-top-right-radius:3px}
+.m{font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;white-space:nowrap}
+.ig{display:inline-flex;align-items:center;white-space:nowrap}
+.lim{display:inline-flex;flex-direction:column;font-size:.68em;line-height:1.05;margin:0 2px 0 1px;text-align:left}
+hr{border:none;border-top:.5px solid var(--b);margin:1rem 0}
+.ql{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.65}
+.clog{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.cm{display:flex;gap:8px;align-items:flex-start}
+.cm.me{flex-direction:row-reverse}
+.cav{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.cav.ai{background:var(--p1);color:var(--p3)}
+.cav.me{background:var(--t1);color:var(--t3)}
+.cb{max-width:86%;padding:9px 13px;border-radius:11px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}
+.cb.ai{background:var(--p0);color:var(--p3);border-top-left-radius:3px}
+.cb.me{background:var(--t0);color:var(--t3);border-top-right-radius:3px}
+.cb.ok{background:var(--t0);color:var(--t2);border:.5px solid var(--t1);border-top-left-radius:3px}
+.cb.partial{background:var(--a0);color:var(--a2);border:.5px solid var(--a1);border-top-left-radius:3px}
+.cb.miss{background:var(--c0);color:var(--c2);border:.5px solid var(--c1);border-top-left-radius:3px}
+.cb.hint{background:var(--bg2);color:var(--text);border:.5px dashed var(--b2);border-top-left-radius:3px}
+.cb.typing{color:var(--text3);background:var(--bg2)}
+.phase{font-size:12px;color:var(--text3);margin:4px 0 8px}
+textarea{width:100%;min-height:80px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg2);border:.5px solid var(--b2);border-radius:var(--r);padding:10px 13px;resize:vertical;line-height:1.6}
+textarea:focus{outline:none;border-color:#7F77DD;box-shadow:0 0 0 2px rgba(83,74,183,.12)}
+.brow2{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center}
+.kbd{font-size:11px;color:var(--text3);margin-left:auto}
+.btn{border:.5px solid var(--b2);border-radius:var(--r);padding:9px 16px;font-size:13px;font-family:inherit;cursor:pointer;transition:all .15s}
+.btn:disabled{opacity:.45;cursor:default}
+.bp{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.bp:hover:not(:disabled){background:#3C3489}
+.bs{background:var(--bg);color:var(--text)}
+.bs:hover:not(:disabled){background:var(--bg2)}
+.nrow{margin-top:.25rem;margin-bottom:1rem;display:none;justify-content:flex-end}
+.nrow.show{display:flex}
+.sum{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.5rem}
+.sum h2{font-size:17px;font-weight:600;margin-bottom:1rem}
+.ff{text-align:center;margin:1rem 0 1.25rem;padding:14px;background:var(--p0);border-radius:var(--r);font-size:17px;font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;color:var(--p3);border:.5px solid var(--p1);line-height:1.8}
+.si{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.si .tag{flex-shrink:0;margin-bottom:0;min-width:96px;text-align:center}
+.st{font-size:13.5px;line-height:1.7}
+.note{margin-top:1rem;padding:12px 14px;background:var(--bg2);border-radius:var(--r);border:.5px solid var(--b);font-size:13px;color:var(--text2);line-height:1.7}
+.again{margin-top:1rem;display:flex;justify-content:center}
+@media(max-width:480px){.si{flex-direction:column;gap:4px}.bb,.cb{max-width:92%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="site-links" aria-label="GoGAR 수업 이동"><a href="index.html#lessons">← 홈페이지 · 수업 목록</a><a href="lesson.html">근의 공식</a><a href="series-lesson.html">무한등비급수</a><a href="ftc-lesson.html">미적분학의 기본정리</a></nav>
+<div class="hdr"><h1 id="title"></h1><p id="subtitle"></p></div>
+<div class="info" id="info"></div>
+<div class="lesson-context">f가 [a, b]에서 연속일 때를 다룹니다. 넓이는 부호를 가진 누적량으로 해석하며, F′(x) = f(x)는 내부점에서 성립합니다.<small>이 체험은 미리 준비된 질문·힌트·피드백으로 작동합니다.</small></div>
+<div class="fbox" id="fdisp"></div>
+<div class="snav" id="snav"></div>
+<div id="main"></div>
+</div>
+<script>
+var T={
+title:"\uBBF8\uC801\uBD84 \uAE30\uBCF8\uC815\uB9AC GoGAR \uC218\uC5C5",
+subtitle:"\uB113\uC774\uB97C \uAD6C\uD558\uB294 \uC801\uBD84\uACFC \uAE30\uC6B8\uAE30\uB97C \uAD6C\uD558\uB294 \uBBF8\uBD84\uC774 \uC65C \uC11C\uB85C \uAC70\uAFB8\uB85C\uC778\uC9C0, \uC774\uC720\uB97C \uC8FC\uACE0\uBC1B\uC73C\uBA70 \uC9C1\uC811 \uC99D\uBA85\uD569\uB2C8\uB2E4",
+info:"\uC218\uC5C5 \uBC29\uC2DD: T\uC758 \uC9C8\uBB38\uC5D0 \uC790\uC2E0\uC758 \uC0DD\uAC01\uC744 \uC4F0\uACE0 [\uC81C\uCD9C]\uC744 \uB204\uB974\uC138\uC694. \uB2F5\uC774 \uB9DE\uC73C\uBA74 T\uAC00 \uD55C \uAC78\uC74C \uB354 \uAE4A\uC740 \uC9C8\uBB38\uC744 \uB358\uC9C0\uACE0, \uB9C9\uD788\uBA74 [\uD78C\uD2B8 \uC694\uCCAD]\uC73C\uB85C \uC9C8\uBB38\uC744 \uB354 \uC791\uAC8C \uCABC\uAC1C \uBC1B\uC744 \uC218 \uC788\uC5B4\uC694. '\uC774 \uB2E8\uACC4 \uC644\uC131!'\uC774 \uB098\uC624\uBA74 \uB2E4\uC74C \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC11\uB2C8\uB2E4.",
+final:"d/dx \u222B[a,x] f(t) dt = f(x)<br>\u222B[a,b] f(x) dx = G(b) \u2212 G(a)<br><span style=\"font-size:14px\">(f\uB294 \uC5F0\uC18D\uD568\uC218, G\uB294 f\uC758 \uC784\uC758\uC758 \uBD80\uC815\uC801\uBD84)</span>",
+note:"\uC774 \uC218\uC5C5\uC758 \uB300\uD654 \uC790\uCCB4\uAC00 GoGAR(\uC774\uC720\uB97C \uC8FC\uACE0\uBC1B\uB294 \uAC8C\uC784)\uC600\uC5B4\uC694. \uB113\uC774 \uD568\uC218\uB77C\uB294 \uC815\uC758\uC5D0\uC11C \uCD9C\uBC1C\uD558\uACE0(\uC0C1\uB958 \uCD94\uB860), \uB760\uC758 \uB113\uC774\uC640 \uADF9\uD55C\uC73C\uB85C F\u2032(x) = f(x)\uB97C \uC774\uB04C\uC5B4\uB0B4\uACE0(\uD558\uB958 \uCD94\uB860), \uADF8\uB7F4\uB4EF\uD558\uC9C0\uB9CC \uD2C0\uB9B0 \uACC4\uC0B0\uC744 \uAC00\uB824\uB0B4\uACE0(\uC591\uB9BD \uBD88\uAC00\uB2A5), \uC6B0\uB9AC\uAC00 \uB298 \uC4F0\uB358 'G(b) \u2212 G(a)' \uACC4\uC0B0\uC774 \uC65C \uC815\uB2F9\uD55C\uC9C0 \uC2A4\uC2A4\uB85C \uC124\uBA85\uD558\uB294(\uC790\uACA9 \uBD80\uC5EC) \uACFC\uC815 \uC804\uCCB4\uAC00 \uC218\uD559\uC801 \uC774\uD574\uC758 \uC99D\uAC70\uC785\uB2C8\uB2E4.",
+steps:[
+
+/* ---------- 1 ---------- */
+{tag:"up",tagTxt:"\uC0C1\uB958 \uCD94\uB860 \u2014 \uB113\uC774 \uD568\uC218",
+formula:"F(x) = \u222B[a,x] f(t) dt",
+bubbles:[
+{r:"t",txt:"\uC9C0\uAE08\uAE4C\uC9C0 \uC815\uC801\uBD84 \u222B[a,b] f(x) dx \uB294 '\uAD6C\uAC04 [a, b]\uC5D0\uC11C \uADF8\uB798\uD504 \uC544\uB798 \uB113\uC774'\uB97C \uB098\uD0C0\uB0B4\uB294 \uD558\uB098\uC758 \uC218\uC600\uC5B4\uC694."},
+{r:"t",txt:"\uADF8\uB7F0\uB370 \uC624\uB298\uC740 \uC704\uB05D b \uC790\uB9AC\uC5D0 \uBCC0\uC218 x\uB97C \uB123\uC5B4 \uBCFC \uAC70\uC608\uC694. <span class='m'>F(x) = \u222B[a,x] f(t) dt</span> \uB77C\uACE0 \uD558\uBA74, F(x)\uB294 \uC218\uC77C\uAE4C\uC694, \uD568\uC218\uC77C\uAE4C\uC694?"},
+{r:"s",txt:"x\uAC00 \uBC14\uB00C\uBA74\u2026 \uB113\uC774\uB3C4 \uBC14\uB00C\uB098\uC694?"}],
+q:"f(t) = 2 (\uC0C1\uC218\uD568\uC218), a = 0 \uC77C \uB54C F(x) = \u222B[0,x] 2 dt \uB97C \uADF8\uB9BC\uC744 \uB5A0\uC62C\uB9AC\uBA70 \uAD6C\uD574 \uBCF4\uACE0, F(x)\uAC00 \uBB34\uC5C7\uC744 \uB098\uD0C0\uB0B4\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["2x","2*x","x*2","2\uBC30"],
+  lack:"F(x)\uAC00 \uBB34\uC5C7\uC744 \uB73B\uD558\uB294\uC9C0\uB294 \uC798 \uC124\uBA85\uD588\uC5B4\uC694. \uADF8\uB7FC f(t) = 2\uC77C \uB54C 0\uBD80\uD130 x\uAE4C\uC9C0\uC758 \uB113\uC774\uB97C \uC9C1\uC811 \uC2DD\uC73C\uB85C \uAD6C\uD558\uBA74 \uC5BC\uB9C8\uC778\uAC00\uC694? (\uAC00\uB85C x, \uC138\uB85C 2\uC778 \uC9C1\uC0AC\uAC01\uD615!)"},
+ {kw:["\uB113\uC774","\uBA74\uC801","x\uAE4C\uC9C0","x\uC5D0\uB530\uB77C","x\uAC00\uBCC0","x\uAC00\uBC14\uB00C","\uD568\uC218","\uC9C1\uC0AC\uAC01\uD615","\uB204\uC801"],
+  lack:"F(x) = 2x \uACC4\uC0B0\uC740 \uB9DE\uC544\uC694! \uADF8\uB7F0\uB370 \uC774 2x\uB294 \uADF8\uB9BC\uC5D0\uC11C \uBB34\uC5C7\uC744 \uB73B\uD558\uB098\uC694? \uADF8\uB9AC\uACE0 x\uAC00 \uBC14\uB00C\uBA74 F(x)\uB294 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694?"}],
+ ok:"\uC815\uD655\uD574\uC694! F(x) = 2x \uC774\uACE0, F(x)\uB294 'a\uBD80\uD130 x\uAE4C\uC9C0 \uADF8\uB798\uD504 \uC544\uB798 \uB113\uC774'\uB97C x\uC5D0 \uB530\uB77C \uC54C\uB824 \uC8FC\uB294 <b>\uB113\uC774 \uD568\uC218</b>\uC608\uC694."},
+miss:["y = 2 \uADF8\uB798\uD504\uB97C \uADF8\uB824 \uBCF4\uC138\uC694. t = 0\uBD80\uD130 t = x\uAE4C\uC9C0 \uADF8\uB798\uD504 \uC544\uB798 \uBD80\uBD84\uC740 \uC5B4\uB5A4 \uB3C4\uD615\uC774\uC8E0? \uAC00\uB85C\uC640 \uC138\uB85C\uB294?",
+"x = 1\uC774\uBA74 \uB113\uC774\uB294? x = 3\uC774\uBA74? x\uAC00 \uBC14\uB014 \uB54C\uB9C8\uB2E4 \uB113\uC774\uAC00 \uB2EC\uB77C\uC9C4\uB2E4\uBA74, F\uB294 x\uC758 \uBB34\uC5C7\uC774\uB77C\uACE0 \uD560 \uC218 \uC788\uC744\uAE4C\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: y = 2 \uADF8\uB798\uD504 \uC544\uB798, t = 0\uBD80\uD130 t = 1\uAE4C\uC9C0\uC758 \uB113\uC774\uB294? t = 3\uAE4C\uC9C0\uB294?",
+"\uC791\uC740 \uC9C8\uBB38 2: \uADF8\uB807\uB2E4\uBA74 t = 0\uBD80\uD130 t = x\uAE4C\uC9C0\uC758 \uB113\uC774\uB294 x\uB97C \uC368\uC11C \uC5B4\uB5BB\uAC8C \uB098\uD0C0\uB0BC\uAE4C\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uADF8 \uAC12\uC740 x\uAC00 \uBC14\uB00C\uBA74 \uD568\uAED8 \uBC14\uB00C\uB098\uC694? \uADF8\uB807\uB2E4\uBA74 F\uB294 x\uC758 \u25CB\u25CB\uC608\uC694. \uADF8\uB9AC\uACE0 \uADF8 \uAC12\uC740 \uADF8\uB9BC\uC5D0\uC11C \uBB34\uC5C7\uC774\uC8E0?"],
+follow:{q:"\uADF8\uB7F0\uB370 F(x) = 2x \uB97C \uBBF8\uBD84\uD558\uBA74 \uBB34\uC5C7\uC774 \uB098\uC624\uB098\uC694? \uC6D0\uB798 \uD568\uC218 f\uC640 \uBE44\uAD50\uD558\uBA74 \uBB54\uAC00 \uB208\uC5D0 \uB744\uC9C0 \uC54A\uB098\uC694?",
+ need:1,groups:[{kw:["2","f(x)","f\uC640\uAC19","\uC6D0\uB798\uD568\uC218","\uAC19\uB2E4","\uAC19\uC544","\uB611\uAC19"]}],
+ ok:"\uBC14\uB85C \uADF8\uAC70\uC608\uC694! F\u2032(x) = 2 = f(x). \uB113\uC774 \uD568\uC218\uB97C \uBBF8\uBD84\uD588\uB354\uB2C8 \uC6D0\uB798 \uD568\uC218\uAC00 \uB098\uC654\uC5B4\uC694. \uC6B0\uC5F0\uC77C\uAE4C\uC694? \uB2E4\uC74C \uB2E8\uACC4\uBD80\uD130 \uC774 '\uC6B0\uC5F0'\uC774 \uC5B8\uC81C\uB098 \uC131\uB9BD\uD558\uB294 \uC774\uC720\uB97C \uCC3E\uC544\uBCFC\uAC8C\uC694.",
+ miss:"F(x) = 2x \uB97C x\uC5D0 \uB300\uD574 \uBBF8\uBD84\uD558\uBA74 \uC5BC\uB9C8\uC778\uAC00\uC694? \uADF8 \uAC12\uC744 f(t) = 2 \uC640 \uBE44\uAD50\uD574 \uBCF4\uC138\uC694."},
+sum:"F(x) = \u222B[a,x] f(t) dt \uB294 x\uC5D0 \uB530\uB77C \uBCC0\uD558\uB294 <b>\uB113\uC774 \uD568\uC218</b>. f = 2\uC77C \uB54C F(x) = 2x, F\u2032(x) = 2 = f(x)."},
+
+/* ---------- 2 ---------- */
+{tag:"up",tagTxt:"\uC0C1\uB958 \uCD94\uB860 \u2014 \uB113\uC774\uC758 \uC99D\uAC00\uB7C9",
+formula:"F(x + h) \u2212 F(x) = ?",
+bubbles:[
+{r:"t",txt:"F\u2032(x)\uAC00 f(x)\uC640 \uAC19\uC740 \uC774\uC720\uB97C \uCC3E\uC73C\uB824\uBA74 \uBBF8\uBD84\uC758 \uC815\uC758\uB85C \uB3CC\uC544\uAC00\uC57C \uD574\uC694. <span class='m'>F\u2032(x) = lim<sub>h\u21920</sub> [F(x + h) \u2212 F(x)] / h</span> \uC600\uC8E0."},
+{r:"t",txt:"\uADF8\uB7EC\uB2C8\uAE4C \uBD84\uC790 F(x + h) \u2212 F(x) \uAC00 \uBB34\uC5C7\uC778\uC9C0\uBD80\uD130 \uC54C\uC544\uC57C \uD574\uC694. F(x + h)\uB294 a\uBD80\uD130 x + h\uAE4C\uC9C0\uC758 \uB113\uC774, F(x)\uB294 a\uBD80\uD130 x\uAE4C\uC9C0\uC758 \uB113\uC774\uC608\uC694."}],
+q:"F(x + h) \u2212 F(x) \uB294 \uADF8\uB9BC\uC5D0\uC11C \uC5B4\uB5A4 \uBD80\uBD84\uC758 \uB113\uC774\uC778\uC9C0, \uC815\uC801\uBD84 \uAE30\uD638\uB85C\uB294 \uC5B4\uB5BB\uAC8C \uC4F8 \uC218 \uC788\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694. (h > 0 \uC774\uB77C\uACE0 \uC0DD\uAC01\uD558\uC138\uC694.)",
+good:{need:2,groups:[
+ {kw:["x\uBD80\uD130x+h","x\uC5D0\uC11Cx+h","x~x+h","[x,x+h]","x\uC640x+h\uC0AC\uC774","x,x+h","x\uC5D0\uC11C\uBD80\uD130x+h","x+h\uAE4C\uC9C0","x\uC5D0\uC11Cx+h\uAE4C\uC9C0","\u222B[x,x+h]","\uD3EDh","\uD3ED\uC774h","\uB108\uBE44h","\uB108\uBE44\uAC00h","\uAC00\uB85Ch","\uAC00\uB85C\uAC00h"],
+  lack:"\uB113\uC774\uC758 '\uCC28\uC774'\uB77C\uB294 \uAC74 \uB9DE\uC544\uC694. \uADF8 \uCC28\uC774\uB294 \uC815\uD655\uD788 t\uAC00 \uC5B4\uB514\uBD80\uD130 \uC5B4\uB514\uAE4C\uC9C0\uC778 \uBD80\uBD84\uC778\uAC00\uC694?"},
+ {kw:["\uB113\uC774","\uBA74\uC801","\uB760","\uC870\uAC01","\uC9C1\uC0AC\uAC01\uD615","\uCC28\uC774","\uC99D\uAC00","\uB298\uC5B4\uB09C","\uBD80\uBD84"],
+  lack:"\uAD6C\uAC04\uC740 \uC815\uD655\uD574\uC694! \uADF8 \uAD6C\uAC04\uC5D0\uC11C \uC774 \uAC12\uC774 \uADF8\uB9BC\uC758 \uBB34\uC5C7(\uADF8\uB798\uD504 \uC544\uB798 \u25CB\u25CB)\uC778\uC9C0\uB3C4 \uD568\uAED8 \uB9D0\uD574\uBCF4\uC138\uC694."}],
+ ok:"\uD6CC\uB96D\uD574\uC694! <span class='m'>F(x + h) \u2212 F(x) = \u222B[x,x+h] f(t) dt</span>, \uC989 x\uBD80\uD130 x + h\uAE4C\uC9C0 \uD3ED\uC774 h\uC778 \uC587\uC740 \uB760\uC758 \uB113\uC774\uC608\uC694."},
+miss:["\uD070 \uB113\uC774(a\uBD80\uD130 x + h\uAE4C\uC9C0)\uC5D0\uC11C \uC791\uC740 \uB113\uC774(a\uBD80\uD130 x\uAE4C\uC9C0)\uB97C \uBE7C\uBA74 \uC5B4\uB5A4 \uBD80\uBD84\uC774 \uB0A8\uB098\uC694? \uADF8\uB9BC\uC5D0\uC11C \uC0C9\uCE60\uD574 \uBCF4\uC138\uC694.",
+"\u222B[a,x+h] f(t) dt = \u222B[a,x] f(t) dt + \u222B[x,x+h] f(t) dt \uB77C\uB294 \uC815\uC801\uBD84\uC758 \uC131\uC9C8\uC744 \uB5A0\uC62C\uB824 \uBCF4\uC138\uC694."],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: a\uBD80\uD130 x + h\uAE4C\uC9C0\uC758 \uB113\uC774\uB97C '[a, x] \uBD80\uBD84'\uACFC '\uB098\uBA38\uC9C0 \uBD80\uBD84'\uC73C\uB85C \uB098\uB204\uBA74, \uB098\uBA38\uC9C0 \uBD80\uBD84\uC740 \uC5B4\uB514\uC778\uAC00\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: \uADF8 \uB098\uBA38\uC9C0 \uBD80\uBD84\uC740 \uAC00\uB85C \uAE38\uC774\uAC00 \uC5BC\uB9C8\uC778 '\uC587\uC740 \uB760'\uC778\uAC00\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uADF8 \uB760\uC758 \uB113\uC774\uB97C \uC815\uC801\uBD84 \uAE30\uD638\uB85C \uC4F0\uBA74 \u222B[?,?] f(t) dt \uC608\uC694. \uC544\uB798\uB05D\uACFC \uC704\uB05D\uC740?"],
+follow:{q:"\uADF8\uB7EC\uBA74 [F(x + h) \u2212 F(x)] / h \uB294 '\uB760\uC758 \uB113\uC774 \u00F7 \uB760\uC758 \uD3ED'\uC774\uC5D0\uC694. \uB113\uC774\uB97C \uD3ED\uC73C\uB85C \uB098\uB208 \uAC12\uC740 \uADF8 \uB760\uB97C \uAC19\uC740 \uB113\uC774\uC758 \uC9C1\uC0AC\uAC01\uD615\uC73C\uB85C \uBC14\uAFC0 \uB54C \uBB34\uC5C7\uC5D0 \uD574\uB2F9\uD560\uAE4C\uC694?",
+ need:1,groups:[{kw:["\uB192\uC774","\uC138\uB85C","\uD3C9\uADE0","f(x)","\uD568\uC22B\uAC12","\uD568\uC218\uAC12"]}],
+ ok:"\uB9DE\uC544\uC694! \uB113\uC774 \u00F7 \uD3ED = <b>\uD3C9\uADE0 \uB192\uC774</b>\uC608\uC694. \uC774\uC81C \uC9C8\uBB38\uC740 'h \u2192 0 \uC77C \uB54C \uC774 \uD3C9\uADE0 \uB192\uC774\uAC00 \uC5B4\uB514\uB85C \uAC00\uB294\uAC00'\uB85C \uBC14\uB00C\uC5C8\uC5B4\uC694.",
+ miss:"\uC9C1\uC0AC\uAC01\uD615\uC758 \uB113\uC774 = \uAC00\uB85C \u00D7 \uC138\uB85C \uC608\uC694. \uB113\uC774\uB97C \uAC00\uB85C(\uD3ED h)\uB85C \uB098\uB204\uBA74 \uBB34\uC5C7\uC774 \uB098\uC624\uC8E0?"},
+sum:"F(x + h) \u2212 F(x) = \u222B[x,x+h] f(t) dt (\uD3ED h\uC778 \uB760\uC758 \uB113\uC774). \uC774\uB97C h\uB85C \uB098\uB204\uBA74 \uB760\uC758 <b>\uD3C9\uADE0 \uB192\uC774</b>."},
+
+/* ---------- 3 ---------- */
+{tag:"dn",tagTxt:"\uD558\uB958 \uCD94\uB860 \u2014 \uB760\uB97C \uD55C\uC5C6\uC774 \uC587\uAC8C",
+formula:"F\u2032(x) = lim<sub>h\u21920</sub> (1/h) \u222B[x,x+h] f(t) dt",
+bubbles:[
+{r:"t",txt:"\uAD6C\uAC04 [x, x + h]\uC5D0\uC11C f\uC758 \uCD5C\uC19F\uAC12\uC744 m, \uCD5C\uB313\uAC12\uC744 M\uC774\uB77C \uD574 \uBCFC\uAC8C\uC694. \uADF8\uB7EC\uBA74 \uB760\uC758 \uB113\uC774\uB294 \uB192\uC774 m\uC778 \uC9C1\uC0AC\uAC01\uD615\uBCF4\uB2E4 \uD06C\uAC70\uB098 \uAC19\uACE0, \uB192\uC774 M\uC778 \uC9C1\uC0AC\uAC01\uD615\uBCF4\uB2E4 \uC791\uAC70\uB098 \uAC19\uC544\uC694."},
+{r:"t",txt:"\uC2DD\uC73C\uB85C \uC4F0\uBA74 <span class='m'>m\u00B7h \u2264 \u222B[x,x+h] f(t) dt \u2264 M\u00B7h</span>, \uAC01 \uBCC0\uC744 h\uB85C \uB098\uB204\uBA74 <span class='m'>m \u2264 [F(x + h) \u2212 F(x)] / h \u2264 M</span> \uC774\uC5D0\uC694."},
+{r:"s",txt:"h\uB97C 0\uC73C\uB85C \uBCF4\uB0B4\uBA74 m\uC774\uB791 M\uC740 \uC5B4\uB5BB\uAC8C \uB418\uB294 \uAC70\uC8E0?"}],
+q:"f\uAC00 \uC5F0\uC18D\uD568\uC218\uC77C \uB54C h \u2192 0 \uC774\uBA74 m\uACFC M\uC774 \uC5B4\uB514\uB85C \uAC00\uB294\uC9C0, \uADF8\uB9AC\uACE0 \uADF8 \uACB0\uACFC F\u2032(x)\uAC00 \uBB34\uC5C7\uC774 \uB418\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["f(x)\uB85C","f(x)\uC5D0","\uB458\uB2E4f(x)","\uBAA8\uB450f(x)","\uAC19\uC544\uC838","\uAC19\uC544\uC9C0","\uAC19\uC740\uAC12","\uAD6C\uAC04\uC774\uC904","\uD55C\uC810","\uC810x","x\uB85C\uBAA8","\uBAA8\uC778","\uBAA8\uC774"],
+  lack:"\uACB0\uB860\uC740 \uB9DE\uC544\uC694. \uADF8\uB7F0\uB370 '\uC65C' \uADF8\uB7F0\uC9C0\uAC00 \uC911\uC694\uD574\uC694. \uAD6C\uAC04 [x, x + h]\uAC00 \uC810\uC810 \uC881\uC544\uC9C0\uBA74 \uADF8 \uC548\uC758 \uCD5C\uC19F\uAC12 m\uACFC \uCD5C\uB313\uAC12 M\uC740 \uAC01\uAC01 \uC5B4\uB5A4 \uAC12\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uB098\uC694?"},
+ {kw:["f'(x)=f(x)","f'(x)\uB294f(x)","f'(x)\uAC00f(x)","\uBBF8\uBD84\uD558\uBA74f","\uBBF8\uBD84\uACC4\uC218\uB294f","\uB3C4\uD568\uC218\uB294f","\uB07C\uC778","\uB07C\uC5B4","\uC0CC\uB4DC\uC704\uCE58","\uC0AC\uC774\uC5D0","\uC870\uC784"],
+  lack:"m\uACFC M\uC774 f(x)\uB85C \uAC04\uB2E4\uB294 \uAC74 \uC815\uD655\uD574\uC694! \uADF8\uB7EC\uBA74 \uADF8 \uB458 \uC0AC\uC774\uC5D0 \uB07C\uC5B4 \uC788\uB294 [F(x + h) \u2212 F(x)] / h \uB294 \uC5B4\uB514\uB85C \uAC08 \uC218\uBC16\uC5D0 \uC5C6\uC8E0? F\u2032(x)\uC5D0 \uB300\uD55C \uACB0\uB860\uAE4C\uC9C0 \uB9D0\uD574 \uBCF4\uC138\uC694."}],
+ partial:{kw:["\uC5F0\uC18D","h\u21920","h->0","0\uC73C\uB85C","\uC791\uC544","\uC881\uC544","\uC587\uC544"],msg:"\uC88B\uC740 \uAD00\uCC30\uC774\uC5D0\uC694. \uAD6C\uAC04\uC774 \uC881\uC544\uC9C4\uB2E4\uB294 \uAC74 \uB9DE\uC544\uC694. \uADF8\uB807\uB2E4\uBA74 \uADF8 \uC881\uC740 \uAD6C\uAC04 \uC548\uC758 \uAC00\uC7A5 \uB0AE\uC740 \uB192\uC774 m\uACFC \uAC00\uC7A5 \uB192\uC740 \uB192\uC774 M\uC740 \uACB0\uAD6D \uC5B4\uB5A4 \uD55C \uAC12\uC5D0 \uBAA8\uC774\uAC8C \uB420\uAE4C\uC694?"},
+ ok:"\uC644\uBCBD\uD574\uC694! \uAD6C\uAC04\uC774 \uD55C \uC810 x\uB85C \uC904\uC5B4\uB4E4\uBA74 \uC5F0\uC18D\uC131 \uB54C\uBB38\uC5D0 m\uACFC M\uC774 \uBAA8\uB450 f(x)\uB85C \uAC00\uACE0, \uADF8 \uC0AC\uC774\uC5D0 \uB07C\uC778 \uD3C9\uADE0 \uB192\uC774\uB3C4 f(x)\uB85C \uAC08 \uC218\uBC16\uC5D0 \uC5C6\uC5B4\uC694. \uB530\uB77C\uC11C <span class='m'>F\u2032(x) = f(x)</span>!"},
+miss:["h\uAC00 \uC544\uC8FC \uC791\uC544\uC9C0\uBA74 \uAD6C\uAC04 [x, x + h]\uB294 \uAC70\uC758 \uC810 x \uD558\uB098\uAC00 \uB3FC\uC694. \uADF8 '\uC810' \uADFC\uCC98\uC5D0\uC11C f\uC758 \uAC12\uC740 \uB300\uB7B5 \uC5BC\uB9C8\uC778\uAC00\uC694?",
+"m \u2264 (\uD3C9\uADE0 \uB192\uC774) \u2264 M \uC5D0\uC11C m\uACFC M\uC774 \uAC19\uC740 \uAC12\uC73C\uB85C \uBAA8\uC774\uBA74, \uAC00\uC6B4\uB370 \uAC12\uC740 \uC5B4\uB5BB\uAC8C \uB420\uAE4C\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: h\uAC00 0\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uBA74 \uAD6C\uAC04 [x, x + h]\uB294 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: f\uAC00 \uC5F0\uC18D\uC774\uBA74, x\uC5D0 \uC544\uC8FC \uAC00\uAE4C\uC6B4 t\uC5D0\uC11C f(t)\uB294 \uBB34\uC5C7\uC5D0 \uAC00\uAE5D\uB098\uC694? \uADF8\uB807\uB2E4\uBA74 m\uACFC M\uC740?",
+"\uC791\uC740 \uC9C8\uBB38 3: m \u2264 [F(x + h) \u2212 F(x)] / h \u2264 M \uC5D0\uC11C \uC591\uCABD\uC774 \uBAA8\uB450 f(x)\uB85C \uAC00\uBA74, \uAC00\uC6B4\uB370\uB294? \uADF8\uAC8C \uBC14\uB85C F\u2032(x)\uC608\uC694."],
+follow:{q:"\uADF8\uB7F0\uB370 \uC774 \uB17C\uC99D\uC5D0\uC11C 'f\uAC00 \uC5F0\uC18D'\uC774\uB77C\uB294 \uC870\uAC74\uC740 \uC5B4\uB514\uC5D0 \uC4F0\uC600\uB098\uC694? \uC5F0\uC18D\uC774 \uC544\uB2C8\uB77C\uBA74 \uC5B4\uB5A4 \uBB38\uC81C\uAC00 \uC0DD\uAE38 \uC218 \uC788\uC744\uAE4C\uC694?",
+ need:1,groups:[{kw:["m\uACFCm","\uCD5C\uC19F\uAC12","\uCD5C\uB313\uAC12","\uB04A","\uC810\uD504","\uD280","\uBAA8\uC774\uC9C0\uC54A","\uBAA8\uC774\uC9C0\uC54A\uC744","f(x)\uB85C\uAC00\uC9C0\uC54A","f(x)\uB85C\uC548","\uB2E4\uB97C\uC218","\uB2EC\uB77C\uC9C8","\uAC19\uC9C0\uC54A","\uD55C\uAC12\uC73C\uB85C"]}],
+ ok:"\uC815\uD655\uD574\uC694! \uC5F0\uC18D\uC131\uC740 'm\uACFC M\uC774 f(x)\uB85C \uBAA8\uC778\uB2E4'\uB294 \uBD80\uBD84\uC5D0 \uC4F0\uC600\uC5B4\uC694. \uADF8\uB798\uD504\uAC00 x\uC5D0\uC11C \uB04A\uACA8 \uC788\uC73C\uBA74 \uC67C\uCABD\uACFC \uC624\uB978\uCABD \uB192\uC774\uAC00 \uB2EC\uB77C\uC11C m\uACFC M\uC774 \uD558\uB098\uC758 \uAC12\uC73C\uB85C \uBAA8\uC774\uC9C0 \uC54A\uC744 \uC218 \uC788\uC5B4\uC694. \uADF8\uB798\uC11C \uC815\uB9AC\uC5D0\uB294 'f\uAC00 \uC5F0\uC18D\uC77C \uB54C'\uB77C\uB294 \uC870\uAC74\uC774 \uBD99\uC2B5\uB2C8\uB2E4.",
+ miss:"x\uC5D0\uC11C \uADF8\uB798\uD504\uAC00 \uD22D \uB04A\uACA8 \uC704\uB85C \uC810\uD504\uD55C\uB2E4\uACE0 \uC0C1\uC0C1\uD574 \uBCF4\uC138\uC694. \uADF8\uB54C\uB3C4 x \uADFC\uCC98\uC758 \uCD5C\uC19F\uAC12\uACFC \uCD5C\uB313\uAC12\uC774 \uAC19\uC740 \uAC12\uC73C\uB85C \uBAA8\uC77C\uAE4C\uC694?"},
+sum:"m\u00B7h \u2264 \u222B[x,x+h] f \u2264 M\u00B7h \uC5D0\uC11C m \u2264 \uD3C9\uADE0 \uB192\uC774 \u2264 M. f\uAC00 \uC5F0\uC18D\uC774\uBA74 m, M \u2192 f(x) \uC774\uBBC0\uB85C <b>F\u2032(x) = f(x)</b>."},
+
+/* ---------- 4 ---------- */
+{tag:"ic",tagTxt:"\uC591\uB9BD \uBD88\uAC00\uB2A5 \u2014 \uC798\uBABB\uB41C \uACC4\uC0B0 \uCC3E\uAE30",
+formula:"d/dx \u222B[1,x] t\u00B2 dt = x\u00B2 \u2212 1 ???",
+bubbles:[
+{r:"s",txt:"3\uB2E8\uACC4 \uACB0\uACFC\uB97C \uD655\uC778\uD574 \uBCF4\uB824\uACE0 \uC9C1\uC811 \uACC4\uC0B0\uD574 \uBD24\uC5B4\uC694. <span class='m'>\u222B[1,x] t\u00B2 dt = x\u00B3/3 \u2212 1/3</span> \uC774\uC796\uC544\uC694."},
+{r:"s",txt:"\uADF8\uB7F0\uB370 \uC774\uAC78 \uBBF8\uBD84\uD558\uBA74, \uC704\uB05D x\uB97C \uB123\uC740 \uAC83\uC5D0\uC11C \uC544\uB798\uB05D 1\uC744 \uB123\uC740 \uAC78 \uBE7C\uC57C \uD558\uB2C8\uAE4C <b>x\u00B2 \u2212 1\u00B2 = x\u00B2 \u2212 1</b> \uC774 \uB098\uC640\uC694. 3\uB2E8\uACC4\uB300\uB85C\uB77C\uBA74 f(x) = x\u00B2 \uC774\uC5B4\uC57C \uD558\uB294\uB370, \uACB0\uACFC\uAC00 \uB2EC\uB77C\uC694!"},
+{r:"t",txt:"\uB450 \uACB0\uB860 'x\u00B2'\uACFC 'x\u00B2 \u2212 1'\uC740 \uB3D9\uC2DC\uC5D0 \uCC38\uC77C \uC218 \uC5C6\uC5B4\uC694. 3\uB2E8\uACC4 \uC99D\uBA85\uC774 \uD2C0\uB838\uC744\uAE4C\uC694, \uC544\uB2C8\uBA74 \uC774 \uACC4\uC0B0 \uC5B4\uB518\uAC00\uC5D0 \uC798\uBABB\uC774 \uC788\uC744\uAE4C\uC694?"}],
+q:"x\u00B3/3 \u2212 1/3 \uC744 \uBBF8\uBD84\uD558\uB294 \uACFC\uC815\uC5D0\uC11C \uBB34\uC5C7\uC774 \uC798\uBABB\uB418\uC5C8\uB294\uC9C0, \uC544\uB798\uB05D 1\uC774 \uBBF8\uBD84 \uACB0\uACFC\uC5D0 \uC601\uD5A5\uC744 \uC8FC\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["\uC0C1\uC218","-1/3","1/3","\uBBF8\uBD84\uD558\uBA740","0\uC774\uB41C","0\uC774\uB418","0\uC774\uB2E4","0\uC774\uC57C","\uC5C6\uC5B4\uC9C4","\uC0AC\uB77C"],
+  lack:"x\u00B2 \u2212 1 \uC774 \uD2C0\uB838\uB2E4\uB294 \uD310\uB2E8\uC740 \uB9DE\uC544\uC694. \uADF8\uB7FC x\u00B3/3 \u2212 1/3 \uC744 \uC2E4\uC81C\uB85C \uD55C \uD56D\uC529 \uBBF8\uBD84\uD574 \uBCF4\uC138\uC694. \u22121/3 \uC740 \uBBF8\uBD84\uD558\uBA74 \uBB34\uC5C7\uC774 \uB418\uB098\uC694?"},
+ {kw:["x^2","f(x)","\uD63C\uB3D9","\uD5F7\uAC08","\uC11E","\uB300\uC785","\uB123\uACE0\uBE7C","\uB123\uC5B4\uC11C\uBE7C","\uB450\uBC88","\uC815\uC801\uBD84\uACC4\uC0B0","\uC815\uC801\uBD84\uC744\uACC4\uC0B0"],
+  lack:"\u22121/3 \uC774 \uC0C1\uC218\uB77C\uC11C \uBBF8\uBD84\uD558\uBA74 0\uC774 \uB41C\uB2E4\uB294 \uAC74 \uC815\uD655\uD574\uC694! \uADF8\uB7FC \uC62C\uBC14\uB978 \uBBF8\uBD84 \uACB0\uACFC\uB294 \uBB34\uC5C7\uC774\uACE0, \uC774 \uD559\uC0DD\uC740 \uC5B4\uB5A4 \uB450 \uACFC\uC815\uC744 \uD5F7\uAC08\uB9B0 \uAC78\uAE4C\uC694?"}],
+ ok:"\uC815\uD655\uD574\uC694! x\u00B3/3 \u2212 1/3 \uC5D0\uC11C \u22121/3 \uC740 \uC0C1\uC218\uB77C \uBBF8\uBD84\uD558\uBA74 0\uC774\uC5D0\uC694. \uC62C\uBC14\uB978 \uACB0\uACFC\uB294 <span class='m'>x\u00B2 = f(x)</span> \uB85C 3\uB2E8\uACC4\uC640 \uC77C\uCE58\uD574\uC694. \uC774 \uD559\uC0DD\uC740 '\uC704\uB05D\u00B7\uC544\uB798\uB05D\uC744 \uB300\uC785\uD574 \uBE7C\uB294' \uC815\uC801\uBD84 \uACC4\uC0B0\uC744 \uBBF8\uBD84 \uB2E8\uACC4\uC5D0\uC11C \uD55C \uBC88 \uB354 \uD574 \uBC84\uB9B0 \uAC70\uC608\uC694."},
+miss:["x\u00B3/3 \u2212 1/3 \uC744 \uBBF8\uBD84 \uACF5\uC2DD\uB300\uB85C \uD55C \uD56D\uC529 \uBBF8\uBD84\uD574 \uBCF4\uC138\uC694. (x\u00B3/3)\u2032 = ?, (\u22121/3)\u2032 = ?",
+"'\uC704\uB05D\uC744 \uB123\uACE0 \uC544\uB798\uB05D\uC744 \uB123\uC5B4 \uBE7C\uB294 \uAC83'\uC740 \uC815\uC801\uBD84 \uAC12\uC744 \uACC4\uC0B0\uD560 \uB54C \uD558\uB294 \uC77C\uC774\uC5D0\uC694. \uC9C0\uAE08\uC740 \uC774\uBBF8 \uACC4\uC0B0\uB41C \uD568\uC218 x\u00B3/3 \u2212 1/3 \uC744 \uBBF8\uBD84\uD558\uB294 \uC0C1\uD669\uC774\uC5D0\uC694. \uBB34\uC5C7\uC744 \uD574\uC57C \uD560\uAE4C\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: (x\u00B3/3)\u2032 \uC740 \uC5BC\uB9C8\uC778\uAC00\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: \u22121/3 \uC740 x\uAC00 \uBC14\uB00C\uC5B4\uB3C4 \uBCC0\uD558\uB098\uC694? \uBCC0\uD558\uC9C0 \uC54A\uB294 \uC218\uB97C \uBBF8\uBD84\uD558\uBA74?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uADF8\uB807\uB2E4\uBA74 \uC62C\uBC14\uB978 \uACB0\uACFC\uB294 \uBB34\uC5C7\uC778\uAC00\uC694? \uC774 \uD559\uC0DD\uC740 '\uBBF8\uBD84'\uACFC \uC815\uC801\uBD84\uC758 \uC5B4\uB5A4 \uACC4\uC0B0\uC744 \uC11E\uC5B4 \uBC84\uB9B0 \uAC78\uAE4C\uC694?"],
+follow:{q:"\uADF8\uB807\uB2E4\uBA74 \uC544\uB798\uB05D\uC744 1 \uB300\uC2E0 5\uB85C \uBC14\uAFBC <span class='m'>G(x) = \u222B[5,x] t\u00B2 dt</span> \uB97C \uBBF8\uBD84\uD558\uBA74 \uBB34\uC5C7\uC774 \uB098\uC62C\uAE4C\uC694? \uC544\uB798\uB05D\uC740 \uACB0\uACFC\uC5D0 \uC5B4\uB5A4 \uC601\uD5A5\uC744 \uC8FC\uB098\uC694?",
+ need:1,groups:[{kw:["x^2","\uAC19","\uC601\uD5A5\uC5C6","\uC601\uD5A5\uC774\uC5C6","\uC0C1\uAD00\uC5C6","\uC601\uD5A5\uC744\uC8FC\uC9C0\uC54A","\uC601\uD5A5\uC548","\uC0C1\uC218\uB9CC","\uC0C1\uC218\uCC28\uC774"]}],
+ ok:"\uB9DE\uC544\uC694! G\u2032(x) = x\u00B2. \uC544\uB798\uB05D\uC744 \uBC14\uAFB8\uBA74 \uB113\uC774 \uD568\uC218\uC5D0 \uC0C1\uC218\uB9CC\uD07C \uCC28\uC774\uAC00 \uC0DD\uAE38 \uBFD0\uC774\uB77C, \uBBF8\uBD84\uD558\uBA74 \uADF8 \uC0C1\uC218\uB294 \uC0AC\uB77C\uC838\uC694. \uC544\uB798\uB05D\uC740 \uB113\uC774\uB97C \uC7AC\uAE30 \uC2DC\uC791\uD558\uB294 '\uCD9C\uBC1C\uC810'\uB9CC \uBC14\uAFC0 \uBFD0, \uB113\uC774\uAC00 \uB298\uC5B4\uB098\uB294 \uC18D\uB3C4\uC5D0\uB294 \uC601\uD5A5\uC744 \uC8FC\uC9C0 \uC54A\uC544\uC694.",
+ miss:"\u222B[5,x] t\u00B2 dt = x\u00B3/3 \u2212 125/3 \uC774\uC5D0\uC694. \uC774\uAC78 \uBBF8\uBD84\uD558\uBA74?"},
+sum:"d/dx \u222B[1,x] t\u00B2 dt = <b>x\u00B2</b> (x\u00B2 \u2212 1 \uC544\uB2D8). \uC544\uB798\uB05D\uC740 \uC0C1\uC218 \uCC28\uC774\uB9CC \uB9CC\uB4E4\uACE0, \uBBF8\uBD84\uD558\uBA74 \uC0AC\uB77C\uC9C4\uB2E4."},
+
+/* ---------- 5 ---------- */
+{tag:"en",tagTxt:"\uC790\uACA9 \uBD80\uC5EC \u2014 \uC815\uC801\uBD84 \uACC4\uC0B0\uC758 \uC815\uB2F9\uD654",
+formula:"\u222B[a,b] f(x) dx = G(b) \u2212 G(a)",
+bubbles:[
+{r:"t",txt:"\uC9C0\uAE08\uAE4C\uC9C0\uC758 \uACB0\uB860: F(x) = \u222B[a,x] f(t) dt \uB294 F\u2032(x) = f(x) \uC774\uBBC0\uB85C f\uC758 \uBD80\uC815\uC801\uBD84(\uC6D0\uC2DC\uD568\uC218) \uC911 \uD558\uB098\uC608\uC694."},
+{r:"t",txt:"\uADF8\uB7F0\uB370 \uC6B0\uB9AC\uB294 \uC815\uC801\uBD84\uC744 \uACC4\uC0B0\uD560 \uB54C '\uC544\uBB34 \uBD80\uC815\uC801\uBD84 G'\uB97C \uAD6C\uD574\uC11C G(b) \u2212 G(a)\uB97C \uACC4\uC0B0\uD558\uC796\uC544\uC694. \uC608\uB97C \uB4E4\uC5B4 x\u00B2\uC758 \uBD80\uC815\uC801\uBD84\uC73C\uB85C x\u00B3/3 \uC744 \uC368\uB3C4 \uB418\uACE0 x\u00B3/3 + 7 \uC744 \uC368\uB3C4 \uB418\uC8E0."},
+{r:"s",txt:"F \uB9D0\uACE0 \uB2E4\uB978 G\uB97C \uC368\uB3C4 \uB2F5\uC774 \uB611\uAC19\uC740 \uC774\uC720\uAC00 \uBB50\uC608\uC694?"}],
+q:"F\uC640 G\uAC00 \uBAA8\uB450 f\uC758 \uBD80\uC815\uC801\uBD84\uC77C \uB54C F\uC640 G \uC0AC\uC774\uC5D0\uB294 \uC5B4\uB5A4 \uAD00\uACC4\uAC00 \uC788\uB294\uC9C0, \uADF8\uB9AC\uACE0 \uC65C \u222B[a,b] f(x) dx = G(b) \u2212 G(a) \uAC00 \uC131\uB9BD\uD558\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["\uC0C1\uC218","+c","c\uB9CC\uD07C","g(x)+c","f-g","f(x)-g(x)"],
+  lack:"\uC88B\uC740 \uBC29\uD5A5\uC774\uC5D0\uC694. F\u2032 = G\u2032 = f \uB77C\uBA74 F \u2212 G \uB97C \uBBF8\uBD84\uD558\uBA74 0\uC774\uC5D0\uC694. \uB3C4\uD568\uC218\uAC00 \uD56D\uC0C1 0\uC778 \uD568\uC218\uB294 \uC5B4\uB5A4 \uD568\uC218\uC8E0? \uADF8\uB798\uC11C F\uC640 G\uB294 \uC5B4\uB5A4 \uAD00\uACC4\uC778\uAC00\uC694?"},
+ {kw:["f(a)=0","f(a)\uB2940","f(a)\uAC000","\u222B[a,a]","c=-g(a)","\uC0C1\uC1C4","\uC18C\uAC70","\uBE7C\uBA74","\uC5C6\uC5B4","\uC0AC\uB77C","\uC9C0\uC6CC","f(b)-f(a)"],
+  lack:"F = G + C \uAD00\uACC4\uB294 \uC815\uD655\uD574\uC694! \uC774\uC81C F(a) = \u222B[a,a] f(t) dt = 0 \uACFC F(b) = \u222B[a,b] f(t) dt \uB97C \uC774\uC6A9\uD574, \uC0C1\uC218 C\uAC00 G(b) \u2212 G(a)\uC5D0\uC11C \uC5B4\uB5BB\uAC8C \uB418\uB294\uC9C0 \uBCF4\uC5EC \uC8FC\uC138\uC694."}],
+ ok:"\uD6CC\uB96D\uD574\uC694! F = G + C \uC774\uBBC0\uB85C <span class='m'>\u222B[a,b] f(x) dx = F(b) \u2212 F(a) = (G(b) + C) \u2212 (G(a) + C) = G(b) \u2212 G(a)</span>. \uC0C1\uC218 C\uB294 \uBE7C\uB294 \uC21C\uAC04 \uC0AC\uB77C\uC9C0\uAE30 \uB54C\uBB38\uC5D0 \uC5B4\uB5A4 \uBD80\uC815\uC801\uBD84\uC744 \uACE8\uB77C\uB3C4 \uACB0\uACFC\uAC00 \uAC19\uC544\uC694."},
+miss:["F\u2032 = f \uC774\uACE0 G\u2032 = f \uB77C\uBA74, (F \u2212 G)\u2032 = ? \uB3C4\uD568\uC218\uAC00 \uD56D\uC0C1 0\uC778 \uD568\uC218\uB294 \uC5B4\uB5A4 \uBAA8\uC591\uC77C\uAE4C\uC694?",
+"F(a) = \u222B[a,a] f(t) dt \uB294 \uD3ED\uC774 0\uC778 \uB113\uC774\uC608\uC694. \uADF8 \uAC12\uC740? \uC774 \uC0AC\uC2E4\uACFC F = G + C \uB97C \uD568\uAED8 \uC368 \uBCF4\uC138\uC694."],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: (F \u2212 G)\u2032 = F\u2032 \u2212 G\u2032 = ?",
+"\uC791\uC740 \uC9C8\uBB38 2: \uB3C4\uD568\uC218\uAC00 0\uC778 \uD568\uC218\uB294 \uC0C1\uC218\uD568\uC218\uC608\uC694. \uADF8\uB7EC\uBA74 F(x) = G(x) + \u25CB \uB85C \uC4F8 \uC218 \uC788\uC8E0?",
+"\uC791\uC740 \uC9C8\uBB38 3: F(b) \u2212 F(a) = (G(b) + C) \u2212 (G(a) + C) = ? \uADF8\uB9AC\uACE0 F(a) = 0, F(b) = \u222B[a,b] f(t) dt \uC774\uBBC0\uB85C\u2026"],
+follow:{q:"\uB9C8\uC9C0\uB9C9 \uC9C8\uBB38! \uC774 \uC815\uB9AC \uB355\uBD84\uC5D0 \u222B[0,1] x\u00B2 dx \uB97C \uB113\uC774\uB97C \uC798\uAC8C \uCABC\uAC1C \uB354\uD558\uC9C0 \uC54A\uACE0\uB3C4 \uACC4\uC0B0\uD560 \uC218 \uC788\uC5B4\uC694. \uAC12\uC744 \uAD6C\uD558\uACE0, \uADF8 \uACC4\uC0B0\uC774 '\uC815\uB2F9\uD55C \uC774\uC720'\uB97C \uD55C \uBB38\uC7A5\uC73C\uB85C \uB9D0\uD574\uBCF4\uC138\uC694.",
+ need:2,groups:[
+  {kw:["1/3","0.333","3\uBD84\uC7581"],lack:"\uC774\uC720\uB294 \uC798 \uB9D0\uD588\uC5B4\uC694. x\u00B3/3 \uC5D0 1\uACFC 0\uC744 \uB123\uC5B4 \uBE7C\uBA74 \uAC12\uC740 \uC5BC\uB9C8\uC778\uAC00\uC694?"},
+  {kw:["\uBD80\uC815\uC801\uBD84","\uC6D0\uC2DC\uD568\uC218","\uBBF8\uBD84\uD558\uBA74","\uAE30\uBCF8\uC815\uB9AC","g(b)-g(a)","x^3/3","\uB3C4\uD568\uC218"],lack:"1/3, \uB9DE\uC544\uC694! \uADF8\uB7F0\uB370 \uC65C x\u00B3/3 \uC5D0 \uB300\uC785\uD574\uC11C \uBE7C\uB294 \uACC4\uC0B0\uC774 '\uB113\uC774'\uAC00 \uB418\uB294\uC9C0, \uC624\uB298 \uC99D\uBA85\uD55C \uB0B4\uC6A9\uC73C\uB85C \uD55C \uBB38\uC7A5 \uB367\uBD99\uC5EC \uBCF4\uC138\uC694."}],
+ ok:"\uC644\uBCBD\uD574\uC694! (x\u00B3/3)\u2032 = x\u00B2 \uC774\uBBC0\uB85C x\u00B3/3 \uC740 x\u00B2\uC758 \uBD80\uC815\uC801\uBD84\uC774\uACE0, \uBBF8\uC801\uBD84 \uAE30\uBCF8\uC815\uB9AC\uC5D0 \uC758\uD574 \u222B[0,1] x\u00B2 dx = 1/3 \u2212 0 = 1/3. \uB113\uC774(\uC801\uBD84)\uC640 \uAE30\uC6B8\uAE30(\uBBF8\uBD84)\uAC00 \uD558\uB098\uB85C \uC774\uC5B4\uC9C0\uB294 \uC21C\uAC04\uC774\uC5D0\uC694!",
+ miss:"x\u00B2\uC758 \uBD80\uC815\uC801\uBD84 \uD558\uB098\uB97C G(x)\uB85C \uC7A1\uACE0, G(1) \u2212 G(0) \uC744 \uACC4\uC0B0\uD574 \uBCF4\uC138\uC694. \uADF8\uB9AC\uACE0 \uADF8\uB807\uAC8C \uACC4\uC0B0\uD574\uB3C4 \uB418\uB294 \uC774\uC720\uB97C \uB367\uBD99\uC5EC \uBCF4\uC138\uC694."},
+sum:"F\uC640 G\uB294 \uC0C1\uC218 \uCC28\uC774(F = G + C)\uC774\uBBC0\uB85C \u222B[a,b] f = <b>G(b) \u2212 G(a)</b>. \uC608: \u222B[0,1] x\u00B2 dx = 1/3."}
+]};
+
+
+/* ---------- engine ---------- */
+var cur=0,done=[],logs=[],state=[],busy=false;
+T.steps.forEach(function(){logs.push([]);state.push({phase:"main",hint:0,miss:0,fhint:0});});
+
+function fmt(s){
+  return String(s)
+    .replace(/\u222B\[([^,\]]+),([^\]]+)\]/g,'<span class="ig">\u222B<span class="lim"><span>$2</span><span>$1</span></span></span>');
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function norm(s){
+  return String(s).toLowerCase()
+    .replace(/\s+/g,"")
+    .replace(/[\u2032\u2019\u2018`]/g,"'")
+    .replace(/[\u2212\u2013\u2014]/g,"-")
+    .replace(/\u00B2/g,"^2").replace(/\u00B3/g,"^3").replace(/\u207F/g,"^n")
+    .replace(/[\u00B7\u00D7]/g,"*")
+    .replace(/\uFF1C/g,"<").replace(/\uFF1E/g,">").replace(/\uFF5C/g,"|");
+}
+function has(a,list){
+  for(var i=0;i<list.length;i++){if(a.indexOf(norm(list[i]))>=0)return true;}
+  return false;
+}
+function judge(ans,spec){
+  var a=norm(ans);
+  var hit=spec.groups.map(function(g){return has(a,g.kw);});
+  var n=hit.filter(Boolean).length;
+  if(n>=spec.need)return{lv:"good"};
+  if(n>0){
+    for(var i=0;i<hit.length;i++){if(!hit[i]&&spec.groups[i].lack)return{lv:"partial",msg:spec.groups[i].lack};}
+  }
+  if(spec.partial&&has(a,spec.partial.kw))return{lv:"partial",msg:spec.partial.msg};
+  return{lv:"miss"};
+}
+
+document.getElementById("title").textContent=T.title;
+document.getElementById("subtitle").textContent=T.subtitle;
+document.getElementById("info").textContent=T.info;
+
+function renderNav(){
+  document.getElementById("snav").innerHTML=T.steps.map(function(s,i){
+    var cl=i===cur?"cur":(done.indexOf(i)>=0?"done":"");
+    return '<div class="sdot '+cl+'" data-i="'+i+'">'+(i+1)+'</div>'+(i<T.steps.length-1?'<div class="sline"></div>':'');
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".sdot.done"),function(d){
+    d.onclick=function(){cur=+d.getAttribute("data-i");renderNav();renderStep();};
+  });
+}
+
+function renderStep(){
+  var s=T.steps[cur];
+  document.getElementById("fdisp").innerHTML=fmt(s.formula);
+  var h='<div class="sbadge">'+(cur+1)+' / '+T.steps.length+' \uB2E8\uACC4</div><div class="card"><span class="tag '+s.tag+'">'+s.tagTxt+'</span>';
+  s.bubbles.forEach(function(b){
+    h+='<div class="brow '+(b.r==="s"?"r":"")+'"><div class="av '+b.r+'">'+(b.r==="t"?"T":"S")+'</div><div class="bb '+b.r+'">'+fmt(b.txt)+'</div></div>';
+  });
+  h+='<hr><div class="ql">'+fmt(s.q)+'</div>'
+    +'<div class="clog" id="clog"></div>'
+    +'<textarea id="ans" placeholder="\uC5EC\uAE30\uC5D0 \uC790\uC2E0\uC758 \uC0DD\uAC01\uC744 \uC790\uC720\uB86D\uAC8C \uC368\uBCF4\uC138\uC694. \uC774\uC720\uB3C4 \uD568\uAED8 \uC4F0\uBA74 \uC88B\uC544\uC694."></textarea>'
+    +'<div class="brow2"><button class="btn bp" id="bsub">\uC81C\uCD9C</button><button class="btn bs" id="bhint">\uD78C\uD2B8 \uC694\uCCAD</button><span class="kbd">Ctrl + Enter \uB85C \uC81C\uCD9C</span></div>'
+    +'</div>'
+    +'<div class="nrow" id="nrow"><button class="btn bp" id="bnext">'+(cur<T.steps.length-1?"\uB2E4\uC74C \uB2E8\uACC4\uB85C \u2192":"\uC99D\uBA85 \uC644\uC131 \u2014 \uC694\uC57D \uBCF4\uAE30 \u2192")+'</button></div>';
+  document.getElementById("main").innerHTML=h;
+  document.getElementById("bsub").onclick=submit;
+  document.getElementById("bhint").onclick=hint;
+  document.getElementById("bnext").onclick=nextStep;
+  document.getElementById("ans").addEventListener("keydown",function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key==="Enter"){e.preventDefault();submit();}
+  });
+  renderLog();
+  if(state[cur].phase==="done"){
+    document.getElementById("nrow").className="nrow show";
+    lockInput(true);
+  }
+}
+
+function renderLog(){
+  var el=document.getElementById("clog");
+  if(!el)return;
+  el.innerHTML=logs[cur].map(function(m){
+    var me=m.role==="me";
+    return '<div class="cm '+(me?"me":"")+'"><div class="cav '+(me?"me":"ai")+'">'+(me?"\uB098":"T")+'</div><div class="cb '+m.cls+'">'+(me?esc(m.text):fmt(m.text))+'</div></div>';
+  }).join("");
+}
+
+function addMsg(role,text,cls){
+  logs[cur].push({role:role,text:text,cls:cls||(role==="me"?"me":"ai")});
+  renderLog();
+  var el=document.getElementById("clog");
+  if(el&&el.lastChild&&el.lastChild.scrollIntoView)el.lastChild.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function teacherSay(list,cb){
+  /* list: [[text,cls],...] shown one by one with short typing delay */
+  busy=true;
+  var i=0;
+  function next(){
+    if(i>=list.length){busy=false;if(cb)cb();return;}
+    logs[cur].push({role:"ai",text:"\u2026",cls:"typing"});renderLog();
+    var item=list[i++];
+    setTimeout(function(){
+      logs[cur].pop();
+      addMsg("ai",item[0],item[1]);
+      next();
+    },450);
+  }
+  next();
+}
+
+function lockInput(on){
+  var ta=document.getElementById("ans"),b1=document.getElementById("bsub"),b2=document.getElementById("bhint");
+  if(ta){ta.disabled=on;if(on)ta.placeholder="\uC774 \uB2E8\uACC4 \uC644\uC131! \uB2E4\uC74C \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC00\uC138\uC694.";}
+  if(b1)b1.disabled=on;if(b2)b2.disabled=on;
+}
+
+function complete(){
+  var st=state[cur];
+  st.phase="done";
+  if(done.indexOf(cur)<0)done.push(cur);
+  renderNav();
+  document.getElementById("nrow").className="nrow show";
+  lockInput(true);
+}
+
+function submit(){
+  if(busy)return;
+  var ta=document.getElementById("ans");
+  var ans=ta.value.trim();
+  if(!ans){ta.focus();return;}
+  ta.value="";
+  addMsg("me",ans);
+  var s=T.steps[cur],st=state[cur];
+  var a=norm(ans);
+
+  if(/\uBAA8\uB974\uACA0|\uBAA8\uB984|\uBAB0\uB77C|\uC798\uBAA8\uB974|\uD78C\uD2B8/.test(a)){
+    teacherSay([["\uAD1C\uCC2E\uC544\uC694. \uBAA8\uB974\uB294 \uAC78 \uC194\uC9C1\uD558\uAC8C \uB9D0\uD558\uB294 \uAC83\uB3C4 GoGAR\uC758 \uC911\uC694\uD55C \uD55C \uC218\uC608\uC694. \uC9C8\uBB38\uC744 \uC870\uAE08 \uB354 \uC791\uAC8C \uCABC\uAC1C \uBCFC\uAC8C\uC694.","ai"]],function(){hint();});
+    return;
+  }
+  if(a.length<4){
+    teacherSay([["\uC870\uAE08 \uB354 \uC790\uC138\uD788 \uC368\uBCFC\uB798\uC694? '\uC65C \uADF8\uB807\uAC8C \uC0DD\uAC01\uD558\uB294\uC9C0' \uC774\uC720\uB97C \uD55C \uBB38\uC7A5\uB9CC \uB367\uBD99\uC5EC \uC8FC\uC138\uC694.","partial"]]);
+    return;
+  }
+
+  if(st.phase==="main"){
+    var r=judge(ans,s.good);
+    if(r.lv==="good"){
+      st.phase="follow";
+      teacherSay([[s.good.ok,"ok"],["\uD55C \uAC78\uC74C \uB354 \u2014 "+s.follow.q,"ai"]]);
+    }else if(r.lv==="partial"){
+      teacherSay([[r.msg,"partial"]]);
+    }else{
+      var m=s.miss[st.miss%s.miss.length];
+      st.miss++;
+      var list=[[m,"miss"]];
+      if(st.miss>=2&&st.hint===0)list.push(["\uB9C9\uD788\uBA74 [\uD78C\uD2B8 \uC694\uCCAD]\uC744 \uB20C\uB7EC \uBCF4\uC138\uC694. \uC9C8\uBB38\uC744 \uB354 \uC791\uAC8C \uB098\uB220 \uB4DC\uB9B4\uAC8C\uC694.","ai"]);
+      teacherSay(list);
+    }
+  }else if(st.phase==="follow"){
+    var f=s.follow,r2=judge(ans,f);
+    if(r2.lv==="good"){
+      teacherSay([[f.ok,"ok"],["\uC774 \uB2E8\uACC4 \uC644\uC131! \uC5EC\uB7EC\uBD84\uC774 \uB0B4\uB193\uC740 \uC774\uC720\uAC00 \uB2E4\uC74C \uB2E8\uACC4\uC758 \uCD9C\uBC1C\uC810\uC774 \uB429\uB2C8\uB2E4. \uC544\uB798 \uBC84\uD2BC\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694.","ok"]],complete);
+    }else if(r2.lv==="partial"){
+      teacherSay([[r2.msg,"partial"]]);
+    }else{
+      teacherSay([[f.miss,"miss"]]);
+    }
+  }
+}
+
+function hint(){
+  if(busy)return;
+  var s=T.steps[cur],st=state[cur];
+  if(st.phase==="main"){
+    if(st.hint<s.hints.length){
+      var t=s.hints[st.hint];st.hint++;
+      teacherSay([[t,"hint"]]);
+    }else{
+      teacherSay([["\uC900\uBE44\uD55C \uC791\uC740 \uC9C8\uBB38\uC740 \uC5EC\uAE30\uAE4C\uC9C0\uC608\uC694. \uC9C0\uAE08\uAE4C\uC9C0\uC758 \uC791\uC740 \uC9C8\uBB38\uB4E4\uC5D0 \uB300\uD55C \uB2F5\uC744 \uC774\uC5B4 \uBD99\uC5EC\uC11C \uD558\uB098\uC758 \uC124\uBA85\uC73C\uB85C \uC368\uBCF4\uC138\uC694. \uC644\uBCBD\uD558\uC9C0 \uC54A\uC544\uB3C4 \uAD1C\uCC2E\uC544\uC694!","hint"]]);
+    }
+  }else if(st.phase==="follow"){
+    var hs=s.follow.hints||[s.follow.miss];
+    if(st.fhint<hs.length){teacherSay([[hs[st.fhint],"hint"]]);st.fhint++;}
+    else teacherSay([["\uAC70\uC758 \uB2E4 \uC654\uC5B4\uC694! \uC9C0\uAE08 \uB5A0\uC624\uB974\uB294 \uB300\uB85C \uD55C \uBB38\uC7A5\uC73C\uB85C \uB2F5\uD574\uBCF4\uC138\uC694.","hint"]]);
+  }
+}
+
+function nextStep(){
+  if(cur<T.steps.length-1){cur++;renderNav();renderStep();window.scrollTo({top:0,behavior:"smooth"});}
+  else showSum();
+}
+
+function showSum(){
+  document.getElementById("fdisp").innerHTML="GoGAR \uC99D\uBA85 \uC644\uC131";
+  cur=T.steps.length;renderNav();
+  var h='<div class="sum"><h2>\uC6B0\uB9AC\uAC00 \uD568\uAED8 \uC313\uC740 \uC774\uC720\uC758 \uC0AC\uC2AC</h2><div class="ff">'+fmt(T.final)+'</div>';
+  T.steps.forEach(function(s){
+    h+='<div class="si"><span class="tag '+s.tag+'">'+s.tagTxt.split(" \u2014 ")[0]+'</span><span class="st">'+fmt(s.sum)+'</span></div>';
+  });
+  h+='<div class="note">'+T.note+'</div><div class="again"><button class="btn bs" id="bagain">\uCC98\uC74C\uBD80\uD130 \uB2E4\uC2DC \uD558\uAE30</button></div></div>';
+  document.getElementById("main").innerHTML=h;
+  document.getElementById("bagain").onclick=function(){location.reload();};
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderNav();renderStep();
+</script>
+</body>
+</html>

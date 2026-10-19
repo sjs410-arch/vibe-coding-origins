@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&#xBB34;&#xD55C;&#xB4F1;&#xBE44;&#xAE09;&#xC218; GoGAR</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#fff;--bg2:#f5f4f0;--bg3:#eceae3;
+--text:#1a1a1a;--text2:#555;--text3:#999;
+--b:rgba(0,0,0,.12);--b2:rgba(0,0,0,.22);
+--p0:#EEEDFE;--p1:#CECBF6;--p2:#534AB7;--p3:#26215C;
+--t0:#E1F5EE;--t1:#9FE1CB;--t2:#0F6E56;--t3:#04342C;
+--c0:#FAECE7;--c1:#F5C4B3;--c2:#993C1D;
+--a0:#FAEEDA;--a1:#FAC775;--a2:#633806;
+--r:8px;--rl:12px
+}
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#1e1e1e;--bg2:#2a2a2a;--bg3:#333;
+--text:#f0f0f0;--text2:#aaa;--text3:#666;
+--b:rgba(255,255,255,.1);--b2:rgba(255,255,255,.22);
+--p0:#26215C;--p1:#3C3489;--p2:#AFA9EC;--p3:#EEEDFE;
+--t0:#04342C;--t1:#085041;--t2:#5DCAA5;--t3:#E1F5EE;
+--c0:#4A1B0C;--c1:#712B13;--c2:#F0997B;
+--a0:#412402;--a1:#633806;--a2:#FAC775
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg3);color:var(--text);min-height:100vh;padding:1.5rem 1rem}
+.wrap{max-width:720px;margin:0 auto}
+.site-links{display:flex;flex-wrap:wrap;gap:8px 15px;padding:0 0 16px;margin-bottom:22px;border-bottom:1px solid var(--b);font-size:12px}
+.site-links a{color:var(--p2);text-decoration:none;font-weight:600}
+.site-links a:hover{text-decoration:underline}
+.lesson-context{margin-bottom:18px;padding:11px 14px;border-left:3px solid var(--t2);background:var(--bg);color:var(--text2);font-size:12px;line-height:1.7}
+.lesson-context small{display:block;margin-top:5px;color:var(--text2)}
+.hdr{text-align:center;margin-bottom:1.5rem}
+.hdr h1{font-size:20px;font-weight:600}
+.hdr p{font-size:13px;color:var(--text2);margin-top:5px;line-height:1.6}
+.info{background:var(--p0);border:.5px solid var(--p1);border-radius:var(--r);padding:10px 14px;margin-bottom:1.25rem;font-size:13px;color:var(--p3);line-height:1.65}
+.fbox{background:var(--bg);border:.5px solid var(--b);border-radius:var(--r);padding:11px 14px;margin-bottom:1.25rem;text-align:center;font-size:16px;font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;color:var(--text)}
+.snav{display:flex;margin-bottom:1.25rem;justify-content:center;align-items:center}
+.sdot{width:30px;height:30px;border-radius:50%;border:.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text3);background:var(--bg2);flex-shrink:0;transition:all .2s}
+.sdot.cur{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.sdot.done{background:#0F6E56;color:#E1F5EE;border-color:#0F6E56;cursor:pointer}
+.sline{width:22px;height:1px;background:var(--b2)}
+.sbadge{font-size:12px;color:var(--text3);text-align:center;margin-bottom:.5rem}
+.card{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.25rem;margin-bottom:1rem}
+.tag{display:inline-block;font-size:11px;padding:3px 10px;border-radius:10px;margin-bottom:12px;font-weight:600}
+.up{background:var(--p1);color:var(--p3)}
+.dn{background:var(--t1);color:var(--t3)}
+.ic{background:var(--c1);color:var(--c2)}
+.en{background:var(--a1);color:var(--a2)}
+.brow{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.brow.r{flex-direction:row-reverse}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.av.t{background:var(--p1);color:var(--p3)}
+.av.s{background:var(--t1);color:var(--t3)}
+.bb{max-width:86%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.7}
+.bb.t{background:var(--p0);color:var(--p3);border-top-left-radius:3px}
+.bb.s{background:var(--t0);color:var(--t3);border-top-right-radius:3px}
+.m{font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;white-space:nowrap}
+.ig{display:inline-flex;align-items:center;white-space:nowrap}
+.lim{display:inline-flex;flex-direction:column;font-size:.68em;line-height:1.05;margin:0 2px 0 1px;text-align:left}
+hr{border:none;border-top:.5px solid var(--b);margin:1rem 0}
+.ql{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.65}
+.clog{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.cm{display:flex;gap:8px;align-items:flex-start}
+.cm.me{flex-direction:row-reverse}
+.cav{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.cav.ai{background:var(--p1);color:var(--p3)}
+.cav.me{background:var(--t1);color:var(--t3)}
+.cb{max-width:86%;padding:9px 13px;border-radius:11px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}
+.cb.ai{background:var(--p0);color:var(--p3);border-top-left-radius:3px}
+.cb.me{background:var(--t0);color:var(--t3);border-top-right-radius:3px}
+.cb.ok{background:var(--t0);color:var(--t2);border:.5px solid var(--t1);border-top-left-radius:3px}
+.cb.partial{background:var(--a0);color:var(--a2);border:.5px solid var(--a1);border-top-left-radius:3px}
+.cb.miss{background:var(--c0);color:var(--c2);border:.5px solid var(--c1);border-top-left-radius:3px}
+.cb.hint{background:var(--bg2);color:var(--text);border:.5px dashed var(--b2);border-top-left-radius:3px}
+.cb.typing{color:var(--text3);background:var(--bg2)}
+.phase{font-size:12px;color:var(--text3);margin:4px 0 8px}
+textarea{width:100%;min-height:80px;font-size:14px;font-family:inherit;color:var(--text);background:var(--bg2);border:.5px solid var(--b2);border-radius:var(--r);padding:10px 13px;resize:vertical;line-height:1.6}
+textarea:focus{outline:none;border-color:#7F77DD;box-shadow:0 0 0 2px rgba(83,74,183,.12)}
+.brow2{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center}
+.kbd{font-size:11px;color:var(--text3);margin-left:auto}
+.btn{border:.5px solid var(--b2);border-radius:var(--r);padding:9px 16px;font-size:13px;font-family:inherit;cursor:pointer;transition:all .15s}
+.btn:disabled{opacity:.45;cursor:default}
+.bp{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+.bp:hover:not(:disabled){background:#3C3489}
+.bs{background:var(--bg);color:var(--text)}
+.bs:hover:not(:disabled){background:var(--bg2)}
+.nrow{margin-top:.25rem;margin-bottom:1rem;display:none;justify-content:flex-end}
+.nrow.show{display:flex}
+.sum{background:var(--bg);border:.5px solid var(--b);border-radius:var(--rl);padding:1.5rem}
+.sum h2{font-size:17px;font-weight:600;margin-bottom:1rem}
+.ff{text-align:center;margin:1rem 0 1.25rem;padding:14px;background:var(--p0);border-radius:var(--r);font-size:17px;font-family:'Cambria Math','STIX Two Math','Times New Roman',serif;color:var(--p3);border:.5px solid var(--p1);line-height:1.8}
+.si{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.si .tag{flex-shrink:0;margin-bottom:0;min-width:96px;text-align:center}
+.st{font-size:13.5px;line-height:1.7}
+.note{margin-top:1rem;padding:12px 14px;background:var(--bg2);border-radius:var(--r);border:.5px solid var(--b);font-size:13px;color:var(--text2);line-height:1.7}
+.again{margin-top:1rem;display:flex;justify-content:center}
+@media(max-width:480px){.si{flex-direction:column;gap:4px}.bb,.cb{max-width:92%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="site-links" aria-label="GoGAR 수업 이동"><a href="index.html#lessons">← 홈페이지 · 수업 목록</a><a href="lesson.html">근의 공식</a><a href="series-lesson.html">무한등비급수</a><a href="ftc-lesson.html">미적분학의 기본정리</a></nav>
+<div class="hdr"><h1 id="title"></h1><p id="subtitle"></p></div>
+<div class="info" id="info"></div>
+<div class="lesson-context">a ≠ 0인 실수 등비급수를 다룹니다. a = 0이면 모든 항이 0이므로 공비와 관계없이 합은 0입니다.<small>이 체험은 미리 준비된 질문·힌트·피드백으로 작동합니다.</small></div>
+<div class="fbox" id="fdisp"></div>
+<div class="snav" id="snav"></div>
+<div id="main"></div>
+</div>
+<script>
+var T={
+title:"\uBB34\uD55C\uB4F1\uBE44\uAE09\uC218 GoGAR \uC218\uC5C5",
+subtitle:"a + ar + ar\u00B2 + \u22EF \uC774 \uC5B8\uC81C \uC218\uB834\uD558\uB294\uC9C0, \uC65C \uADF8\uB7F0\uC9C0 \uC774\uC720\uB97C \uC8FC\uACE0\uBC1B\uC73C\uBA70 \uC9C1\uC811 \uC99D\uBA85\uD569\uB2C8\uB2E4",
+info:"\uC218\uC5C5 \uBC29\uC2DD: T\uC758 \uC9C8\uBB38\uC5D0 \uC790\uC2E0\uC758 \uC0DD\uAC01\uC744 \uC4F0\uACE0 [\uC81C\uCD9C]\uC744 \uB204\uB974\uC138\uC694. \uB2F5\uC774 \uB9DE\uC73C\uBA74 T\uAC00 \uD55C \uAC78\uC74C \uB354 \uAE4A\uC740 \uC9C8\uBB38\uC744 \uB358\uC9C0\uACE0, \uB9C9\uD788\uBA74 [\uD78C\uD2B8 \uC694\uCCAD]\uC73C\uB85C \uC9C8\uBB38\uC744 \uB354 \uC791\uAC8C \uCABC\uAC1C \uBC1B\uC744 \uC218 \uC788\uC5B4\uC694. '\uC774 \uB2E8\uACC4 \uC644\uC131!'\uC774 \uB098\uC624\uBA74 \uB2E4\uC74C \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC11\uB2C8\uB2E4.",
+final:"a + ar + ar\u00B2 + ar\u00B3 + \u22EF = a / (1 \u2212 r)<br><span style=\"font-size:14px\">\uB2E8, |r| &lt; 1 \uC77C \uB54C\uB9CC (a \u2260 0)</span>",
+note:"\uC774 \uC218\uC5C5\uC758 \uB300\uD654 \uC790\uCCB4\uAC00 GoGAR(\uC774\uC720\uB97C \uC8FC\uACE0\uBC1B\uB294 \uAC8C\uC784)\uC600\uC5B4\uC694. \uC815\uC758\uC5D0\uC11C \uCD9C\uBC1C\uD558\uACE0(\uC0C1\uB958 \uCD94\uB860), \uADF8 \uC815\uC758\uB85C\uBD80\uD130 \uACB0\uACFC\uB97C \uC774\uB04C\uC5B4\uB0B4\uACE0(\uD558\uB958 \uCD94\uB860), \uADF8\uB7F4\uB4EF\uD558\uC9C0\uB9CC \uBAA8\uC21C\uB41C \uC99D\uBA85\uC744 \uAC00\uB824\uB0B4\uACE0(\uC591\uB9BD \uBD88\uAC00\uB2A5), \uC815\uB9AC\uB97C '\uC5B8\uC81C \uC368\uB3C4 \uB418\uB294\uC9C0'\uB97C \uC2A4\uC2A4\uB85C \uC815\uB2F9\uD654\uD558\uB294(\uC790\uACA9 \uBD80\uC5EC) \uACFC\uC815 \uC804\uCCB4\uAC00 \uC218\uD559\uC801 \uC774\uD574\uC758 \uC99D\uAC70\uC785\uB2C8\uB2E4.",
+steps:[
+
+/* ---------- 1 ---------- */
+{tag:"up",tagTxt:"\uC0C1\uB958 \uCD94\uB860 \u2014 \uBB34\uD55C\uD569\uC758 \uC758\uBBF8",
+formula:"S = a + ar + ar\u00B2 + ar\u00B3 + \u22EF",
+bubbles:[
+{r:"t",txt:"\uC624\uB298\uC740 \uBB34\uD55C\uD788 \uB9CE\uC740 \uC218\uB97C \uB354\uD558\uB294 \uC774\uC57C\uAE30\uB97C \uD574\uBCFC\uAC8C\uC694. \uC608\uB97C \uB4E4\uC5B4 <span class='m'>1 + 1/2 + 1/4 + 1/8 + \u22EF</span> \uCC98\uB7FC\uC694."},
+{r:"s",txt:"\uB05D\uC5C6\uC774 \uB354\uD558\uBA74 \uACB0\uAD6D \uBB34\uD55C\uB300\uAC00 \uB418\uB294 \uAC70 \uC544\uB2C8\uC5D0\uC694?"},
+{r:"t",txt:"\uC88B\uC740 \uC758\uBB38\uC774\uC5D0\uC694. \uADF8\uB7F0\uB370 \uC6B0\uB9AC\uB294 \uBB34\uD55C \uAC1C\uC758 \uC218\uB97C \uC2E4\uC81C\uB85C '\uB2E4' \uB354\uD574 \uBCFC \uC218\uB294 \uC5C6\uC5B4\uC694. \uADF8\uB807\uB2E4\uBA74 '\uBB34\uD55C\uD788 \uB354\uD55C \uAC12'\uC774\uB77C\uB294 \uB9D0\uC740 \uBB34\uC5C7\uC744 \uADFC\uAC70\uB85C \uC815\uD574\uC57C \uD560\uAE4C\uC694?"}],
+q:"\uBB34\uD55C\uD788 \uB9CE\uC740 \uC218\uB97C \uB354\uD55C \uAC12 S\uB97C \uC5B4\uB5BB\uAC8C \uC815\uC758\uD574\uC57C \uD560\uC9C0, \uB05D\uAE4C\uC9C0 \uB2E4 \uB354\uD560 \uC218 \uC5C6\uB2E4\uB294 \uC810\uC744 \uACE0\uB824\uD574\uC11C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["\uBD80\uBD84\uD569","sn","s_n","n\uD56D\uAE4C\uC9C0","n\uBC88\uC9F8\uD56D\uAE4C\uC9C0","n\uC9F8\uD56D\uAE4C\uC9C0","\uCC98\uC74Cn\uAC1C","n\uAC1C\uAE4C\uC9C0","n\uAC1C\uC758\uD569","n\uAC1C\uB97C\uB354","\uC720\uD55C\uAC1C","\uBA87\uAC1C\uAE4C\uC9C0","\uBA87\uAC1C\uB9CC"],
+  lack:"\uB05D\uAE4C\uC9C0 \uB2E4 \uB354\uD560 \uC218 \uC5C6\uB2E4\uBA74, \uC6B0\uB9AC\uAC00 \uC2E4\uC81C\uB85C \uACC4\uC0B0\uD560 \uC218 \uC788\uB294 \uAC74 '\uCC98\uC74C \uBA87 \uAC1C\uAE4C\uC9C0\uC758 \uD569'\uC774\uC5D0\uC694. \uCC98\uC74C n\uAC1C\uAE4C\uC9C0 \uB354\uD55C \uD569\uC744 \uBB34\uC5C7\uC774\uB77C\uACE0 \uBD80\uB974\uACE0, \uC5B4\uB5BB\uAC8C \uB098\uD0C0\uB0BC\uAE4C\uC694?"},
+ {kw:["\uADF9\uD55C","lim","\uAC00\uAE4C\uC6CC","\uB2E4\uAC00\uAC00","\uB2E4\uAC00\uAC04","\uC811\uADFC","\uC218\uB834","n\u2192\u221E","n->\u221E","n\uC744\uD06C\uAC8C","n\uC774\uCEE4","n\uC744\uBB34\uD55C","\uACC4\uC18D\uB298\uB9AC"],
+  lack:"\uCC98\uC74C n\uAC1C\uAE4C\uC9C0\uC758 \uD569\uC744 \uC0DD\uAC01\uD55C \uAC74 \uC544\uC8FC \uC88B\uC544\uC694. \uADF8\uB7FC n\uC744 \uC810\uC810 \uD06C\uAC8C \uD560 \uB54C \uADF8 \uD569\uC774 \uC5B4\uB5BB\uAC8C \uB418\uB294\uC9C0\uB97C \uBD10\uC57C \uD558\uC9C0 \uC54A\uC744\uAE4C\uC694? \uADF8 \uACFC\uC815\uC744 \uC218\uD559\uC5D0\uC11C\uB294 \uBB34\uC5C7\uC774\uB77C\uACE0 \uBD80\uB974\uC8E0?"}],
+ ok:"\uC815\uD655\uD574\uC694! \uBB34\uD55C\uD569 S\uB294 '\uBD80\uBD84\uD569 S\u2099\uC758 \uADF9\uD55C', \uC989 <span class='m'>S = lim<sub>n\u2192\u221E</sub> S\u2099</span> \uC73C\uB85C \uC815\uC758\uD569\uB2C8\uB2E4. \uC774 \uADF9\uD55C\uC774 \uC874\uC7AC\uD560 \uB54C \uAE09\uC218\uAC00 '\uC218\uB834\uD55C\uB2E4'\uACE0 \uD574\uC694."},
+miss:["1 + 1/2 = 1.5, 1 + 1/2 + 1/4 = 1.75 \u2026 \uC774\uB807\uAC8C '\uCC98\uC74C \uBA87 \uAC1C\uAE4C\uC9C0 \uB354\uD55C \uAC12'\uC744 \uCC28\uB840\uB85C \uC801\uC5B4 \uBCF4\uBA74 \uC5B4\uB5A4 \uACBD\uD5A5\uC774 \uBCF4\uC774\uB098\uC694? \uADF8 \uACBD\uD5A5\uC744 \uC774\uC6A9\uD574 S\uB97C \uC815\uD560 \uC218 \uC788\uC9C0 \uC54A\uC744\uAE4C\uC694?",
+"\uC9C1\uC811 \uB05D\uAE4C\uC9C0 \uB354\uD560 \uC218 \uC5C6\uC73C\uB2C8, \uACC4\uC0B0\uD560 \uC218 \uC788\uB294 \uAC83\uC5D0\uC11C \uCD9C\uBC1C\uD574\uC57C \uD574\uC694. \uCC98\uC74C n\uAC1C\uAE4C\uC9C0\uC758 \uD569\uC740 \uACC4\uC0B0\uD560 \uC218 \uC788\uC8E0? \uADF8\uAC83\uACFC n\uC744 \uD0A4\uC6B0\uB294 \uACFC\uC815\uC744 \uC774\uC6A9\uD574 S\uB97C \uC815\uC758\uD574\uBCF4\uC138\uC694."],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: 1 + 1/2 + 1/4 \uC5D0\uC11C \uBA48\uCD98\uB2E4\uBA74 \uD569\uC740 \uC5BC\uB9C8\uC778\uAC00\uC694? 1/8\uAE4C\uC9C0 \uB354\uD558\uBA74\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: \uC774\uB807\uAC8C \uCC98\uC74C n\uAC1C\uAE4C\uC9C0 \uB354\uD55C \uD569\uC744 S\u2099\uC774\uB77C \uD574\uC694. n\uC774 \uCEE4\uC9C8\uC218\uB85D S\u2099\uC740 \uC5B4\uB5A4 \uC218\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uB098\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uADF8\uB807\uB2E4\uBA74 '\uBB34\uD55C\uD569 S'\uB97C 'n\uC744 \uD55C\uC5C6\uC774 \uD0A4\uC6B8 \uB54C S\u2099\uC774 \uAC00\uAE4C\uC6CC\uC9C0\uB294 \uAC12', \uC989 S\u2099\uC758 \u25CB\u25CB\uC73C\uB85C \uC815\uD558\uBA74 \uC5B4\uB5A8\uAE4C\uC694? \u25CB\u25CB\uC5D0 \uB4E4\uC5B4\uAC08 \uB9D0\uC740?"],
+follow:{q:"\uADF8\uB807\uB2E4\uBA74 \uBC18\uB300\uB85C, S\u2099\uC758 \uADF9\uD55C\uC774 \uC874\uC7AC\uD558\uC9C0 \uC54A\uC73C\uBA74 S\uC5D0 \uB300\uD574 \uBB34\uC5C7\uC774\uB77C\uACE0 \uB9D0\uD574\uC57C \uD560\uAE4C\uC694?",
+ need:1,groups:[{kw:["\uBC1C\uC0B0","\uC874\uC7AC\uD558\uC9C0\uC54A","\uC874\uC7AC\uC548","\uC5C6\uB2E4","\uC5C6\uC5B4","\uC815\uC758\uB418\uC9C0\uC54A","\uC815\uC758\uD560\uC218\uC5C6","\uAC12\uC774\uC5C6","\uC218\uB834\uD558\uC9C0\uC54A","\uC218\uB834\uC548","\uD569\uC774\uC5C6","\uAD6C\uD560\uC218\uC5C6"]}],
+ ok:"\uB9DE\uC544\uC694. \uADF8\uB54C \uAE09\uC218\uB294 '\uBC1C\uC0B0'\uD558\uBA70, S\uB77C\uB294 \uAC12 \uC790\uCCB4\uAC00 \uC5C6\uC5B4\uC694. \uC774 \uC0AC\uC2E4\uC774 4\uB2E8\uACC4\uC5D0\uC11C \uC544\uC8FC \uC911\uC694\uD55C \uBB34\uAE30\uAC00 \uB429\uB2C8\uB2E4. \uAF2D \uAE30\uC5B5\uD574\uB450\uC138\uC694!",
+ miss:"\uC608\uB97C \uB4E4\uC5B4 1 + 1 + 1 + \u22EF \uC758 \uBD80\uBD84\uD569\uC740 1, 2, 3, \u22EF \uC73C\uB85C \uB05D\uC5C6\uC774 \uCEE4\uC838\uC694. \uC774\uB54C '\uD569 S'\uB77C\uB294 \uD558\uB098\uC758 \uC218\uAC00 \uC788\uB2E4\uACE0 \uD560 \uC218 \uC788\uC744\uAE4C\uC694?"},
+sum:"\uBB34\uD55C\uD569 S\uB294 \uBD80\uBD84\uD569 S\u2099\uC758 \uADF9\uD55C\uC73C\uB85C <b>\uC815\uC758</b>\uD55C\uB2E4. \uADF9\uD55C\uC774 \uC5C6\uC73C\uBA74 S\uB294 \uC874\uC7AC\uD558\uC9C0 \uC54A\uB294\uB2E4(\uBC1C\uC0B0)."},
+
+/* ---------- 2 ---------- */
+{tag:"dn",tagTxt:"\uD558\uB958 \uCD94\uB860 \u2014 \uBD80\uBD84\uD569 \uACF5\uC2DD",
+formula:"S\u2099 = a + ar + ar\u00B2 + \u22EF + ar\u207F\u207B\u00B9",
+bubbles:[
+{r:"t",txt:"1\uB2E8\uACC4\uC5D0 \uB530\uB974\uBA74 \uBA3C\uC800 S\u2099\uC744 \uC54C\uC544\uC57C \uD574\uC694. n\uAC1C\uB97C \uC77C\uC77C\uC774 \uB354\uD558\uB294 \uB300\uC2E0 \uC4F8 \uC218 \uC788\uB294 \uC694\uB839\uC774 \uC788\uC5B4\uC694. \uC591\uBCC0\uC5D0 r\uC744 \uACF1\uD574 \uBCFC\uAE4C\uC694?"},
+{r:"t",txt:"<span class='m'>rS\u2099 = ar + ar\u00B2 + \u22EF + ar\u207F\u207B\u00B9 + ar\u207F</span> \uC774 \uB429\uB2C8\uB2E4. \uC774\uC81C S\u2099\uACFC rS\u2099\uC744 \uC704\uC544\uB798\uB85C \uB098\uB780\uD788 \uB193\uACE0 \uBE44\uAD50\uD574\uBCF4\uC138\uC694."},
+{r:"s",txt:"\uC5B4? \uB450 \uC2DD\uC5D0 \uACB9\uCE58\uB294 \uD56D\uC774 \uC5C4\uCCAD \uB9CE\uB124\uC694\u2026"}],
+q:"S\u2099 \u2212 rS\u2099 \uC744 \uACC4\uC0B0\uD558\uBA74 \uBB34\uC5C7\uC774 \uB0A8\uB294\uC9C0, \uADF8\uB9AC\uACE0 \uC65C \uADF8\uB807\uAC8C \uB418\uB294\uC9C0 \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["a-ar^n","a(1-r^n)","a-arn","a-a*r^n","\uCCAB\uD56D\uACFC","\uCCAB\uC9F8\uD56D\uACFC","a\uC640ar^n","a\uD558\uACE0ar^n","a\uB791ar^n"],
+  lack:"\uC5B4\uB5A4 \uD56D\uB4E4\uC774 \uC9C0\uC6CC\uC9C0\uB294\uC9C0\uB294 \uC798 \uBD24\uC5B4\uC694. \uADF8\uB7FC \uC9C0\uC6CC\uC9C0\uC9C0 \uC54A\uACE0 \uB05D\uAE4C\uC9C0 \uB0A8\uB294 \uD56D\uC740 \uC815\uD655\uD788 \uBB34\uC5C7\uACFC \uBB34\uC5C7\uC778\uAC00\uC694? \uC2DD\uC73C\uB85C \uC368\uBCF4\uC138\uC694."},
+ {kw:["\uC9C0\uC6CC","\uC18C\uAC70","\uC0AC\uB77C","\uC0C1\uC1C4","\uC5C6\uC5B4","\uACB9\uCE58","\uAC19\uC740\uD56D","\uACF5\uD1B5","\uBE60\uC9C0","\uBE7C\uBA74"],
+  lack:"\uB0A8\uB294 \uACB0\uACFC\uB294 \uC815\uD655\uD574\uC694! \uADF8\uB7F0\uB370 \uC65C \uAC00\uC6B4\uB370 \uD56D\uB4E4\uC774 \uC804\uBD80 \uC5C6\uC5B4\uC9C0\uB294 \uAC78\uAE4C\uC694? \uB450 \uC2DD\uC744 \uB098\uB780\uD788 \uB193\uC558\uC744 \uB54C \uBCF4\uC774\uB294 \uC774\uC720\uB97C \uB9D0\uD574\uBCF4\uC138\uC694."}],
+ ok:"\uD6CC\uB96D\uD574\uC694! \uAC00\uC6B4\uB370 \uD56D\uB4E4\uC774 \uBAA8\uB450 \uC0C1\uC1C4\uB418\uC5B4 <span class='m'>S\u2099 \u2212 rS\u2099 = a \u2212 ar\u207F</span>, \uC989 <span class='m'>(1 \u2212 r)S\u2099 = a(1 \u2212 r\u207F)</span> \uC774 \uB429\uB2C8\uB2E4."},
+miss:["S\u2099 = a + ar + ar\u00B2 + \u22EF + ar\u207F\u207B\u00B9, rS\u2099 = ar + ar\u00B2 + \u22EF + ar\u207F\u207B\u00B9 + ar\u207F. \uB450 \uC2DD\uC5D0 \uACF5\uD1B5\uC73C\uB85C \uB4E4\uC5B4 \uC788\uB294 \uD56D\uC5D0 \uB3D9\uADF8\uB77C\uBBF8\uB97C \uCCD0 \uBCF4\uC138\uC694. \uB3D9\uADF8\uB77C\uBBF8\uAC00 \uC5C6\uB294 \uD56D\uC740 \uBB34\uC5C7\uC778\uAC00\uC694?",
+"S\u2099\uC5D0\uB9CC \uC788\uB294 \uD56D\uC740 \uBB34\uC5C7\uC774\uACE0, rS\u2099\uC5D0\uB9CC \uC788\uB294 \uD56D\uC740 \uBB34\uC5C7\uC778\uAC00\uC694? \uBE7C\uBA74 \uADF8 \uB458\uB9CC \uB0A8\uC9C0 \uC54A\uC744\uAE4C\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: S\u2099\uC758 \uB458\uC9F8 \uD56D ar\uC740 rS\u2099\uC5D0\uB3C4 \uC788\uB098\uC694? \uC14B\uC9F8 \uD56D ar\u00B2\uC740\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: S\u2099\uC5D0\uB294 \uC788\uC9C0\uB9CC rS\u2099\uC5D0\uB294 \uC5C6\uB294 \uD56D\uC740? rS\u2099\uC5D0\uB294 \uC788\uC9C0\uB9CC S\u2099\uC5D0\uB294 \uC5C6\uB294 \uD56D\uC740?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uADF8\uB7EC\uBA74 S\u2099 \u2212 rS\u2099 = (S\u2099\uC5D0\uB9CC \uC788\uB294 \uD56D) \u2212 (rS\u2099\uC5D0\uB9CC \uC788\uB294 \uD56D) = ?"],
+follow:{q:"\uC774\uC81C \uC591\uBCC0\uC744 (1 \u2212 r)\uB85C \uB098\uB204\uBA74 <span class='m'>S\u2099 = a(1 \u2212 r\u207F)/(1 \u2212 r)</span> \uC774\uC5D0\uC694. \uADF8\uB7F0\uB370 \uC774\uB807\uAC8C \uB098\uB204\uB824\uBA74 r\uC5D0 \uC5B4\uB5A4 \uC870\uAC74\uC774 \uD544\uC694\uD560\uAE4C\uC694? \uADF8 \uC870\uAC74\uC774 \uAE68\uC9C0\uBA74 S\u2099\uC740 \uC5B4\uB5BB\uAC8C \uAD6C\uD558\uC8E0?",
+ need:1,groups:[{kw:["r\u22601","r!=1","r\uC7741\uC774\uC544","r\uAC001\uC774\uC544","r\uC7401\uC774\uC544","r\uB2941\uC774\uC544","1\uC774\uC544\uB2C8","1-r\u22600","1-r\uC7740\uC774\uC544","0\uC774\uC544\uB2C8","0\uC774\uBA74\uC548","0\uC73C\uB85C\uB098\uB20C\uC218\uC5C6","0\uC73C\uB85C\uB098\uB204\uBA74","r=1\uC774\uBA74","r=1\uC77C\uB54C"]}],
+ ok:"\uB9DE\uC544\uC694! r \u2260 1 \uC774\uC5B4\uC57C 1 \u2212 r \u2260 0 \uC774\uB77C\uC11C \uB098\uB20C \uC218 \uC788\uC5B4\uC694. r = 1\uC774\uBA74 \uBAA8\uB4E0 \uD56D\uC774 a\uB77C\uC11C S\u2099 = na \uB85C \uC9C1\uC811 \uAD6C\uD569\uB2C8\uB2E4.",
+ miss:"\uC5B4\uB5A4 \uC218\uB85C \uB098\uB20C \uB54C \uC808\uB300 \uC548 \uB418\uB294 \uACBD\uC6B0\uAC00 \uC788\uC8E0? 1 \u2212 r \uC774 \uADF8\uB7F0 \uAC12\uC774 \uB418\uB294 r\uC740 \uBB34\uC5C7\uC778\uAC00\uC694?",
+ hints:["\uC791\uC740 \uC9C8\uBB38: 0\uC73C\uB85C \uB098\uB20C \uC218 \uC788\uB098\uC694? 1 \u2212 r = 0 \uC774 \uB418\uB294 r\uC740?","\uC791\uC740 \uC9C8\uBB38: r = 1\uC774\uBA74 \uC218\uC5F4\uC740 a, a, a, \u22EF \uC774\uC5D0\uC694. \uC774\uB54C S\u2099\uC740 \uACF5\uC2DD \uC5C6\uC774\uB3C4 \uBC14\uB85C \uAD6C\uD560 \uC218 \uC788\uC8E0?"]},
+sum:"S\u2099 \u2212 rS\u2099 = a \u2212 ar\u207F \uC774\uBBC0\uB85C <span class='m'>S\u2099 = a(1 \u2212 r\u207F)/(1 \u2212 r)</span> (r \u2260 1). r = 1\uC774\uBA74 S\u2099 = na."},
+
+/* ---------- 3 ---------- */
+{tag:"dn",tagTxt:"\uD558\uB958 \uCD94\uB860 \u2014 r\u207F\uC758 \uC6B4\uBA85",
+formula:"S = lim S\u2099 = lim a(1 \u2212 r\u207F) / (1 \u2212 r)",
+bubbles:[
+{r:"t",txt:"1\uB2E8\uACC4\uC5D0\uC11C S = lim S\u2099 \uC774\uB77C\uACE0 \uD588\uC8E0. 2\uB2E8\uACC4 \uACF5\uC2DD\uC744 \uB123\uC73C\uBA74 <span class='m'>S = lim a(1 \u2212 r\u207F)/(1 \u2212 r)</span> \uC774\uC5D0\uC694."},
+{r:"t",txt:"\uC774 \uC2DD\uC5D0\uC11C n\uC774 \uCEE4\uC9C8 \uB54C \uBCC0\uD558\uB294 \uBD80\uBD84\uC740 \uB2E8 \uD558\uB098, r\u207F\uBFD0\uC774\uC5D0\uC694. \uADF8\uB7EC\uB2C8\uAE4C \uC218\uB834\uD558\uB290\uB0D0 \uB9C8\uB290\uB0D0\uB294 \uC804\uC801\uC73C\uB85C r\u207F\uC5D0 \uB2EC\uB824 \uC788\uC5B4\uC694."},
+{r:"s",txt:"r = 1/2\uC774\uBA74 (1/2)\u207F\uC740 \uC810\uC810 \uC791\uC544\uC9C0\uACE0, r = 2\uC774\uBA74 2\u207F\uC740 \uC810\uC810 \uCEE4\uC9C0\uACE0\u2026"}],
+q:"r\u207F\uC774 0\uC73C\uB85C \uC218\uB834\uD558\uB824\uBA74 r\uC774 \uC5B4\uB5A4 \uBC94\uC704\uC5D0 \uC788\uC5B4\uC57C \uD558\uB294\uC9C0, \uADF8 \uC774\uC720\uC640 \uD568\uAED8 \uC124\uBA85\uD574\uBCF4\uC138\uC694. (r\uC774 \uC74C\uC218\uC778 \uACBD\uC6B0\uB3C4 \uAF2D \uC0DD\uAC01\uD574\uBCF4\uC138\uC694!)",
+good:{need:2,groups:[
+ {kw:["|r|<1","\uC808\uB313\uAC12","\uC808\uB300\uAC12","-1<r<1","-1\uACFC1\uC0AC\uC774","-1\uC5D0\uC11C1\uC0AC\uC774","-1\uBCF4\uB2E4\uD06C\uACE01\uBCF4\uB2E4\uC791","-1\uCD08\uACFC1\uBBF8\uB9CC"],
+  lack:"\uBC94\uC704\uB97C \uB354 \uC815\uD655\uD788 \uC368\uBCFC\uAE4C\uC694? r = \u22120.5\uCC98\uB7FC \uC74C\uC218\uC77C \uB54C\uB3C4 0\uC73C\uB85C \uAC00\uB294\uC9C0, r = \u22122\uC77C \uB54C\uB294 \uC5B4\uB5A4\uC9C0 \uD655\uC778\uD574\uC11C \uBC94\uC704\uB97C \uC644\uC131\uD574\uBCF4\uC138\uC694."},
+ {kw:["\uC791\uC544","0\uC5D0\uAC00\uAE4C","0\uC73C\uB85C","0\uC5D0\uC218\uB834","\uACF1\uD560\uC218\uB85D","\uACC4\uC18D\uACF1","\uC904\uC5B4","\uCEE4\uC9C0","\uBC1C\uC0B0","\uC9C4\uB3D9","\uD06C\uAE30"],
+  lack:"\uBC94\uC704\uB294 \uC815\uD655\uD574\uC694! \uADF8\uB7F0\uB370 \uC65C \uADF8 \uBC94\uC704\uC5EC\uC57C \uD558\uC8E0? \uD06C\uAE30\uAC00 1\uBCF4\uB2E4 \uC791\uC740 \uC218\uB97C \uACC4\uC18D \uACF1\uD558\uBA74 \uC5B4\uB5A4 \uC77C\uC774 \uC77C\uC5B4\uB098\uB294\uC9C0 \uB9D0\uD574\uBCF4\uC138\uC694."}],
+ partial:{kw:["r<1","1\uBCF4\uB2E4\uC791","1\uBBF8\uB9CC","0<r<1"],msg:"\uC88B\uC740 \uCD9C\uBC1C\uC774\uC5D0\uC694! \uADF8\uB7F0\uB370 r = \u22122\uB97C \uC0DD\uAC01\uD574 \uBD10\uC694. \u22122 < 1 \uC774\uC9C0\uB9CC (\u22122)\u207F = \u22122, 4, \u22128, 16, \u22EF \uC740 0\uC73C\uB85C \uAC08\uAE4C\uC694? \uBC94\uC704\uB97C \uB2E4\uC2DC \uB2E4\uB4EC\uC5B4 \uBCF4\uC138\uC694."},
+ ok:"\uC815\uD655\uD574\uC694! <span class='m'>r\u207F \u2192 0 \u21D4 |r| &lt; 1</span>. \uD06C\uAE30\uAC00 1\uBCF4\uB2E4 \uC791\uC740 \uC218\uB97C \uACC4\uC18D \uACF1\uD558\uBA74 \uD06C\uAE30\uAC00 \uACC4\uC18D \uC904\uC5B4\uB4E4\uC5B4 0\uC5D0 \uB2E4\uAC00\uAC00\uC694. \uC774\uB54C S = a(1 \u2212 0)/(1 \u2212 r) = <b>a/(1 \u2212 r)</b> \uC774 \uB429\uB2C8\uB2E4."},
+miss:["r\uC5D0 \uBA87 \uAC00\uC9C0 \uAC12\uC744 \uB123\uC5B4 \uC9C1\uC811 \uD655\uC778\uD574 \uBD10\uC694. r = 1/2, 2, \u22121/2, \u22122 \uC77C \uB54C r\u207F\uC744 n = 1, 2, 3, 4\uAE4C\uC9C0 \uC368\uBCF4\uC138\uC694. \uC5B4\uB5A4 \uACBD\uC6B0\uC5D0 0\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uB098\uC694?",
+"r\u207F\uC740 r\uC744 n\uBC88 \uACF1\uD55C \uAC70\uC608\uC694. \uD06C\uAE30(\uBD80\uD638\uB97C \uBE80 \uAC12)\uAC00 1\uBCF4\uB2E4 \uC791\uC740 \uC218\uB97C \uACC4\uC18D \uACF1\uD558\uBA74 \uD06C\uAE30\uB294 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694? 1\uBCF4\uB2E4 \uD06C\uBA74\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: (1/2)\u00B9, (1/2)\u00B2, (1/2)\u00B3, (1/2)\u2074 \uC744 \uACC4\uC0B0\uD558\uBA74? \uC5B4\uB514\uB85C \uAC00\uACE0 \uC788\uB098\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: (\u22121/2)\u207F = \u22121/2, 1/4, \u22121/8, 1/16, \u22EF \uBD80\uD638\uB294 \uBC14\uB00C\uC9C0\uB9CC \uD06C\uAE30\uB294 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694? (\u22122)\u207F\uC740\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 3: \uACB0\uAD6D 0\uC73C\uB85C \uAC00\uB294\uC9C0\uB97C \uACB0\uC815\uD558\uB294 \uAC74 r\uC758 \uBD80\uD638\uC77C\uAE4C\uC694, r\uC758 \uD06C\uAE30(\uC808\uB313\uAC12)\uC77C\uAE4C\uC694? \uADF8 \uD06C\uAE30\uAC00 1\uBCF4\uB2E4 \uCEE4\uC57C \uD560\uAE4C\uC694, \uC791\uC544\uC57C \uD560\uAE4C\uC694?"],
+follow:{q:"\uADF8\uB7FC \uACBD\uACC4\uC778 r = 1\uACFC r = \u22121\uC77C \uB54C\uB294 \uC5B4\uB5A8\uAE4C\uC694? \uAC01\uAC01 \uBD80\uBD84\uD569 S\u2099\uC774 \uC5B4\uB5BB\uAC8C \uB418\uB294\uC9C0 \uC0DD\uAC01\uD574\uBCF4\uC138\uC694.",
+ need:2,groups:[
+  {kw:["na","\uCEE4\uC9C0","\uBB34\uD55C","\uBC1C\uC0B0","\u221E","\uB05D\uC5C6\uC774"],lack:"r = \u22121\uC740 \uC798 \uBD24\uC5B4\uC694. r = 1\uC774\uBA74 S\u2099 = na \uC778\uB370, n\uC774 \uCEE4\uC9C0\uBA74 S\u2099\uC740 \uC5B4\uB5BB\uAC8C \uB418\uB098\uC694?"},
+  {kw:["\uC9C4\uB3D9","\uC654\uB2E4\uAC14\uB2E4","\uC654\uB2E4\uAC00","\uC624\uAC00","\uBC88\uAC08\uC544","\uBC18\uBCF5","a,0","0,a","a\uC6400","0\uACFCa","\uD558\uB098\uB85C\uC815\uD574\uC9C0\uC9C0","\uC218\uB834\uD558\uC9C0\uC54A"],lack:"r = 1\uC740 \uB9DE\uC544\uC694. \uADF8\uB7FC r = \u22121\uC774\uBA74 S\u2099 = a, 0, a, 0, \u22EF \uC774 \uB418\uB294\uB370, \uC774 \uC218\uC5F4\uC740 \uD558\uB098\uC758 \uAC12\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uB098\uC694?"}],
+ ok:"\uC644\uBCBD\uD574\uC694! r = 1\uC774\uBA74 S\u2099 = na \u2192 \uBC1C\uC0B0, r = \u22121\uC774\uBA74 S\u2099\uC774 a\uC640 0\uC744 \uC624\uAC00\uBA70 \uC9C4\uB3D9 \u2192 \uC5ED\uC2DC \uBC1C\uC0B0. \uADF8\uB798\uC11C \uACBD\uACC4\uB294 \uD3EC\uD568\uB418\uC9C0 \uC54A\uACE0 <b>|r| &lt; 1</b> \uC774 \uD544\uC694\uD569\uB2C8\uB2E4.",
+ miss:"r = 1\uC774\uBA74 a + a + a + \u22EF, r = \u22121\uC774\uBA74 a \u2212 a + a \u2212 a + \u22EF \uC774\uC5D0\uC694. \uAC01\uAC01 \uCC98\uC74C \uBA87 \uAC1C\uC758 \uBD80\uBD84\uD569\uC744 \uC9C1\uC811 \uC801\uC5B4\uBCF4\uC138\uC694.",
+ hints:["\uC791\uC740 \uC9C8\uBB38: r = 1\uC77C \uB54C S\u2081, S\u2082, S\u2083 \uC740? \uC774 \uAC12\uB4E4\uC740 \uC5B4\uB514\uB85C \uAC00\uB098\uC694?","\uC791\uC740 \uC9C8\uBB38: r = \u22121\uC77C \uB54C S\u2081 = a, S\u2082 = 0, S\u2083 = ?, S\u2084 = ? \uD55C \uAC12\uC5D0 \uBAA8\uC774\uB098\uC694?"]},
+sum:"S\u2099\uC5D0\uC11C n\uC5D0 \uB530\uB77C \uBCC0\uD558\uB294 \uAC83\uC740 r\u207F\uBFD0\uC774\uACE0 <span class='m'>r\u207F \u2192 0 \u21D4 |r| &lt; 1</span>. \uC774\uB54C S = a/(1 \u2212 r). r = \u00B11\uC774\uBA74 \uBC1C\uC0B0."},
+
+/* ---------- 4 ---------- */
+{tag:"ic",tagTxt:"\uC591\uB9BD \uBD88\uAC00\uB2A5 \u2014 \uC798\uBABB\uB41C \uC99D\uBA85 \uCC3E\uAE30",
+formula:"S = 1 + 2 + 4 + 8 + \u22EF = \u22121 ???",
+bubbles:[
+{r:"s",txt:"\uC800 \uC774\uC0C1\uD55C \uAC78 \uC99D\uBA85\uD588\uC5B4\uC694! <span class='m'>S = 1 + 2 + 4 + 8 + \u22EF</span> \uC774\uB77C\uACE0 \uB193\uACE0 \uC591\uBCC0\uC5D0 2\uB97C \uACF1\uD558\uBA74 <span class='m'>2S = 2 + 4 + 8 + \u22EF</span> \uC774\uC796\uC544\uC694."},
+{r:"s",txt:"\uADF8\uB7EC\uBA74 S \u2212 2S = 1 \uC774\uB2C8\uAE4C \u2212S = 1, \uC989 <b>S = \u22121</b> \uC774\uC5D0\uC694. \uC591\uC218\uB9CC \uB354\uD588\uB294\uB370 \uC74C\uC218\uAC00 \uB098\uC654\uC5B4\uC694!"},
+{r:"t",txt:"\uD765\uBBF8\uB86D\uB124\uC694. \uC774 \uACC4\uC0B0\uC740 2\uB2E8\uACC4\uC758 'S\u2099 \u2212 rS\u2099' \uC694\uB839\uACFC \uAC70\uC758 \uB611\uAC19\uC544 \uBCF4\uC5EC\uC694. \uADF8\uB7F0\uB370 \uACB0\uB860\uC740 \uBD84\uBA85\uD788 \uB9D0\uC774 \uC548 \uB418\uC8E0. \uC591\uC218\uB97C \uB354\uD574\uC11C \uC74C\uC218\uAC00 \uB098\uC62C \uC218\uB294 \uC5C6\uC73C\uB2C8\uAE4C\uC694. \uB450 \uC8FC\uC7A5\uC774 \uB3D9\uC2DC\uC5D0 \uCC38\uC77C \uC218 \uC5C6\uB2E4\uBA74, \uC774 \uC99D\uBA85\uC758 \uC5B4\uB514\uAC00 \uC798\uBABB\uB41C \uAC78\uAE4C\uC694?"}],
+q:"\uC774 \uC99D\uBA85\uC758 \uC5B4\uB290 \uBD80\uBD84\uC774 \uC798\uBABB\uB418\uC5C8\uB294\uC9C0, 2\uB2E8\uACC4(\uC720\uD55C\uD55C S\u2099\uC73C\uB85C \uACC4\uC0B0)\uC640 \uBB34\uC5C7\uC774 \uB2E4\uB978\uC9C0 \uBE44\uAD50\uD574\uC11C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:2,groups:[
+ {kw:["\uC874\uC7AC\uD558\uC9C0","\uC874\uC7AC\uC548","\uC218\uB834\uD558\uC9C0\uC54A","\uC218\uB834\uC548","\uBC1C\uC0B0","\uBB34\uD55C\uB300","\u221E","\uAC12\uC774\uC5C6","\uC720\uD55C\uD558\uC9C0","\uC720\uD55C\uD55C\uC218\uAC00\uC544","\uC815\uD574\uC9C0\uC9C0\uC54A","\uC218\uAC00\uC544\uB2C8","\uC22B\uC790\uAC00\uC544\uB2C8"],
+  lack:"\uACC4\uC0B0 \uACFC\uC815\uC744 \uC798 \uC0B4\uD3C8\uC5B4\uC694. \uADF8\uB7F0\uB370 \uB9E8 \uCC98\uC74C 'S = 1 + 2 + 4 + \u22EF'\uB77C\uACE0 \uC4F0\uB294 \uC21C\uAC04, S\uAC00 \uC5B4\uB5A4 '\uC218'\uB77C\uACE0 \uAC00\uC815\uD55C \uAC70\uC608\uC694. \uC774 \uAE09\uC218\uC758 S\uB294 \uC815\uB9D0 \uC218\uB85C \uC874\uC7AC\uD558\uB098\uC694? 3\uB2E8\uACC4 \uACB0\uACFC(r = 2)\uB97C \uB5A0\uC62C\uB824 \uBCF4\uC138\uC694."},
+ {kw:["\uAC00\uC815","\uC804\uC81C","\uCC98\uC74C\uBD80\uD130","\uB193\uC740\uAC83","\uB193\uB294\uC21C\uAC04","\uB77C\uACE0\uB193","\uB77C\uACE0\uB454","\uB450\uACE0\uACC4\uC0B0","\uBD80\uBD84\uD569","sn","\uC720\uD55C\uAC1C","\uC720\uD55C\uD55C"],
+  lack:"\uB9DE\uC544\uC694, \uC774 \uAE09\uC218\uB294 \uBC1C\uC0B0\uD574\uC694. \uADF8\uB7FC \uADF8 \uC0AC\uC2E4\uC774 \uC99D\uBA85\uC758 \uC5B4\uB290 '\uCCAB \uB2E8\uACC4'\uB97C \uBB34\uB108\uB728\uB9AC\uB098\uC694? 2\uB2E8\uACC4\uC5D0\uC11C\uB294 \uAC19\uC740 \uC694\uB839\uC774 \uC65C \uBB38\uC81C\uAC00 \uC5C6\uC5C8\uB294\uC9C0(\uBB34\uC5C7\uC744 \uB300\uC0C1\uC73C\uB85C \uACC4\uC0B0\uD588\uB294\uC9C0)\uC640 \uBE44\uAD50\uD574 \uBCF4\uC138\uC694."}],
+ partial:{kw:["2s","s-2s","\uBE7C\uAE30","\uBE7C\uB294","\uACF1\uD558","\u221E-\u221E","\uBB34\uD55C-\uBB34\uD55C"],msg:"\uC5B4\uB290 \uACC4\uC0B0\uC774 \uC218\uC0C1\uD55C\uC9C0 \uC9DA\uC5C8\uC5B4\uC694. \uADF8\uB7F0\uB370 '2\uB97C \uACF1\uD558\uB294 \uAC83'\uC774\uB098 '\uBE7C\uB294 \uAC83' \uC790\uCCB4\uB294 \uBCF4\uD1B5\uC758 \uC218\uB77C\uBA74 \uC544\uBB34 \uBB38\uC81C\uAC00 \uC5C6\uB294 \uACC4\uC0B0\uC774\uC5D0\uC694. \uADF8\uB807\uB2E4\uBA74 S\uAC00 \uC815\uB9D0 '\uBCF4\uD1B5\uC758 \uC218'\uC778\uC9C0\uBD80\uD130 \uC758\uC2EC\uD574 \uBD10\uC57C \uD558\uC9C0 \uC54A\uC744\uAE4C\uC694?"},
+ ok:"\uBC14\uB85C \uADF8\uAC70\uC608\uC694! \uC774 \uC99D\uBA85\uC740 'S\uAC00 \uC720\uD55C\uD55C \uC218\uB85C \uC874\uC7AC\uD55C\uB2E4'\uB294 \uAC83\uC744 \uC99D\uBA85 \uC5C6\uC774 \uAC00\uC815\uD588\uC5B4\uC694. \uD558\uC9C0\uB9CC r = 2\uC774\uBBC0\uB85C \uAE09\uC218\uB294 \uBC1C\uC0B0\uD558\uACE0, S\uB77C\uB294 \uC218\uB294 \uC5C6\uC5B4\uC694. \uC874\uC7AC\uD558\uC9C0 \uC54A\uB294 \uB300\uC0C1\uC5D0 \uC0AC\uCE59\uC5F0\uC0B0\uC744 \uD558\uBA74 \uBAA8\uC21C\uB41C \uACB0\uB860\uC774 \uB098\uC635\uB2C8\uB2E4."},
+miss:["3\uB2E8\uACC4\uC5D0\uC11C r = 2\uC774\uBA74 r\u207F\uC774 \uC5B4\uB5BB\uAC8C \uB41C\uB2E4\uACE0 \uD588\uC8E0? \uADF8\uB7EC\uBA74 1 + 2 + 4 + \u22EF \uC740 \uC218\uB834\uD558\uB098\uC694, \uBC1C\uC0B0\uD558\uB098\uC694?",
+"2\uB2E8\uACC4\uC5D0\uC11C\uB294 S\u2099(\uC720\uD55C \uAC1C\uC758 \uD569)\uC5D0 \uB300\uD574 \uACC4\uC0B0\uD588\uC5B4\uC694. \uC5EC\uAE30\uC11C\uB294 \uBB34\uC5C7\uC5D0 \uB300\uD574 \uACC4\uC0B0\uD588\uB098\uC694? \uADF8 \uB300\uC0C1\uC740 \uC815\uB9D0 '\uC218'\uC778\uAC00\uC694?"],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: 1 + 2 + 4 + \u22EF \uC758 \uBD80\uBD84\uD569 1, 3, 7, 15, \u22EF \uB294 \uC5B4\uB5A4 \uC218\uC5D0 \uAC00\uAE4C\uC6CC\uC9C0\uB098\uC694?",
+"\uC791\uC740 \uC9C8\uBB38 2: \uADF8\uB807\uB2E4\uBA74 \uC774 \uAE09\uC218\uC758 \uD569 S\uB294 \uC874\uC7AC\uD558\uB098\uC694? (1\uB2E8\uACC4: \uADF9\uD55C\uC774 \uC5C6\uC73C\uBA74?)",
+"\uC791\uC740 \uC9C8\uBB38 3: \uC874\uC7AC\uD558\uC9C0 \uC54A\uB294 S\uB97C \uD558\uB098\uC758 \uC218\uCC98\uB7FC \uB193\uACE0 2S, S \u2212 2S\uB97C \uACC4\uC0B0\uD574\uB3C4 \uB420\uAE4C\uC694? 2\uB2E8\uACC4\uC5D0\uC11C\uB294 \uC65C \uAD1C\uCC2E\uC558\uC744\uAE4C\uC694?"],
+follow:{q:"\uADF8\uB807\uB2E4\uBA74 '\uBB34\uD55C\uD569\uC5D0 r\uC744 \uACF1\uD574\uC11C \uBE7C\uB294 \uC694\uB839(S \u2212 rS)'\uC744 \uC548\uC804\uD558\uAC8C \uC4F0\uB824\uBA74, \uACC4\uC0B0\uD558\uAE30 \uC804\uC5D0 \uBB34\uC5C7\uC744 \uBA3C\uC800 \uD655\uC778\uD574\uC57C \uD560\uAE4C\uC694?",
+ need:1,groups:[{kw:["\uC218\uB834","|r|<1","\uC874\uC7AC","\uC720\uD55C","\uC808\uB313\uAC12","\uC808\uB300\uAC12","\uBD80\uBD84\uD569","sn"]}],
+ ok:"\uB9DE\uC544\uC694! \uBA3C\uC800 \uC218\uB834(|r| < 1)\uC744 \uD655\uC778\uD558\uAC70\uB098, \uCC98\uC74C\uBD80\uD130 \uC720\uD55C\uD55C \uBD80\uBD84\uD569 S\u2099\uC73C\uB85C \uACC4\uC0B0\uD55C \uB4A4 \uADF9\uD55C\uC744 \uCDE8\uD574\uC57C \uD574\uC694. \uADF8\uB798\uC11C \uC6B0\uB9AC\uAC00 2\uB2E8\uACC4\uC5D0\uC11C S\uAC00 \uC544\uB2CC S\u2099\uC73C\uB85C \uACC4\uC0B0\uD55C \uAC70\uC608\uC694.",
+ miss:"S \u2212 rS \uC694\uB839\uC740 S\uAC00 '\uC9C4\uC9DC \uC218'\uC77C \uB54C\uB9CC \uC4F8 \uC218 \uC788\uC5B4\uC694. S\uAC00 \uC9C4\uC9DC \uC218\uB77C\uB294 \uAC78 \uBCF4\uC7A5\uD574 \uC8FC\uB294 \uC870\uAC74\uC740 \uBB34\uC5C7\uC774\uC5C8\uC8E0?"},
+sum:"'S = 1 + 2 + 4 + \u22EF = \u22121'\uC740 \uBC1C\uC0B0\uD558\uB294 \uAE09\uC218\uB97C \uC218\uB85C <b>\uAC00\uC815</b>\uD55C \uC624\uB958. S \u2212 rS \uC694\uB839\uC740 \uC218\uB834\uC774 \uBCF4\uC7A5\uB420 \uB54C\uB9CC(\uB610\uB294 \uC720\uD55C\uD55C S\u2099\uC5D0 \uB300\uD574\uC11C\uB9CC) \uC815\uB2F9\uD558\uB2E4."},
+
+/* ---------- 5 ---------- */
+{tag:"en",tagTxt:"\uC790\uACA9 \uBD80\uC5EC \u2014 \uC815\uB9AC\uB97C \uC4F8 \uC790\uACA9",
+formula:"a + ar + ar\u00B2 + \u22EF = a / (1 \u2212 r)  \u21D4  |r| < 1",
+bubbles:[
+{r:"t",txt:"\uC9C0\uAE08\uAE4C\uC9C0 \uC8FC\uACE0\uBC1B\uC740 \uC774\uC720\uB97C \uBAA8\uC544 \uBCFC\uAE4C\uC694? \u2460 \uBB34\uD55C\uD569\uC740 \uBD80\uBD84\uD569\uC758 \uADF9\uD55C \u2461 S\u2099 = a(1 \u2212 r\u207F)/(1 \u2212 r) \u2462 r\u207F \u2192 0 \u21D4 |r| &lt; 1 \u2463 \uC218\uB834\uC744 \uD655\uC778\uD558\uC9C0 \uC54A\uC740 \uACC4\uC0B0\uC740 \uBAA8\uC21C\uC744 \uB0B3\uB294\uB2E4."},
+{r:"t",txt:"\uC774\uC81C \uC774 \uC815\uB9AC\uB97C \uC4F8 '\uC790\uACA9'\uC774 \uC788\uB294\uC9C0 \uD655\uC778\uD574 \uBCFC\uAC8C\uC694. \uCE5C\uAD6C\uAC00 '<span class='m'>0.999\u22EF = 1</span> \uC774\uB77C\uB294 \uAC8C \uB9D0\uC774 \uB3FC?'\uB77C\uACE0 \uBB3B\uB294\uB2E4\uBA74, \uC624\uB298 \uBC30\uC6B4 \uC815\uB9AC\uB85C \uC5B4\uB5BB\uAC8C \uC124\uBA85\uD560 \uC218 \uC788\uC744\uAE4C\uC694?"}],
+q:"0.999\u22EF = 0.9 + 0.09 + 0.009 + \u22EF \uB85C \uBCF4\uACE0, \uCCAB\uC9F8\uD56D a\uC640 \uACF5\uBE44 r\uC744 \uCC3E\uC740 \uB4A4, \uC815\uB9AC\uB97C \uC801\uC6A9\uD574\uB3C4 \uB418\uB294 \uC774\uC720\uC640 \uACC4\uC0B0 \uACB0\uACFC\uB97C \uC124\uBA85\uD574\uBCF4\uC138\uC694.",
+good:{need:3,groups:[
+ {kw:["a=0.9","\uD56D0.9","\uD56D\uC7400.9","\uD56D\uC7740.9","\uD56D:0.9","9/10","a\uB2940.9","a\uAC000.9"],
+  lack:"\uC88B\uC544\uC694. \uADF8\uB7F0\uB370 \uCCAB\uC9F8\uD56D a\uAC00 \uBB34\uC5C7\uC778\uC9C0\uB3C4 \uBD84\uBA85\uD788 \uBC1D\uD600 \uC8FC\uC138\uC694."},
+ {kw:["r=0.1","\uBE440.1","\uBE44\uB2940.1","\uBE44\uAC000.1","\uBE44:0.1","1/10","r\uC7400.1","r\uB2940.1","r\uC7740.1","r\uAC000.1","0.1\uC744\uACF1","0.1\uBC30"],
+  lack:"\uCCAB\uC9F8\uD56D\uC740 \uC798 \uCC3E\uC558\uC5B4\uC694. \uD55C \uD56D\uC5D0\uC11C \uB2E4\uC74C \uD56D\uC73C\uB85C \uAC08 \uB54C \uBB34\uC5C7\uC744 \uACF1\uD558\uB098\uC694? \uADF8\uAC8C \uACF5\uBE44 r\uC774\uC5D0\uC694."},
+ {kw:["|r|<1","0.1<1","r\uC7741\uBCF4\uB2E4\uC791","r\uC7401\uBCF4\uB2E4\uC791","r\uB2941\uBCF4\uB2E4\uC791","r\uAC001\uBCF4\uB2E4\uC791","\uBE44\uAC001\uBCF4\uB2E4\uC791","\uBE44\uB2941\uBCF4\uB2E4\uC791","0.1\uC7401\uBCF4\uB2E4\uC791","0.1\uC7741\uBCF4\uB2E4\uC791","\uC218\uB834","\uC808\uB313\uAC12","\uC808\uB300\uAC12"],
+  lack:"a\uC640 r\uC740 \uB9DE\uC544\uC694. \uADF8\uB7F0\uB370 \uACF5\uC2DD a/(1 \u2212 r)\uC744 \uC4F0\uAE30 \uC804\uC5D0 \uAF2D \uD655\uC778\uD574\uC57C \uD560 \uAC83\uC774 \uC788\uC5C8\uC8E0(4\uB2E8\uACC4\uC758 \uAD50\uD6C8!). \uBB34\uC5C7\uC778\uAC00\uC694?"},
+ {kw:["=1","\uD569\uC7401","\uD569\uC7741","\uAC12\uC7401","\uAC12\uC7741","\uB2F5\uC7401","\uACB0\uACFC\uB2941","1\uACFC\uAC19","1\uC774\uB791\uAC19","1\uC774\uB098\uC640","1\uC774\uB429","1\uC774\uB41C\uB2E4","1\uC774\uB3FC","1\uC785\uB2C8\uB2E4"],
+  lack:"\uC870\uAC74 \uD655\uC778\uAE4C\uC9C0 \uC644\uBCBD\uD574\uC694. \uC774\uC81C a/(1 \u2212 r)\uC5D0 \uB123\uC5B4 \uACC4\uC0B0\uD558\uBA74 \uC5BC\uB9C8\uAC00 \uB098\uC624\uB098\uC694?"}],
+ partial:{kw:["1\uBCF4\uB2E4\uC791","1\uC774\uC544\uB2C8","1\uC774\uC548","1\uACFC\uB2E4\uB974","1\uBCF4\uB2E4\uC870\uAE08","\uC544\uC8FC\uC870\uAE08\uC791","\uAC19\uC9C0\uC54A"],msg:"\uB9CE\uC740 \uC0AC\uB78C\uC774 \uADF8\uB807\uAC8C \uB290\uAEF4\uC694! \uADF8\uB7F0\uB370 \uADF8 \uB290\uB08C\uACFC '0.999\u22EF = 1'\uC774\uB77C\uB294 \uC8FC\uC7A5\uC740 \uB3D9\uC2DC\uC5D0 \uCC38\uC77C \uC218 \uC5C6\uC5B4\uC694. \uC9C1\uAD00 \uB300\uC2E0 \uC624\uB298 \uC99D\uBA85\uD55C \uC815\uB9AC\uB85C \uD310\uC815\uD574 \uBCFC\uAE4C\uC694? 0.9 + 0.09 + 0.009 + \u22EF \uC758 \uCCAB\uC9F8\uD56D a\uC640 \uACF5\uBE44 r\uC740 \uBB34\uC5C7\uC778\uAC00\uC694? (\uB364: 0.999\u22EF \uC640 1 \uC0AC\uC774\uC5D0 \uB4E4\uC5B4\uAC00\uB294 \uC218\uB97C \uD558\uB098\uB77C\uB3C4 \uCC3E\uC744 \uC218 \uC788\uB098\uC694?)"},
+ ok:"\uC644\uBCBD\uD55C \uB17C\uC99D\uC774\uC5D0\uC694! a = 0.9, r = 0.1 \uC774\uACE0 |r| = 0.1 &lt; 1 \uC774\uBBC0\uB85C \uC815\uB9AC\uB97C \uC801\uC6A9\uD560 \uC790\uACA9\uC774 \uC788\uC5B4\uC694. \uB530\uB77C\uC11C <span class='m'>0.999\u22EF = 0.9/(1 \u2212 0.1) = 0.9/0.9 = 1</span>."},
+miss:["0.9 + 0.09 + 0.009 + \u22EF \uC5D0\uC11C \uCCAB\uC9F8\uD56D\uC740 \uBB34\uC5C7\uC778\uAC00\uC694? 0.9\uC5D0 \uBB34\uC5C7\uC744 \uACF1\uD558\uBA74 0.09\uAC00 \uB418\uB098\uC694?",
+"\uCCAB\uC9F8\uD56D a\uC640 \uACF5\uBE44 r\uC744 \uCC3E\uC558\uB2E4\uBA74, \uACF5\uC2DD\uC744 \uC4F8 '\uC790\uACA9'\uC774 \uC788\uB294\uC9C0(|r| < 1\uC778\uC9C0)\uBD80\uD130 \uD655\uC778\uD558\uACE0 a/(1 \u2212 r)\uC744 \uACC4\uC0B0\uD574\uBCF4\uC138\uC694."],
+hints:["\uC791\uC740 \uC9C8\uBB38 1: 0.9 + 0.09 + 0.009 + \u22EF \uC758 \uCCAB\uC9F8\uD56D a\uB294?",
+"\uC791\uC740 \uC9C8\uBB38 2: 0.09 \u00F7 0.9 = ? \uC774\uAC83\uC774 \uACF5\uBE44 r\uC774\uC5D0\uC694.",
+"\uC791\uC740 \uC9C8\uBB38 3: |r| < 1 \uC778\uAC00\uC694? \uADF8\uB807\uB2E4\uBA74 a/(1 \u2212 r) = 0.9/(1 \u2212 0.1) = ?"],
+follow:{q:"\uB9C8\uC9C0\uB9C9 \uC9C8\uBB38! \uAC19\uC740 \uCE5C\uAD6C\uAC00 '\uADF8\uB7FC <span class='m'>1 + 10 + 100 + \u22EF = 1/(1 \u2212 10) = \u22121/9</span> \uC774\uB124?'\uB77C\uACE0 \uD55C\uB2E4\uBA74, \uC5B4\uB5BB\uAC8C \uBC18\uBC15\uD560\uAE4C\uC694?",
+ need:1,groups:[{kw:["|r|<1","r=10","10>1","1\uBCF4\uB2E4\uD06C","1\uBCF4\uB2E4\uCEE4","\uBC1C\uC0B0","\uC801\uC6A9\uD560\uC218\uC5C6","\uC4F8\uC218\uC5C6","\uBABB\uC368","\uBABB\uC4F4","\uC870\uAC74","\uC218\uB834\uD558\uC9C0","\uC218\uB834\uC548","\uC790\uACA9"]}],
+ ok:"\uD6CC\uB96D\uD574\uC694! \uACF5\uBE44\uAC00 10\uC774\uB77C |r| \u2265 1 \uC774\uBBC0\uB85C \uAE09\uC218\uB294 \uBC1C\uC0B0\uD558\uACE0, \uACF5\uC2DD\uC744 \uC4F8 \uC790\uACA9\uC774 \uC5C6\uC5B4\uC694. 4\uB2E8\uACC4\uC758 \uC798\uBABB\uB41C \uC99D\uBA85\uACFC \uB611\uAC19\uC740 \uC624\uB958\uC8E0. \uC774\uC81C \uC5EC\uB7EC\uBD84\uC740 \uC774 \uC815\uB9AC\uB97C '\uC5B8\uC81C \uC4F8 \uC218 \uC788\uACE0 \uC5B8\uC81C \uC4F8 \uC218 \uC5C6\uB294\uC9C0'\uAE4C\uC9C0 \uC815\uB2F9\uD654\uD560 \uC218 \uC788\uC5B4\uC694!",
+ miss:"1 + 10 + 100 + \u22EF \uC758 \uACF5\uBE44\uB294 \uC5BC\uB9C8\uC778\uAC00\uC694? \uADF8 \uACF5\uBE44\uB85C \uACF5\uC2DD\uC744 \uC368\uB3C4 \uB418\uB294\uC9C0 \uC870\uAC74\uC744 \uD655\uC778\uD574 \uBCF4\uC138\uC694."},
+sum:"0.999\u22EF : a = 0.9, r = 0.1, |r| &lt; 1 \u2192 \uD569 = 1. \uBC18\uBA74 1 + 10 + 100 + \u22EF \uC740 |r| \u2265 1 \uC774\uB77C \uACF5\uC2DD\uC744 \uC4F8 \uC790\uACA9\uC774 \uC5C6\uB2E4."}
+]};
+
+
+/* ---------- engine ---------- */
+var cur=0,done=[],logs=[],state=[],busy=false;
+T.steps.forEach(function(){logs.push([]);state.push({phase:"main",hint:0,miss:0,fhint:0});});
+
+function fmt(s){
+  return String(s)
+    .replace(/\u222B\[([^,\]]+),([^\]]+)\]/g,'<span class="ig">\u222B<span class="lim"><span>$2</span><span>$1</span></span></span>');
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function norm(s){
+  return String(s).toLowerCase()
+    .replace(/\s+/g,"")
+    .replace(/[\u2032\u2019\u2018`]/g,"'")
+    .replace(/[\u2212\u2013\u2014]/g,"-")
+    .replace(/\u00B2/g,"^2").replace(/\u00B3/g,"^3").replace(/\u207F/g,"^n")
+    .replace(/[\u00B7\u00D7]/g,"*")
+    .replace(/\uFF1C/g,"<").replace(/\uFF1E/g,">").replace(/\uFF5C/g,"|");
+}
+function has(a,list){
+  for(var i=0;i<list.length;i++){if(a.indexOf(norm(list[i]))>=0)return true;}
+  return false;
+}
+function judge(ans,spec){
+  var a=norm(ans);
+  var hit=spec.groups.map(function(g){return has(a,g.kw);});
+  var n=hit.filter(Boolean).length;
+  if(n>=spec.need)return{lv:"good"};
+  if(n>0){
+    for(var i=0;i<hit.length;i++){if(!hit[i]&&spec.groups[i].lack)return{lv:"partial",msg:spec.groups[i].lack};}
+  }
+  if(spec.partial&&has(a,spec.partial.kw))return{lv:"partial",msg:spec.partial.msg};
+  return{lv:"miss"};
+}
+
+document.getElementById("title").textContent=T.title;
+document.getElementById("subtitle").textContent=T.subtitle;
+document.getElementById("info").textContent=T.info;
+
+function renderNav(){
+  document.getElementById("snav").innerHTML=T.steps.map(function(s,i){
+    var cl=i===cur?"cur":(done.indexOf(i)>=0?"done":"");
+    return '<div class="sdot '+cl+'" data-i="'+i+'">'+(i+1)+'</div>'+(i<T.steps.length-1?'<div class="sline"></div>':'');
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".sdot.done"),function(d){
+    d.onclick=function(){cur=+d.getAttribute("data-i");renderNav();renderStep();};
+  });
+}
+
+function renderStep(){
+  var s=T.steps[cur];
+  document.getElementById("fdisp").innerHTML=fmt(s.formula);
+  var h='<div class="sbadge">'+(cur+1)+' / '+T.steps.length+' \uB2E8\uACC4</div><div class="card"><span class="tag '+s.tag+'">'+s.tagTxt+'</span>';
+  s.bubbles.forEach(function(b){
+    h+='<div class="brow '+(b.r==="s"?"r":"")+'"><div class="av '+b.r+'">'+(b.r==="t"?"T":"S")+'</div><div class="bb '+b.r+'">'+fmt(b.txt)+'</div></div>';
+  });
+  h+='<hr><div class="ql">'+fmt(s.q)+'</div>'
+    +'<div class="clog" id="clog"></div>'
+    +'<textarea id="ans" placeholder="\uC5EC\uAE30\uC5D0 \uC790\uC2E0\uC758 \uC0DD\uAC01\uC744 \uC790\uC720\uB86D\uAC8C \uC368\uBCF4\uC138\uC694. \uC774\uC720\uB3C4 \uD568\uAED8 \uC4F0\uBA74 \uC88B\uC544\uC694."></textarea>'
+    +'<div class="brow2"><button class="btn bp" id="bsub">\uC81C\uCD9C</button><button class="btn bs" id="bhint">\uD78C\uD2B8 \uC694\uCCAD</button><span class="kbd">Ctrl + Enter \uB85C \uC81C\uCD9C</span></div>'
+    +'</div>'
+    +'<div class="nrow" id="nrow"><button class="btn bp" id="bnext">'+(cur<T.steps.length-1?"\uB2E4\uC74C \uB2E8\uACC4\uB85C \u2192":"\uC99D\uBA85 \uC644\uC131 \u2014 \uC694\uC57D \uBCF4\uAE30 \u2192")+'</button></div>';
+  document.getElementById("main").innerHTML=h;
+  document.getElementById("bsub").onclick=submit;
+  document.getElementById("bhint").onclick=hint;
+  document.getElementById("bnext").onclick=nextStep;
+  document.getElementById("ans").addEventListener("keydown",function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key==="Enter"){e.preventDefault();submit();}
+  });
+  renderLog();
+  if(state[cur].phase==="done"){
+    document.getElementById("nrow").className="nrow show";
+    lockInput(true);
+  }
+}
+
+function renderLog(){
+  var el=document.getElementById("clog");
+  if(!el)return;
+  el.innerHTML=logs[cur].map(function(m){
+    var me=m.role==="me";
+    return '<div class="cm '+(me?"me":"")+'"><div class="cav '+(me?"me":"ai")+'">'+(me?"\uB098":"T")+'</div><div class="cb '+m.cls+'">'+(me?esc(m.text):fmt(m.text))+'</div></div>';
+  }).join("");
+}
+
+function addMsg(role,text,cls){
+  logs[cur].push({role:role,text:text,cls:cls||(role==="me"?"me":"ai")});
+  renderLog();
+  var el=document.getElementById("clog");
+  if(el&&el.lastChild&&el.lastChild.scrollIntoView)el.lastChild.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function teacherSay(list,cb){
+  /* list: [[text,cls],...] shown one by one with short typing delay */
+  busy=true;
+  var i=0;
+  function next(){
+    if(i>=list.length){busy=false;if(cb)cb();return;}
+    logs[cur].push({role:"ai",text:"\u2026",cls:"typing"});renderLog();
+    var item=list[i++];
+    setTimeout(function(){
+      logs[cur].pop();
+      addMsg("ai",item[0],item[1]);
+      next();
+    },450);
+  }
+  next();
+}
+
+function lockInput(on){
+  var ta=document.getElementById("ans"),b1=document.getElementById("bsub"),b2=document.getElementById("bhint");
+  if(ta){ta.disabled=on;if(on)ta.placeholder="\uC774 \uB2E8\uACC4 \uC644\uC131! \uB2E4\uC74C \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC00\uC138\uC694.";}
+  if(b1)b1.disabled=on;if(b2)b2.disabled=on;
+}
+
+function complete(){
+  var st=state[cur];
+  st.phase="done";
+  if(done.indexOf(cur)<0)done.push(cur);
+  renderNav();
+  document.getElementById("nrow").className="nrow show";
+  lockInput(true);
+}
+
+function submit(){
+  if(busy)return;
+  var ta=document.getElementById("ans");
+  var ans=ta.value.trim();
+  if(!ans){ta.focus();return;}
+  ta.value="";
+  addMsg("me",ans);
+  var s=T.steps[cur],st=state[cur];
+  var a=norm(ans);
+
+  if(/\uBAA8\uB974\uACA0|\uBAA8\uB984|\uBAB0\uB77C|\uC798\uBAA8\uB974|\uD78C\uD2B8/.test(a)){
+    teacherSay([["\uAD1C\uCC2E\uC544\uC694. \uBAA8\uB974\uB294 \uAC78 \uC194\uC9C1\uD558\uAC8C \uB9D0\uD558\uB294 \uAC83\uB3C4 GoGAR\uC758 \uC911\uC694\uD55C \uD55C \uC218\uC608\uC694. \uC9C8\uBB38\uC744 \uC870\uAE08 \uB354 \uC791\uAC8C \uCABC\uAC1C \uBCFC\uAC8C\uC694.","ai"]],function(){hint();});
+    return;
+  }
+  if(a.length<4){
+    teacherSay([["\uC870\uAE08 \uB354 \uC790\uC138\uD788 \uC368\uBCFC\uB798\uC694? '\uC65C \uADF8\uB807\uAC8C \uC0DD\uAC01\uD558\uB294\uC9C0' \uC774\uC720\uB97C \uD55C \uBB38\uC7A5\uB9CC \uB367\uBD99\uC5EC \uC8FC\uC138\uC694.","partial"]]);
+    return;
+  }
+
+  if(st.phase==="main"){
+    var r=judge(ans,s.good);
+    if(r.lv==="good"){
+      st.phase="follow";
+      teacherSay([[s.good.ok,"ok"],["\uD55C \uAC78\uC74C \uB354 \u2014 "+s.follow.q,"ai"]]);
+    }else if(r.lv==="partial"){
+      teacherSay([[r.msg,"partial"]]);
+    }else{
+      var m=s.miss[st.miss%s.miss.length];
+      st.miss++;
+      var list=[[m,"miss"]];
+      if(st.miss>=2&&st.hint===0)list.push(["\uB9C9\uD788\uBA74 [\uD78C\uD2B8 \uC694\uCCAD]\uC744 \uB20C\uB7EC \uBCF4\uC138\uC694. \uC9C8\uBB38\uC744 \uB354 \uC791\uAC8C \uB098\uB220 \uB4DC\uB9B4\uAC8C\uC694.","ai"]);
+      teacherSay(list);
+    }
+  }else if(st.phase==="follow"){
+    var f=s.follow,r2=judge(ans,f);
+    if(r2.lv==="good"){
+      teacherSay([[f.ok,"ok"],["\uC774 \uB2E8\uACC4 \uC644\uC131! \uC5EC\uB7EC\uBD84\uC774 \uB0B4\uB193\uC740 \uC774\uC720\uAC00 \uB2E4\uC74C \uB2E8\uACC4\uC758 \uCD9C\uBC1C\uC810\uC774 \uB429\uB2C8\uB2E4. \uC544\uB798 \uBC84\uD2BC\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694.","ok"]],complete);
+    }else if(r2.lv==="partial"){
+      teacherSay([[r2.msg,"partial"]]);
+    }else{
+      teacherSay([[f.miss,"miss"]]);
+    }
+  }
+}
+
+function hint(){
+  if(busy)return;
+  var s=T.steps[cur],st=state[cur];
+  if(st.phase==="main"){
+    if(st.hint<s.hints.length){
+      var t=s.hints[st.hint];st.hint++;
+      teacherSay([[t,"hint"]]);
+    }else{
+      teacherSay([["\uC900\uBE44\uD55C \uC791\uC740 \uC9C8\uBB38\uC740 \uC5EC\uAE30\uAE4C\uC9C0\uC608\uC694. \uC9C0\uAE08\uAE4C\uC9C0\uC758 \uC791\uC740 \uC9C8\uBB38\uB4E4\uC5D0 \uB300\uD55C \uB2F5\uC744 \uC774\uC5B4 \uBD99\uC5EC\uC11C \uD558\uB098\uC758 \uC124\uBA85\uC73C\uB85C \uC368\uBCF4\uC138\uC694. \uC644\uBCBD\uD558\uC9C0 \uC54A\uC544\uB3C4 \uAD1C\uCC2E\uC544\uC694!","hint"]]);
+    }
+  }else if(st.phase==="follow"){
+    var hs=s.follow.hints||[s.follow.miss];
+    if(st.fhint<hs.length){teacherSay([[hs[st.fhint],"hint"]]);st.fhint++;}
+    else teacherSay([["\uAC70\uC758 \uB2E4 \uC654\uC5B4\uC694! \uC9C0\uAE08 \uB5A0\uC624\uB974\uB294 \uB300\uB85C \uD55C \uBB38\uC7A5\uC73C\uB85C \uB2F5\uD574\uBCF4\uC138\uC694.","hint"]]);
+  }
+}
+
+function nextStep(){
+  if(cur<T.steps.length-1){cur++;renderNav();renderStep();window.scrollTo({top:0,behavior:"smooth"});}
+  else showSum();
+}
+
+function showSum(){
+  document.getElementById("fdisp").innerHTML="GoGAR \uC99D\uBA85 \uC644\uC131";
+  cur=T.steps.length;renderNav();
+  var h='<div class="sum"><h2>\uC6B0\uB9AC\uAC00 \uD568\uAED8 \uC313\uC740 \uC774\uC720\uC758 \uC0AC\uC2AC</h2><div class="ff">'+fmt(T.final)+'</div>';
+  T.steps.forEach(function(s){
+    h+='<div class="si"><span class="tag '+s.tag+'">'+s.tagTxt.split(" \u2014 ")[0]+'</span><span class="st">'+fmt(s.sum)+'</span></div>';
+  });
+  h+='<div class="note">'+T.note+'</div><div class="again"><button class="btn bs" id="bagain">\uCC98\uC74C\uBD80\uD130 \uB2E4\uC2DC \uD558\uAE30</button></div></div>';
+  document.getElementById("main").innerHTML=h;
+  document.getElementById("bagain").onclick=function(){location.reload();};
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderNav();renderStep();
+</script>
+</body>
+</html>

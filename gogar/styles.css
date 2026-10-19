@@ -363,3 +363,86 @@ section[id], li[id] { scroll-margin-top: 30px; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Three related proof cases: equation, series, and calculus. */
+.three-formula-card .formula-question { margin-top: 32px; margin-bottom: 22px; }
+.three-formula-card .main-equation { font-size: 26px; }
+.hero-formula-label { margin: 0 0 13px; color: var(--orange); font-family: var(--mono); font-size: 9px; letter-spacing: .09em; }
+.hero-formula-condition { margin: 7px 0 0; color: var(--ink-soft); font-family: var(--sans); font-size: 10px; }
+.series-equation { color: var(--teal); font-size: 24px; }
+.ftc-equation { color: var(--violet-deep); font-size: 19px; }
+.formula-implies { padding: 0 5px; color: var(--orange); }
+.three-formula-card .case-divider { margin: 16px 0 12px; }
+.route-cards-three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.route-cards-three .route-card { display: flex; flex-direction: column; padding: 26px; }
+.route-cards-three .route-card-head { margin-bottom: 36px; }
+.route-cards-three .route-card h3 { font-size: 25px; }
+.route-cards-three .route-lede { min-height: 94px; }
+.route-cards-three .question-quote { min-height: 91px; font-size: 18px; }
+.route-cards-three .route-result { margin-top: auto; }
+.route-cards-three .route-result strong { font-size: 18px; }
+.route-calculus { background: var(--teal); }
+.route-calculus .question-quote { border-color: #aee1c9; background: rgba(255,255,255,.1); }
+.route-calculus .flow-line { color: #c1ebd8; }
+.case-jump-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 28px; }
+.case-jump-links a { padding: 10px 14px; border: 1px solid var(--line); color: var(--violet); background: var(--white); font-size: 12px; font-weight: 700; }
+.case-jump-links a:hover { border-color: var(--violet); }
+.case-grid-three { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+.case-grid-three .case-panel { min-width: 0; padding: 32px; }
+.case-grid-three .case-panel-head { margin-bottom: 23px; }
+.case-grid-three .case-condition { font-size: 13px; line-height: 1.8; }
+.case-grid-three .case-condition strong { font-size: 17px; }
+.case-grid-three .dialogue-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.case-grid-three .dialogue-row { min-width: 0; padding: 21px; }
+.case-grid-three .dialogue-question { font-size: 21px; }
+.case-grid-three .dialogue-answer { font-size: 13px; line-height: 1.8; }
+.case-grid-three .dialogue-answer strong { font-size: 11px; }
+.case-grid-three .dialogue-math { font-size: 23px; overflow-wrap: anywhere; }
+.case-grid-three .dialogue-math small { font-size: 13px; }
+.case-grid-three .case-result { grid-column: 1 / -1; padding-top: 24px; padding-bottom: 24px; }
+.case-grid-three .case-result strong { font-size: 29px; line-height: 1.6; }
+.case-grid-three .case-result small { font-size: 12px; }
+.case-grid-three #quadratic-case .dialogue-row:nth-child(3) { grid-column: 1 / -1; }
+.case-panel-ftc { background: #f1f6f1; }
+.case-panel-ftc .dialogue-row { background: var(--white); }
+.case-lesson-link { display: inline-flex; margin-top: 23px; padding: 9px 13px; border: 1px solid currentColor; color: var(--violet); font-size: 12px; font-weight: 700; }
+.case-panel-quadratic .case-lesson-link { color: #f5b58c; }
+.bridge-inner-three { grid-template-columns: minmax(0, 1fr); gap: 25px; }
+.bridge-inner-three .bridge-table { min-width: 860px; font-size: 14px; }
+.bridge-inner-three .bridge-table thead th { font-size: 12px; }
+.bridge-inner-three .bridge-table tbody th { width: 140px; font-size: 12px; }
+.bridge-inner-three .bridge-table th, .bridge-inner-three .bridge-table td { padding: 20px 15px; }
+.demo-inner-three { display: block; }
+.demo-inner-three > .reveal { max-width: 760px; }
+.demo-inner-three > .reveal > p:last-child { max-width: 700px; }
+.demo-lesson-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; margin-top: 42px; }
+.demo-lesson-grid .demo-action { display: flex; flex-direction: column; padding: 25px; }
+.lesson-topic-number { margin-bottom: 26px; color: #f5c5a5; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.demo-lesson-grid h3 { margin: 0 0 13px; font-size: 23px; line-height: 1.4; letter-spacing: -.045em; }
+.demo-lesson-grid p { margin: 0 0 24px; color: #e4dffb; font-size: 14px; }
+.demo-lesson-grid .button { margin-top: auto; padding: 0 12px; font-size: 12px; }
+.demo-inner-three > .demo-footnote { max-width: none; margin-top: 20px; color: #d9d4ee; font-size: 12px; }
+
+@media (max-width: 1000px) {
+  .route-cards-three { grid-template-columns: minmax(0, 1fr); }
+  .route-cards-three .route-lede { min-height: auto; max-width: none; }
+  .route-cards-three .question-quote { min-height: auto; }
+  .demo-lesson-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .three-formula-card { padding: 23px 18px; }
+  .three-formula-card .formula-card-top { align-items: start; gap: 10px; }
+  .three-formula-card .mini-label, .three-formula-card .card-index { font-size: 8px; }
+  .three-formula-card .formula-question { margin-top: 28px; font-size: 20px; }
+  .three-formula-card .main-equation { font-size: 21px; }
+  .three-formula-card .series-equation { font-size: 19px; }
+  .three-formula-card .ftc-equation { font-size: 16px; white-space: normal; }
+  .case-grid-three .case-panel { padding: 23px; }
+  .case-grid-three .dialogue-list { grid-template-columns: minmax(0, 1fr); }
+  .case-grid-three .dialogue-row { padding: 17px; }
+  .case-grid-three .dialogue-question { font-size: 19px; }
+  .case-grid-three .dialogue-math { font-size: 20px; }
+  .case-grid-three .case-result strong { font-size: 22px; }
+  .demo-lesson-grid h3 { font-size: 23px; }
+}
