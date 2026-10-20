@@ -68,7 +68,7 @@
         <div class="intro-copy reveal reveal-delay-1">
           <p class="large-copy">수학적 정당화는 <strong>어떤 조건과 근거로 그 주장을 받아들일 수 있는지</strong> 설명하는 활동입니다.</p>
           <p>근의 공식에서는 식을 변형하는 이유를, 무한등비급수에서는 수렴 조건의 필요성을, 미적분학의 기본정리에서는 누적량과 변화율을 연결하는 근거를 묻습니다. 세 주제에서 주장과 근거를 잇고, 잘못된 추론을 점검합니다.</p>
-          <p><strong>이 자료의 범위</strong> 공식의 유도, 조건의 정당화, 정리의 핵심 증명을 소재로 추론을 연습합니다. 특히 미적분학 사례에는 연속성과 끼인정리를 이용한 증명의 핵심 논증이 들어 있습니다. 앱은 각 단계의 이유를 설명하도록 돕되, 학생이 작성한 증명 전체를 자동으로 검증하지는 않습니다.</p>
+          <p><strong>이 자료의 범위</strong> 증명은 추론을 통해 주장을 정당화하는 논증입니다. 근의 공식의 유도, 급수의 수렴 조건과 합의 증명, 미적분학의 기본정리의 핵심 증명을 따라가며 각 단계의 근거를 설명합니다. 앱은 이러한 학습을 돕되, 학생이 작성한 증명 전체를 자동으로 검증하지는 않습니다.</p>
         </div>
       </section>
 
@@ -173,7 +173,7 @@
         <div class="case-heading reveal">
           <p class="section-kicker">02 / THREE GOGAR CASES</p>
           <h2 id="case-title">세 주제로<br><em>추론과 정당화 연습하기</em></h2>
-          <p>아래 대화는 학습 활동의 축약본입니다. 각 카드에서 <strong>질문 → 학생의 추론 → 근거와 조건의 설명</strong>을 살펴봅니다. 공식의 유도와 조건의 정당화, 정리의 핵심 증명을 따라가며 각 추론을 설명하는 연습입니다.</p>
+          <p>아래 대화는 학습 활동의 축약본입니다. 각 카드에서 <strong>질문 → 학생의 추론 → 근거와 조건의 설명</strong>을 살펴봅니다. 공식의 유도와 정리의 증명을 따라가며 각 추론을 정당화하는 연습입니다.</p>
         </div>
 
         <nav class="case-jump-links reveal" aria-label="학습 사례 바로가기"><a href="#quadratic-case">01 근의 공식 ↓</a><a href="#series-case">02 무한등비급수 ↓</a><a href="#ftc-case">03 미적분학의 기본정리 ↓</a></nav>
@@ -194,11 +194,11 @@
           <article class="case-panel case-panel-series reveal" id="series-case">
             <div class="case-panel-head"><span class="case-badge">CASE B</span><span class="case-panel-type">INFINITE GEOMETRIC SERIES</span></div>
             <h3>무한등비급수</h3>
-            <p class="case-condition">추론 연습: <strong>S<sub>n</sub> = a + ar + ⋯ + ar<sup>n−1</sup></strong>에서 부분합과 무한합의 차이, 수렴 조건이 필요한 이유를 설명합니다. a ≠ 0인 실수 등비급수를 다룹니다.</p>
+            <p class="case-condition">수렴 조건과 합의 증명: <strong>S<sub>n</sub> = a + ar + ⋯ + ar<sup>n−1</sup></strong>에서 출발합니다. a ≠ 0인 실수 등비급수가 |r| &lt; 1일 때에만 수렴하고 합이 a/(1−r)인 이유를 설명합니다.</p>
             <div class="dialogue-list">
               <div class="dialogue-row"><div class="dialogue-meta"><span>Q1 / 상류</span><b>GoGAR 질문</b></div><p class="dialogue-question">끝까지 더할 수 없는 무한합을 어떻게 정의할까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 유한한 개수의 항을 더한 부분합 S<sub>n</sub>을 먼저 만듭니다. 이 부분합의 유한한 극한이 존재할 때 그 극한을 급수의 합이라고 정의합니다.</p><div class="dialogue-math">S = lim<sub>n→∞</sub> S<sub>n</sub></div></div>
               <div class="dialogue-row"><div class="dialogue-meta"><span>Q2 / 하류</span><b>GoGAR 질문</b></div><p class="dialogue-question">S<sub>n</sub>에서 rS<sub>n</sub>을 빼면 무엇이 남나요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 가운데 항이 소거되어 a − ar<sup>n</sup>만 남습니다. r ≠ 1이면 1 − r로 나눌 수 있고, r = 1이면 S<sub>n</sub> = na입니다.</p><div class="dialogue-math">S<sub>n</sub> = <span class="fraction"><span>a(1 − r<sup>n</sup>)</span><span>1 − r</span></span> <small>(r ≠ 1)</small></div></div>
-              <div class="dialogue-row"><div class="dialogue-meta"><span>Q3 / 조건</span><b>GoGAR 질문</b></div><p class="dialogue-question">r<sup>n</sup>이 0으로 가려면 공비는 어느 범위여야 할까요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> |r| &lt; 1이어야 합니다. 음수인 공비도 절댓값이 1보다 작으면 0으로 갑니다. a ≠ 0일 때 r = 1은 발산하고, r = −1은 부분합이 진동합니다.</p><div class="dialogue-math">|r| &lt; 1 ⇒ r<sup>n</sup> → 0 ⇒ S = <span class="fraction"><span>a</span><span>1 − r</span></span></div></div>
+              <div class="dialogue-row"><div class="dialogue-meta"><span>Q3 / 조건</span><b>GoGAR 질문</b></div><p class="dialogue-question">수렴하려면 왜 |r| &lt; 1이어야 하며, 이 조건이면 합은 무엇인가요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> |r| &lt; 1이면 r<sup>n</sup> → 0이므로 부분합의 극한은 a/(1−r)입니다. 반대로 a ≠ 0, |r| ≥ 1이면 일반항 ar<sup>n−1</sup>이 0으로 가지 않으므로 급수는 발산합니다. 따라서 수렴 조건은 필요충분합니다.</p><div class="dialogue-math">|r| &lt; 1 ⇒ r<sup>n</sup> → 0 ⇒ S = <span class="fraction"><span>a</span><span>1 − r</span></span></div></div>
               <div class="dialogue-row"><div class="dialogue-meta"><span>Q4 / 양립 불가</span><b>GoGAR 질문</b></div><p class="dialogue-question">1 + 2 + 4 + ⋯ = −1이라는 계산은 왜 잘못됐나요?</p><p class="dialogue-answer"><strong>학생의 추론</strong> 부분합이 발산하는데도 무한합을 유한한 수 S로 놓고 뺄셈한 것이 오류입니다. 반면 0.999⋯은 a = 0.9, r = 0.1이므로 공식을 적용해 1을 얻을 수 있습니다.</p><div class="dialogue-math">0.999⋯ = <span class="fraction"><span>0.9</span><span>1 − 0.1</span></span> = 1</div></div>
               <div class="case-result"><span>GO GAR RESULT</span><strong>a + ar + ar<sup>2</sup> + ⋯ = <span class="fraction"><span>a</span><span>1 − r</span></span></strong><small>a ≠ 0인 실수 등비급수의 수렴 조건: |r| &lt; 1</small></div>
             </div>
